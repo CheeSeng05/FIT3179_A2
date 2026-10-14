@@ -1,0 +1,109 @@
+{
+  "prepared_date": "2026-10-10",
+  "core_games": 120563,
+  "games_with_mechanics": 105204,
+  "complexity_games": 14257,
+  "scatter_pool": 13739,
+  "scatter_sample": 1200,
+  "peak_year": 2025,
+  "peak_games": 6752,
+  "top_mechanic": "Dice Rolling",
+  "top_mechanic_games": 28039,
+  "publishers": 25486,
+  "mapped_country_games": 29036,
+  "mapped_publishers": 387,
+  "country_count": 33,
+  "ambiguous_publishers_excluded": 102,
+  "cooperative_map_countries_all": 22,
+  "country_records": 197,
+  "unmatched_community_records": 2,
+  "missing_community_counts": 17,
+  "award_winners": 44,
+  "award_wider_games": 63563,
+  "award_profiles": [
+    {
+      "id": 413246,
+      "name": "Bomb Busters",
+      "year": 2024,
+      "complexity": 2.0078,
+      "complexity_votes": 386.0,
+      "minutes": 30.0,
+      "max_players": 5.0,
+      "min_age": 10.0,
+      "category": "General",
+      "award_year": 2025
+    },
+    {
+      "id": 373106,
+      "name": "Sky Team",
+      "year": 2023,
+      "complexity": 2.041,
+      "complexity_votes": 756.0,
+      "minutes": 20.0,
+      "max_players": 2.0,
+      "min_age": 10.0,
+      "category": "General",
+      "award_year": 2024
+    },
+    {
+      "id": 367966,
+      "name": "Endeavor: Deep Sea",
+      "year": 2024,
+      "complexity": 2.9287,
+      "complexity_votes": 435.0,
+      "minutes": 120.0,
+      "max_players": 4.0,
+      "min_age": 10.0,
+      "category": "Experienced",
+      "award_year": 2025
+    },
+    {
+      "id": 334986,
+      "name": "Daybreak",
+      "year": 2023,
+      "complexity": 2.8784,
+      "complexity_votes": 222.0,
+      "minutes": 120.0,
+      "max_players": 4.0,
+      "min_age": 10.0,
+      "category": "Experienced",
+      "award_year": 2024
+    },
+    {
+      "id": 423232,
+      "name": "Cherry on the Cake",
+      "year": 2024,
+      "complexity": 1.1667,
+      "complexity_votes": 12.0,
+      "minutes": 20.0,
+      "max_players": 4.0,
+      "min_age": 6.0,
+      "category": "Children",
+      "award_year": 2025
+    },
+    {
+      "id": 368899,
+      "name": "Magic Keys",
+      "year": 2022,
+      "complexity": 1.0588,
+      "complexity_votes": 17.0,
+      "minutes": 30.0,
+      "max_players": 4.0,
+      "min_age": 6.0,
+      "category": "Children",
+      "award_year": 2024
+    }
+  ],
+  "top20_samples": {
+    "Malaysia": 20,
+    "Australia": 20,
+    "Global": 20
+  },
+  "network_strongest": {
+    "source": 7,
+    "target": 0,
+    "shared_games": 5199,
+    "source_name": "Simulation",
+    "target_name": "Dice Rolling"
+  }
+}

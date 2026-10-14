@@ -1,0 +1,171 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Mechanic shares by publication decade",
+  "width": "container",
+  "height": 350,
+  "autosize": {
+    "type": "fit",
+    "contains": "padding"
+  },
+  "data": {
+    "url": "data/mechanics_years.csv",
+    "format": {
+      "type": "csv",
+      "parse": {
+        "year": "number",
+        "games": "number",
+        "eligible_games": "number",
+        "order": "number"
+      }
+    }
+  },
+  "config": {
+    "font": "Arial",
+    "background": "transparent",
+    "view": {
+      "stroke": null
+    },
+    "axis": {
+      "labelFontSize": 13,
+      "titleFontSize": 13,
+      "titleFontWeight": "normal",
+      "labelColor": "#444c54",
+      "titleColor": "#444c54",
+      "gridColor": "#e9ecef",
+      "domain": false,
+      "tickColor": "#d8dde0",
+      "titlePadding": 12,
+      "labelPadding": 7
+    },
+    "legend": {
+      "labelFontSize": 12,
+      "titleFontSize": 12,
+      "titleFontWeight": "normal",
+      "orient": "bottom",
+      "padding": 12,
+      "labelLimit": 190
+    },
+    "text": {
+      "fontSize": 12
+    }
+  },
+  "params": [
+    {
+      "name": "start_year",
+      "value": 1950
+    },
+    {
+      "name": "end_year",
+      "value": 2025
+    }
+  ],
+  "transform": [
+    {
+      "filter": "datum.year >= start_year && datum.year <= end_year"
+    },
+    {
+      "filter": "datum.order < 8"
+    },
+    {
+      "aggregate": [
+        {
+          "op": "sum",
+          "field": "games",
+          "as": "games"
+        },
+        {
+          "op": "sum",
+          "field": "eligible_games",
+          "as": "eligible_games"
+        }
+      ],
+      "groupby": [
+        "mechanic",
+        "decade",
+        "order"
+      ]
+    },
+    {
+      "calculate": "datum.eligible_games > 0 ? datum.games / datum.eligible_games : null",
+      "as": "share"
+    }
+  ],
+  "mark": {
+    "type": "rect",
+    "stroke": "white",
+    "strokeWidth": 2
+  },
+  "encoding": {
+    "x": {
+      "field": "decade",
+      "type": "ordinal",
+      "title": "Publication decade",
+      "axis": {
+        "labelAngle": -35
+      }
+    },
+    "y": {
+      "field": "mechanic",
+      "type": "nominal",
+      "title": null,
+      "sort": {
+        "field": "order"
+      },
+      "axis": {
+        "labelLimit": 155
+      }
+    },
+    "color": {
+      "field": "share",
+      "type": "quantitative",
+      "title": "Percentage of eligible games",
+      "scale": {
+        "range": [
+          "#edf8fb",
+          "#b2e2e2",
+          "#66c2a4",
+          "#2ca25f",
+          "#006d2c"
+        ],
+        "domain": [
+          0,
+          1
+        ],
+        "interpolate": "lab"
+      },
+      "legend": {
+        "format": ".0%"
+      }
+    },
+    "tooltip": [
+      {
+        "field": "mechanic",
+        "type": "nominal",
+        "title": "Mechanic"
+      },
+      {
+        "field": "decade",
+        "type": "ordinal",
+        "title": "Publication decade"
+      },
+      {
+        "field": "share",
+        "type": "quantitative",
+        "title": "Percentage",
+        "format": ".1%"
+      },
+      {
+        "field": "games",
+        "type": "quantitative",
+        "title": "Games",
+        "format": ","
+      },
+      {
+        "field": "eligible_games",
+        "type": "quantitative",
+        "title": "Games with mechanics",
+        "format": ","
+      }
+    ]
+  }
+}

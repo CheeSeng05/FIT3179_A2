@@ -1,0 +1,176 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Distribution of recorded complexity by publication decade",
+  "width": "container",
+  "height": 310,
+  "autosize": {
+    "type": "fit",
+    "contains": "padding"
+  },
+  "data": {
+    "url": "data/complexity_decades.csv",
+    "format": {
+      "type": "csv",
+      "parse": {
+        "q1": "number",
+        "median": "number",
+        "q3": "number",
+        "low": "number",
+        "high": "number",
+        "games": "number"
+      }
+    }
+  },
+  "config": {
+    "font": "Arial",
+    "background": "transparent",
+    "view": {
+      "stroke": null
+    },
+    "axis": {
+      "labelFontSize": 13,
+      "titleFontSize": 13,
+      "titleFontWeight": "normal",
+      "labelColor": "#444c54",
+      "titleColor": "#444c54",
+      "gridColor": "#e9ecef",
+      "domain": false,
+      "tickColor": "#d8dde0",
+      "titlePadding": 12,
+      "labelPadding": 7
+    },
+    "legend": {
+      "labelFontSize": 12,
+      "titleFontSize": 12,
+      "titleFontWeight": "normal",
+      "orient": "bottom",
+      "padding": 12,
+      "labelLimit": 190
+    },
+    "text": {
+      "fontSize": 12
+    }
+  },
+  "encoding": {
+    "x": {
+      "field": "decade",
+      "type": "ordinal",
+      "title": "Publication decade",
+      "axis": {
+        "labelAngle": -35
+      }
+    },
+    "tooltip": [
+      {
+        "field": "decade",
+        "type": "ordinal",
+        "title": "Decade"
+      },
+      {
+        "field": "median",
+        "type": "quantitative",
+        "title": "Median",
+        "format": ".2f"
+      },
+      {
+        "field": "q1",
+        "type": "quantitative",
+        "title": "Lower quartile",
+        "format": ".2f"
+      },
+      {
+        "field": "q3",
+        "type": "quantitative",
+        "title": "Upper quartile",
+        "format": ".2f"
+      },
+      {
+        "field": "games",
+        "type": "quantitative",
+        "title": "Games (at least 10 complexity votes)",
+        "format": ","
+      }
+    ]
+  },
+  "layer": [
+    {
+      "mark": {
+        "type": "rule",
+        "color": "#965071"
+      },
+      "encoding": {
+        "y": {
+          "field": "low",
+          "type": "quantitative",
+          "title": "Complexity (1 light, 5 heavy)",
+          "scale": {
+            "domain": [
+              1,
+              5
+            ]
+          }
+        },
+        "y2": {
+          "field": "high"
+        }
+      }
+    },
+    {
+      "mark": {
+        "type": "bar",
+        "size": 28,
+        "color": "#ead6e0",
+        "stroke": "#965071"
+      },
+      "encoding": {
+        "y": {
+          "field": "q1",
+          "type": "quantitative"
+        },
+        "y2": {
+          "field": "q3"
+        }
+      }
+    },
+    {
+      "mark": {
+        "type": "tick",
+        "color": "#67314d",
+        "size": 28,
+        "thickness": 2
+      },
+      "encoding": {
+        "y": {
+          "field": "median",
+          "type": "quantitative"
+        }
+      }
+    },
+    {
+      "mark": {
+        "type": "tick",
+        "color": "#965071",
+        "size": 14
+      },
+      "encoding": {
+        "y": {
+          "field": "low",
+          "type": "quantitative"
+        }
+      }
+    },
+    {
+      "mark": {
+        "type": "tick",
+        "color": "#965071",
+        "size": 14
+      },
+      "encoding": {
+        "y": {
+          "field": "high",
+          "type": "quantitative"
+        }
+      }
+    }
+  ]
+}

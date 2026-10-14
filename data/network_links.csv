@@ -1,0 +1,13 @@
+source,target,shared_games,source_name,target_name
+7,0,5199,Simulation,Dice Rolling
+4,0,4376,Hexagon Grid,Dice Rolling
+3,1,3135,Set Collection,Hand Management
+3,2,2968,Set Collection,Roll / Spin and Move
+4,7,2747,Hexagon Grid,Simulation
+2,0,2418,Roll / Spin and Move,Dice Rolling
+1,6,2302,Hand Management,Open Drafting
+5,0,2082,Cooperative Game,Dice Rolling
+1,0,2048,Hand Management,Dice Rolling
+3,0,1802,Set Collection,Dice Rolling
+3,6,1728,Set Collection,Open Drafting
+6,0,1442,Open Drafting,Dice Rolling

@@ -1,0 +1,117 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Complexity and recorded playing time",
+  "width": "container",
+  "height": 320,
+  "autosize": {
+    "type": "fit",
+    "contains": "padding"
+  },
+  "data": {
+    "url": "data/complexity_time.csv",
+    "format": {
+      "type": "csv",
+      "parse": {
+        "id": "number",
+        "complexity": "number",
+        "complexity_votes": "number",
+        "minutes": "number",
+        "year": "number",
+        "max_players": "number"
+      }
+    }
+  },
+  "config": {
+    "font": "Arial",
+    "background": "transparent",
+    "view": {
+      "stroke": null
+    },
+    "axis": {
+      "labelFontSize": 13,
+      "titleFontSize": 13,
+      "titleFontWeight": "normal",
+      "labelColor": "#444c54",
+      "titleColor": "#444c54",
+      "gridColor": "#e9ecef",
+      "domain": false,
+      "tickColor": "#d8dde0",
+      "titlePadding": 12,
+      "labelPadding": 7
+    },
+    "legend": {
+      "labelFontSize": 12,
+      "titleFontSize": 12,
+      "titleFontWeight": "normal",
+      "orient": "bottom",
+      "padding": 12,
+      "labelLimit": 190
+    },
+    "text": {
+      "fontSize": 12
+    }
+  },
+  "mark": {
+    "type": "circle",
+    "color": "#965071",
+    "opacity": 0.45,
+    "size": 27
+  },
+  "encoding": {
+    "x": {
+      "field": "minutes",
+      "type": "quantitative",
+      "title": "Recorded playing time (minutes)",
+      "scale": {
+        "domain": [
+          0,
+          360
+        ]
+      },
+      "axis": {
+        "grid": false
+      }
+    },
+    "y": {
+      "field": "complexity",
+      "type": "quantitative",
+      "title": "Complexity (1 light, 5 heavy)",
+      "scale": {
+        "domain": [
+          1,
+          5
+        ]
+      }
+    },
+    "tooltip": [
+      {
+        "field": "name",
+        "type": "nominal",
+        "title": "Game"
+      },
+      {
+        "field": "year",
+        "type": "quantitative",
+        "title": "Publication year",
+        "format": "d"
+      },
+      {
+        "field": "minutes",
+        "type": "quantitative",
+        "title": "Minutes"
+      },
+      {
+        "field": "complexity",
+        "type": "quantitative",
+        "title": "Complexity",
+        "format": ".2f"
+      },
+      {
+        "field": "complexity_votes",
+        "type": "quantitative",
+        "title": "Complexity votes",
+        "format": ","
+      }
+    ]
+  }
+}

@@ -1,0 +1,349 @@
+{
+  "$schema": "https://vega.github.io/schema/vega/v5.json",
+  "description": "The 2024 and 2025 award-winning game profiles; separate scales for each axis",
+  "width": 360,
+  "height": 260,
+  "padding": {
+    "left": 35,
+    "right": 15,
+    "top": 45,
+    "bottom": 20
+  },
+  "autosize": "none",
+  "background": "transparent",
+  "signals": [
+    {
+      "name": "selected_profile",
+      "value": 0
+    },
+    {
+      "name": "hover_profile",
+      "value": 0,
+      "on": [
+        {
+          "events": "@profile_line:mouseover",
+          "update": "datum.id"
+        },
+        {
+          "events": "@profile_line:mouseout",
+          "update": "0"
+        }
+      ]
+    }
+  ],
+  "data": [
+    {
+      "name": "profiles",
+      "url": "data/award_profiles_long.csv",
+      "format": {
+        "type": "csv",
+        "parse": {
+          "id": "number",
+          "value": "number",
+          "order": "number",
+          "award_year": "number"
+        }
+      }
+    }
+  ],
+  "scales": [
+    {
+      "name": "dimension",
+      "type": "point",
+      "domain": [
+        "complexity",
+        "minutes",
+        "max_players",
+        "min_age"
+      ],
+      "range": "width",
+      "padding": 0.05
+    },
+    {
+      "name": "complexity",
+      "type": "linear",
+      "domain": [
+        1,
+        5
+      ],
+      "range": "height",
+      "zero": false,
+      "nice": false
+    },
+    {
+      "name": "minutes",
+      "type": "linear",
+      "domain": [
+        0,
+        120.0
+      ],
+      "range": "height",
+      "zero": false,
+      "nice": false
+    },
+    {
+      "name": "max_players",
+      "type": "linear",
+      "domain": [
+        0,
+        5.0
+      ],
+      "range": "height",
+      "zero": false,
+      "nice": false
+    },
+    {
+      "name": "min_age",
+      "type": "linear",
+      "domain": [
+        0,
+        10.0
+      ],
+      "range": "height",
+      "zero": false,
+      "nice": false
+    }
+  ],
+  "axes": [
+    {
+      "orient": "left",
+      "scale": "complexity",
+      "offset": {
+        "scale": "dimension",
+        "value": "complexity",
+        "mult": -1
+      },
+      "title": null,
+      "grid": false,
+      "tickCount": 4,
+      "labelFont": "Arial",
+      "labelFontSize": 12,
+      "labelColor": "#444c54",
+      "domainColor": "#bdc5cc",
+      "tickColor": "#bdc5cc"
+    },
+    {
+      "orient": "left",
+      "scale": "minutes",
+      "offset": {
+        "scale": "dimension",
+        "value": "minutes",
+        "mult": -1
+      },
+      "title": null,
+      "grid": false,
+      "tickCount": 4,
+      "labelFont": "Arial",
+      "labelFontSize": 12,
+      "labelColor": "#444c54",
+      "domainColor": "#bdc5cc",
+      "tickColor": "#bdc5cc"
+    },
+    {
+      "orient": "left",
+      "scale": "max_players",
+      "offset": {
+        "scale": "dimension",
+        "value": "max_players",
+        "mult": -1
+      },
+      "title": null,
+      "grid": false,
+      "tickCount": 4,
+      "labelFont": "Arial",
+      "labelFontSize": 12,
+      "labelColor": "#444c54",
+      "domainColor": "#bdc5cc",
+      "tickColor": "#bdc5cc"
+    },
+    {
+      "orient": "left",
+      "scale": "min_age",
+      "offset": {
+        "scale": "dimension",
+        "value": "min_age",
+        "mult": -1
+      },
+      "title": null,
+      "grid": false,
+      "tickCount": 4,
+      "labelFont": "Arial",
+      "labelFontSize": 12,
+      "labelColor": "#444c54",
+      "domainColor": "#bdc5cc",
+      "tickColor": "#bdc5cc"
+    }
+  ],
+  "marks": [
+    {
+      "type": "text",
+      "encode": {
+        "update": {
+          "x": {
+            "scale": "dimension",
+            "value": "complexity"
+          },
+          "y": {
+            "value": -23
+          },
+          "text": {
+            "value": "Complexity"
+          },
+          "font": {
+            "value": "Arial"
+          },
+          "fontSize": {
+            "value": 11
+          },
+          "align": {
+            "value": "left"
+          },
+          "fill": {
+            "value": "#27313a"
+          }
+        }
+      }
+    },
+    {
+      "type": "text",
+      "encode": {
+        "update": {
+          "x": {
+            "scale": "dimension",
+            "value": "minutes"
+          },
+          "y": {
+            "value": -23
+          },
+          "text": {
+            "value": "Minutes"
+          },
+          "font": {
+            "value": "Arial"
+          },
+          "fontSize": {
+            "value": 11
+          },
+          "align": {
+            "value": "center"
+          },
+          "fill": {
+            "value": "#27313a"
+          }
+        }
+      }
+    },
+    {
+      "type": "text",
+      "encode": {
+        "update": {
+          "x": {
+            "scale": "dimension",
+            "value": "max_players"
+          },
+          "y": {
+            "value": -23
+          },
+          "text": {
+            "value": [
+              "Maximum",
+              "players"
+            ]
+          },
+          "font": {
+            "value": "Arial"
+          },
+          "fontSize": {
+            "value": 11
+          },
+          "align": {
+            "value": "center"
+          },
+          "fill": {
+            "value": "#27313a"
+          }
+        }
+      }
+    },
+    {
+      "type": "text",
+      "encode": {
+        "update": {
+          "x": {
+            "scale": "dimension",
+            "value": "min_age"
+          },
+          "y": {
+            "value": -23
+          },
+          "text": {
+            "value": [
+              "Minimum",
+              "age"
+            ]
+          },
+          "font": {
+            "value": "Arial"
+          },
+          "fontSize": {
+            "value": 11
+          },
+          "align": {
+            "value": "right"
+          },
+          "fill": {
+            "value": "#27313a"
+          }
+        }
+      }
+    },
+    {
+      "type": "group",
+      "from": {
+        "facet": {
+          "name": "series",
+          "data": "profiles",
+          "groupby": [
+            "id",
+            "name"
+          ]
+        }
+      },
+      "marks": [
+        {
+          "type": "line",
+          "name": "profile_line",
+          "from": {
+            "data": "series"
+          },
+          "sort": {
+            "field": "datum.order"
+          },
+          "encode": {
+            "update": {
+              "x": {
+                "scale": "dimension",
+                "field": "metric"
+              },
+              "y": {
+                "signal": "scale(datum.metric, datum.value)"
+              },
+              "stroke": {
+                "value": "#3d4852"
+              },
+              "strokeWidth": {
+                "signal": "datum.id == selected_profile || datum.id == hover_profile ? 3 : 1.5"
+              },
+              "strokeOpacity": {
+                "signal": "selected_profile == 0 && hover_profile == 0 || datum.id == selected_profile || datum.id == hover_profile ? 0.8 : 0.12"
+              },
+              "tooltip": {
+                "signal": "{'Game':datum.name,'Award year':datum.award_year,'Category':datum.category}"
+              }
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

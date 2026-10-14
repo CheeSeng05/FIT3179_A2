@@ -1,0 +1,140 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Games in this catalogue by publication year",
+  "width": "container",
+  "height": 250,
+  "autosize": {
+    "type": "fit",
+    "contains": "padding"
+  },
+  "data": {
+    "url": "data/publications.csv",
+    "format": {
+      "type": "csv",
+      "parse": {
+        "year": "number",
+        "games": "number"
+      }
+    }
+  },
+  "config": {
+    "font": "Arial",
+    "background": "transparent",
+    "view": {
+      "stroke": null
+    },
+    "axis": {
+      "labelFontSize": 13,
+      "titleFontSize": 13,
+      "titleFontWeight": "normal",
+      "labelColor": "#444c54",
+      "titleColor": "#444c54",
+      "gridColor": "#e9ecef",
+      "domain": false,
+      "tickColor": "#d8dde0",
+      "titlePadding": 12,
+      "labelPadding": 7
+    },
+    "legend": {
+      "labelFontSize": 12,
+      "titleFontSize": 12,
+      "titleFontWeight": "normal",
+      "orient": "bottom",
+      "padding": 12,
+      "labelLimit": 190
+    },
+    "text": {
+      "fontSize": 12
+    }
+  },
+  "encoding": {
+    "x": {
+      "field": "year",
+      "type": "quantitative",
+      "title": "Publication year",
+      "scale": {
+        "domain": [
+          1950,
+          2025
+        ]
+      },
+      "axis": {
+        "format": "d",
+        "grid": false
+      }
+    },
+    "y": {
+      "field": "games",
+      "type": "quantitative",
+      "title": "Games in the catalogue"
+    },
+    "tooltip": [
+      {
+        "field": "year",
+        "type": "quantitative",
+        "title": "Publication year",
+        "format": "d"
+      },
+      {
+        "field": "games",
+        "type": "quantitative",
+        "title": "Games",
+        "format": ","
+      }
+    ]
+  },
+  "layer": [
+    {
+      "mark": {
+        "type": "line",
+        "color": "#167d73",
+        "strokeWidth": 2
+      },
+      "params": [
+        {
+          "name": "year_brush",
+          "select": {
+            "type": "interval",
+            "encodings": [
+              "x"
+            ],
+            "clear": "dblclick",
+            "zoom": false
+          }
+        }
+      ]
+    },
+    {
+      "transform": [
+        {
+          "filter": "datum.year == 2025"
+        }
+      ],
+      "mark": {
+        "type": "point",
+        "filled": true,
+        "color": "#27313a",
+        "size": 60
+      }
+    },
+    {
+      "transform": [
+        {
+          "filter": "datum.year == 2025"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "align": "right",
+        "dx": -9,
+        "dy": -12,
+        "fontWeight": "bold"
+      },
+      "encoding": {
+        "text": {
+          "value": "2025: 6,752 games"
+        }
+      }
+    }
+  ]
+}

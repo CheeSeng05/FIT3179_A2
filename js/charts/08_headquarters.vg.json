@@ -1,0 +1,119 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Recorded publisher headquarters places",
+  "width": "container",
+  "height": 300,
+  "autosize": {
+    "type": "fit",
+    "contains": "padding"
+  },
+  "data": {
+    "url": "data/publisher_locations.csv",
+    "format": {
+      "type": "csv",
+      "parse": {
+        "longitude": "number",
+        "latitude": "number",
+        "publisher_id": "number"
+      }
+    }
+  },
+  "config": {
+    "font": "Arial",
+    "background": "transparent",
+    "view": {
+      "stroke": null
+    },
+    "axis": {
+      "labelFontSize": 13,
+      "titleFontSize": 13,
+      "titleFontWeight": "normal",
+      "labelColor": "#444c54",
+      "titleColor": "#444c54",
+      "gridColor": "#e9ecef",
+      "domain": false,
+      "tickColor": "#d8dde0",
+      "titlePadding": 12,
+      "labelPadding": 7
+    },
+    "legend": {
+      "labelFontSize": 12,
+      "titleFontSize": 12,
+      "titleFontWeight": "normal",
+      "orient": "bottom",
+      "padding": 12,
+      "labelLimit": 190
+    },
+    "text": {
+      "fontSize": 12
+    }
+  },
+  "projection": {
+    "type": "equalEarth"
+  },
+  "params": [
+    {
+      "name": "publication_period",
+      "value": "All"
+    }
+  ],
+  "layer": [
+    {
+      "data": {
+        "url": "data/world.topojson",
+        "format": {
+          "type": "topojson",
+          "feature": "ne_110m_admin_0_countries"
+        }
+      },
+      "mark": {
+        "type": "geoshape",
+        "fill": "#e6e9ec",
+        "stroke": "white",
+        "strokeWidth": 0.6
+      }
+    },
+    {
+      "transform": [
+        {
+          "filter": "datum.period == publication_period"
+        }
+      ],
+      "mark": {
+        "type": "circle",
+        "size": 32,
+        "color": "#167d73",
+        "opacity": 0.7,
+        "stroke": "white",
+        "strokeWidth": 0.5
+      },
+      "encoding": {
+        "longitude": {
+          "field": "longitude",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "latitude",
+          "type": "quantitative"
+        },
+        "tooltip": [
+          {
+            "field": "publisher",
+            "type": "nominal",
+            "title": "Publisher"
+          },
+          {
+            "field": "place",
+            "type": "nominal",
+            "title": "Recorded headquarters place"
+          },
+          {
+            "field": "country",
+            "type": "nominal",
+            "title": "Publisher country"
+          }
+        ]
+      }
+    }
+  ]
+}

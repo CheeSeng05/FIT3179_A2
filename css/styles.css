@@ -1,0 +1,125 @@
+/* One repeated two-column grid keeps the sight lines consistent. */
+:root {
+  --ink: #27313a;
+  --muted: #505b65;
+  --rule: #dce1e5;
+  --paper: #ffffff;
+  --global: #7651a8;
+  --malaysia: #b65c0a;
+  --australia: #2674ae;
+  --catalogue: #167d73;
+  --complexity: #965071;
+}
+
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  color: var(--ink);
+  background: #f3f4f5;
+  font-family: "Segoe UI", Arial, sans-serif;
+  font-size: 17px;
+  line-height: 1.65;
+}
+.page {
+  max-width: 1160px;
+  margin: 32px auto;
+  padding: 56px 56px 36px;
+  background: var(--paper);
+}
+h1, h2, h3, p { margin-top: 0; }
+h1 {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(38px, 5vw, 66px);
+  font-weight: 700;
+  line-height: 1.06;
+  letter-spacing: -1.5px;
+  margin-bottom: 24px;
+}
+h2 { font-size: 29px; line-height: 1.2; margin-bottom: 18px; }
+h3 { font-size: 19px; line-height: 1.35; margin-bottom: 14px; }
+p { max-width: 50ch; margin-bottom: 14px; }
+.page-header { padding-bottom: 36px; }
+.intro { font-size: 20px; }
+.eyebrow, .section-number {
+  font-size: 13px;
+  letter-spacing: 1.1px;
+  color: var(--muted);
+  font-weight: 600;
+}
+.scope-notes p, .date-note, .definition, .small-note {
+  font-size: 14px;
+  color: var(--muted);
+  line-height: 1.65;
+}
+.scope-notes p { margin-bottom: 3px; }
+.story-section { border-top: 1px solid var(--rule); padding: 38px 0 28px; }
+.section-heading { margin-bottom: 24px; }
+.section-heading .section-number { margin-bottom: 10px; }
+.chart-row { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 36px; }
+.chart-block { min-width: 0; margin: 0 0 30px; }
+.full-width { width: 100%; }
+.chart-number { font-size: 13px; color: var(--muted); margin-right: 8px; font-weight: 400; }
+.vis-container { width: 100%; min-height: 200px; margin: 12px 0 16px; }
+.vis-container .vega-embed { display: block; width: 100%; }
+.vis-container canvas, .vis-container svg { display: block; max-width: 100%; }
+.chart-caption, .chart-help, .finding, .section-note { font-size: 15px; line-height: 1.65; }
+.chart-help { color: var(--muted); }
+.finding { font-weight: 600; }
+.transition { color: var(--muted); font-style: italic; margin-top: 6px; margin-bottom: 0; }
+.closing-copy { font-size: 20px; font-weight: 600; margin-top: 10px; }
+.controls { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 14px; margin: 14px 0 18px; font-size: 14px; }
+button, select {
+  font: inherit;
+  color: var(--ink);
+  background: white;
+  border: 1px solid #aab3bc;
+  border-radius: 3px;
+  min-height: 38px;
+  padding: 6px 12px;
+}
+select { max-width: 100%; }
+button { cursor: pointer; }
+button:hover { background: #f0f3f5; }
+button:focus-visible, select:focus-visible, a:focus-visible, summary:focus-visible {
+  outline: 2px solid var(--ink); outline-offset: 4px;
+}
+.group-key { display: flex; gap: 24px; font-size: 15px; font-weight: 600; }
+.global { color: var(--global); }
+.malaysia { color: var(--malaysia); }
+.australia { color: var(--australia); }
+.map-key { display: flex; align-items: center; gap: 9px; font-size: 14px; color: var(--muted); }
+.no-data-swatch { display: inline-block; width: 17px; height: 17px; background: #e6e9ec; border: 1px solid #aab3bc; flex-shrink: 0; }
+a { color: #27313a; text-underline-offset: 3px; }
+.page-footer { border-top: 1px solid var(--rule); padding-top: 28px; }
+.page-footer h2 { font-size: 21px; }
+.page-footer p, .page-footer li { font-size: 14px; }
+details { margin: 12px 0 18px; }
+summary { cursor: pointer; font-size: 14px; font-weight: 600; }
+details p { margin-top: 12px; }
+.source-list { max-width: 48ch; padding-left: 21px; }
+.colour-notes p { margin: 0 0 5px; font-size: 14px; }
+.colour-swatch { display: inline-block; width: 11px; height: 11px; margin-right: 8px; }
+.catalogue-swatch { background: var(--catalogue); }
+.complexity-swatch { background: var(--complexity); }
+.source-list li { margin: 12px 0; }
+.download-list { display: grid; grid-template-columns: 1fr 1fr; gap: 10px 30px; margin: 16px 0; }
+.download-list p { margin: 0; }
+.chart-error { font-size: 14px; padding: 18px; border-left: 3px solid #b54b39; }
+.skip-link { position: absolute; left: 16px; top: -100px; background: white; padding: 8px; }
+.skip-link:focus { top: 12px; }
+.vega-tooltip { font-family: "Segoe UI", Arial, sans-serif !important; font-size: 13px !important; }
+
+/* Stack the same charts on narrow screens; no extra navigation or horizontal scroll. */
+@media (max-width: 760px) {
+  .page { margin: 0; padding: 32px 22px; }
+  .chart-row, .download-list { grid-template-columns: minmax(0, 1fr); gap: 0; }
+  h2 { font-size: 25px; }
+  .story-section { padding-top: 30px; }
+  .group-key { gap: 20px; }
+}
+@media print {
+  body { background: white; }
+  .page { margin: 0; padding: 20px; }
+  .controls { display: none; }
+  .chart-block { break-inside: avoid; }
+}

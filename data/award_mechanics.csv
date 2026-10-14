@@ -1,0 +1,13 @@
+group,mechanic,order,games,eligible_games,share
+All eligible games,Dice Rolling,0,16673,63563,0.26230668785299627
+All eligible games,Hand Management,1,12080,63563,0.1900476692415399
+All eligible games,Set Collection,2,8522,63563,0.1340717083838082
+All eligible games,Cooperative Game,3,6808,63563,0.10710633544672216
+All eligible games,Variable Player Powers,4,5922,63563,0.09316740871261583
+All eligible games,Solo / Solitaire Game,5,5632,63563,0.08860500605698284
+Award winners,Dice Rolling,0,9,44,0.20454545454545456
+Award winners,Hand Management,1,6,44,0.13636363636363635
+Award winners,Set Collection,2,8,44,0.18181818181818182
+Award winners,Cooperative Game,3,18,44,0.4090909090909091
+Award winners,Variable Player Powers,4,4,44,0.09090909090909091
+Award winners,Solo / Solitaire Game,5,8,44,0.18181818181818182

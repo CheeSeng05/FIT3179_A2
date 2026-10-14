@@ -1,0 +1,139 @@
+{
+  "$schema": "https://vega.github.io/schema/vega/v5.json",
+  "description": "Twelve largest named publisher catalogues by game credits",
+  "width": 360,
+  "height": 310,
+  "padding": 2,
+  "autosize": "none",
+  "background": "transparent",
+  "data": [
+    {
+      "name": "tree",
+      "url": "data/publishers.csv",
+      "format": {
+        "type": "csv",
+        "parse": {
+          "games": "number"
+        }
+      },
+      "transform": [
+        {
+          "type": "formula",
+          "expr": "datum.parent == '' ? null : datum.parent",
+          "as": "parent"
+        },
+        {
+          "type": "stratify",
+          "key": "id",
+          "parentKey": "parent"
+        },
+        {
+          "type": "treemap",
+          "field": "games",
+          "sort": {
+            "field": "value",
+            "order": "descending"
+          },
+          "method": "squarify",
+          "size": [
+            {
+              "signal": "width"
+            },
+            {
+              "signal": "height"
+            }
+          ],
+          "padding": 2
+        }
+      ]
+    },
+    {
+      "name": "leaves",
+      "source": "tree",
+      "transform": [
+        {
+          "type": "filter",
+          "expr": "!datum.children"
+        }
+      ]
+    }
+  ],
+  "marks": [
+    {
+      "type": "rect",
+      "from": {
+        "data": "leaves"
+      },
+      "encode": {
+        "update": {
+          "x": {
+            "field": "x0"
+          },
+          "x2": {
+            "field": "x1"
+          },
+          "y": {
+            "field": "y0"
+          },
+          "y2": {
+            "field": "y1"
+          },
+          "fill": {
+            "value": "#c4e6df"
+          },
+          "stroke": {
+            "value": "white"
+          },
+          "tooltip": {
+            "signal": "{'Publisher':datum.publisher,'Credited games':datum.games}"
+          }
+        },
+        "hover": {
+          "fill": {
+            "value": "#99cfc3"
+          }
+        }
+      }
+    },
+    {
+      "type": "text",
+      "from": {
+        "data": "leaves"
+      },
+      "encode": {
+        "update": {
+          "x": {
+            "signal": "(datum.x0+datum.x1)/2"
+          },
+          "y": {
+            "signal": "(datum.y0+datum.y1)/2"
+          },
+          "text": {
+            "field": "publisher"
+          },
+          "align": {
+            "value": "center"
+          },
+          "baseline": {
+            "value": "middle"
+          },
+          "limit": {
+            "signal": "max(0, datum.x1-datum.x0-12)"
+          },
+          "font": {
+            "value": "Arial"
+          },
+          "fontSize": {
+            "value": 13
+          },
+          "fill": {
+            "value": "#27313a"
+          },
+          "opacity": {
+            "signal": "datum.x1-datum.x0 > 70 && datum.y1-datum.y0 > 28 ? 1 : 0"
+          }
+        }
+      }
+    }
+  ]
+}

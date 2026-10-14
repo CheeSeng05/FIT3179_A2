@@ -1,0 +1,116 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Ten most recorded mechanics",
+  "width": "container",
+  "height": 350,
+  "autosize": {
+    "type": "fit",
+    "contains": "padding"
+  },
+  "data": {
+    "url": "data/mechanics_years.csv",
+    "format": {
+      "type": "csv",
+      "parse": {
+        "year": "number",
+        "games": "number",
+        "eligible_games": "number",
+        "order": "number"
+      }
+    }
+  },
+  "config": {
+    "font": "Arial",
+    "background": "transparent",
+    "view": {
+      "stroke": null
+    },
+    "axis": {
+      "labelFontSize": 13,
+      "titleFontSize": 13,
+      "titleFontWeight": "normal",
+      "labelColor": "#444c54",
+      "titleColor": "#444c54",
+      "gridColor": "#e9ecef",
+      "domain": false,
+      "tickColor": "#d8dde0",
+      "titlePadding": 12,
+      "labelPadding": 7
+    },
+    "legend": {
+      "labelFontSize": 12,
+      "titleFontSize": 12,
+      "titleFontWeight": "normal",
+      "orient": "bottom",
+      "padding": 12,
+      "labelLimit": 190
+    },
+    "text": {
+      "fontSize": 12
+    }
+  },
+  "params": [
+    {
+      "name": "start_year",
+      "value": 1950
+    },
+    {
+      "name": "end_year",
+      "value": 2025
+    }
+  ],
+  "transform": [
+    {
+      "filter": "datum.year >= start_year && datum.year <= end_year"
+    },
+    {
+      "aggregate": [
+        {
+          "op": "sum",
+          "field": "games",
+          "as": "games"
+        }
+      ],
+      "groupby": [
+        "mechanic"
+      ]
+    }
+  ],
+  "mark": {
+    "type": "bar",
+    "color": "#167d73",
+    "cornerRadiusEnd": 2
+  },
+  "encoding": {
+    "x": {
+      "field": "games",
+      "type": "quantitative",
+      "title": "Games",
+      "axis": {
+        "grid": true
+      }
+    },
+    "y": {
+      "field": "mechanic",
+      "type": "nominal",
+      "title": null,
+      "sort": "-x",
+      "axis": {
+        "labelLimit": 180
+      }
+    },
+    "tooltip": [
+      {
+        "field": "mechanic",
+        "type": "nominal",
+        "title": "Mechanic"
+      },
+      {
+        "field": "games",
+        "type": "quantitative",
+        "title": "Games",
+        "format": ","
+      }
+    ]
+  }
+}

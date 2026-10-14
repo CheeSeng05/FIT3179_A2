@@ -1,0 +1,165 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Selected games in three historical ranking lists",
+  "width": "container",
+  "height": 400,
+  "autosize": {
+    "type": "fit",
+    "contains": "padding"
+  },
+  "data": {
+    "url": "data/rank_comparison.csv",
+    "format": {
+      "type": "csv",
+      "parse": {
+        "id": "number",
+        "rank": "number",
+        "order": "number",
+        "local_ratings": "number"
+      }
+    }
+  },
+  "config": {
+    "font": "Arial",
+    "background": "transparent",
+    "view": {
+      "stroke": null
+    },
+    "axis": {
+      "labelFontSize": 13,
+      "titleFontSize": 13,
+      "titleFontWeight": "normal",
+      "labelColor": "#444c54",
+      "titleColor": "#444c54",
+      "gridColor": "#e9ecef",
+      "domain": false,
+      "tickColor": "#d8dde0",
+      "titlePadding": 12,
+      "labelPadding": 7
+    },
+    "legend": {
+      "labelFontSize": 12,
+      "titleFontSize": 12,
+      "titleFontWeight": "normal",
+      "orient": "bottom",
+      "padding": 12,
+      "labelLimit": 190
+    },
+    "text": {
+      "fontSize": 12
+    }
+  },
+  "params": [
+    {
+      "name": "selected_game",
+      "value": 0
+    }
+  ],
+  "encoding": {
+    "x": {
+      "field": "group",
+      "type": "nominal",
+      "sort": [
+        "Global",
+        "Malaysia",
+        "Australia"
+      ],
+      "title": null,
+      "axis": {
+        "orient": "top",
+        "labelAngle": 0,
+        "labelExpr": "width < 220 ? (datum.label == 'Malaysia' ? 'MY' : datum.label == 'Australia' ? 'AU' : datum.label) : datum.label"
+      }
+    },
+    "y": {
+      "field": "name",
+      "type": "nominal",
+      "sort": {
+        "field": "order"
+      },
+      "title": null,
+      "axis": {
+        "labelLimit": {
+          "expr": "width < 220 ? 160 : 280"
+        }
+      }
+    },
+    "tooltip": [
+      {
+        "field": "name",
+        "type": "nominal",
+        "title": "Game"
+      },
+      {
+        "field": "group",
+        "type": "nominal",
+        "title": "Ranking list"
+      },
+      {
+        "field": "rank_label",
+        "type": "nominal",
+        "title": "Rank"
+      },
+      {
+        "field": "local_ratings",
+        "type": "quantitative",
+        "title": "Local ratings",
+        "format": ","
+      }
+    ]
+  },
+  "layer": [
+    {
+      "mark": {
+        "type": "rect",
+        "strokeWidth": 2
+      },
+      "encoding": {
+        "color": {
+          "condition": {
+            "test": "isValid(datum.rank) && datum.rank > 0",
+            "field": "rank",
+            "type": "quantitative",
+            "scale": {
+              "scheme": "greys",
+              "domain": [
+                1,
+                30
+              ],
+              "reverse": true,
+              "clamp": true
+            },
+            "legend": null
+          },
+          "value": "#e6e9ec"
+        },
+        "stroke": {
+          "condition": {
+            "test": "datum.id == selected_game",
+            "value": "#27313a"
+          },
+          "value": "white"
+        }
+      }
+    },
+    {
+      "mark": {
+        "type": "text",
+        "fontSize": 13
+      },
+      "encoding": {
+        "text": {
+          "field": "rank_label",
+          "type": "nominal"
+        },
+        "color": {
+          "condition": {
+            "test": "isValid(datum.rank) && datum.rank <= 8",
+            "value": "white"
+          },
+          "value": "#27313a"
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,206 @@
+{
+  "$schema": "https://vega.github.io/schema/vega/v5.json",
+  "description": "Mechanics used together; strongest twelve links among eight common mechanics",
+  "width": 360,
+  "height": 310,
+  "padding": 5,
+  "autosize": "none",
+  "background": "transparent",
+  "signals": [
+    {
+      "name": "radius",
+      "update": "min(width, height) * 0.27"
+    }
+  ],
+  "data": [
+    {
+      "name": "nodes",
+      "url": "data/network_nodes.csv",
+      "format": {
+        "type": "csv",
+        "parse": {
+          "id": "number",
+          "games": "number",
+          "angle": "number"
+        }
+      },
+      "transform": [
+        {
+          "type": "formula",
+          "expr": "width/2 + radius*cos(datum.angle)",
+          "as": "x"
+        },
+        {
+          "type": "formula",
+          "expr": "height/2 + radius*sin(datum.angle)",
+          "as": "y"
+        }
+      ]
+    },
+    {
+      "name": "links",
+      "url": "data/network_links.csv",
+      "format": {
+        "type": "csv",
+        "parse": {
+          "source": "number",
+          "target": "number",
+          "shared_games": "number"
+        }
+      },
+      "transform": [
+        {
+          "type": "lookup",
+          "from": "nodes",
+          "key": "id",
+          "fields": [
+            "source"
+          ],
+          "values": [
+            "x",
+            "y"
+          ],
+          "as": [
+            "x1",
+            "y1"
+          ]
+        },
+        {
+          "type": "lookup",
+          "from": "nodes",
+          "key": "id",
+          "fields": [
+            "target"
+          ],
+          "values": [
+            "x",
+            "y"
+          ],
+          "as": [
+            "x2",
+            "y2"
+          ]
+        }
+      ]
+    }
+  ],
+  "scales": [
+    {
+      "name": "link_width",
+      "type": "linear",
+      "domain": {
+        "data": "links",
+        "field": "shared_games"
+      },
+      "range": [
+        1,
+        7
+      ],
+      "zero": true
+    }
+  ],
+  "marks": [
+    {
+      "type": "rule",
+      "from": {
+        "data": "links"
+      },
+      "encode": {
+        "update": {
+          "x": {
+            "field": "x1"
+          },
+          "y": {
+            "field": "y1"
+          },
+          "x2": {
+            "field": "x2"
+          },
+          "y2": {
+            "field": "y2"
+          },
+          "stroke": {
+            "value": "#167d73"
+          },
+          "strokeOpacity": {
+            "value": 0.55
+          },
+          "strokeWidth": {
+            "scale": "link_width",
+            "field": "shared_games"
+          },
+          "tooltip": {
+            "signal": "{'Mechanic 1': datum.source_name, 'Mechanic 2': datum.target_name, 'Shared games': datum.shared_games}"
+          }
+        }
+      }
+    },
+    {
+      "type": "symbol",
+      "from": {
+        "data": "nodes"
+      },
+      "encode": {
+        "update": {
+          "x": {
+            "field": "x"
+          },
+          "y": {
+            "field": "y"
+          },
+          "size": {
+            "value": 160
+          },
+          "fill": {
+            "value": "#167d73"
+          },
+          "stroke": {
+            "value": "white"
+          },
+          "tooltip": {
+            "signal": "{'Mechanic':datum.mechanic, 'Games':datum.games}"
+          }
+        },
+        "hover": {
+          "fill": {
+            "value": "#222b34"
+          }
+        }
+      }
+    },
+    {
+      "type": "text",
+      "from": {
+        "data": "nodes"
+      },
+      "encode": {
+        "update": {
+          "x": {
+            "signal": "width/2 + (radius+22)*cos(datum.angle)"
+          },
+          "y": {
+            "signal": "height/2 + (radius+22)*sin(datum.angle) - (sin(datum.angle) < -0.9 ? 12 : 0)"
+          },
+          "text": {
+            "signal": "split(datum.label, '\\n')"
+          },
+          "align": {
+            "signal": "cos(datum.angle) > 0.4 ? 'left' : cos(datum.angle) < -0.4 ? 'right' : 'center'"
+          },
+          "baseline": {
+            "value": "middle"
+          },
+          "font": {
+            "value": "Arial"
+          },
+          "fontSize": {
+            "value": 13
+          },
+          "fill": {
+            "value": "#333b43"
+          }
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,169 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Award winners and the broader publication-year sample",
+  "width": "container",
+  "height": 320,
+  "autosize": {
+    "type": "fit",
+    "contains": "padding"
+  },
+  "data": {
+    "url": "data/award_mechanics.csv",
+    "format": {
+      "type": "csv",
+      "parse": {
+        "share": "number",
+        "games": "number",
+        "eligible_games": "number",
+        "order": "number"
+      }
+    }
+  },
+  "config": {
+    "font": "Arial",
+    "background": "transparent",
+    "view": {
+      "stroke": null
+    },
+    "axis": {
+      "labelFontSize": 13,
+      "titleFontSize": 13,
+      "titleFontWeight": "normal",
+      "labelColor": "#444c54",
+      "titleColor": "#444c54",
+      "gridColor": "#e9ecef",
+      "domain": false,
+      "tickColor": "#d8dde0",
+      "titlePadding": 12,
+      "labelPadding": 7
+    },
+    "legend": {
+      "labelFontSize": 12,
+      "titleFontSize": 12,
+      "titleFontWeight": "normal",
+      "orient": "bottom",
+      "padding": 12,
+      "labelLimit": 190
+    },
+    "text": {
+      "fontSize": 12
+    }
+  },
+  "encoding": {
+    "x": {
+      "field": "share",
+      "type": "quantitative",
+      "title": "Percentage of eligible games",
+      "axis": {
+        "format": ".0%"
+      },
+      "scale": {
+        "domain": [
+          0,
+          1
+        ]
+      }
+    },
+    "y": {
+      "field": "mechanic",
+      "type": "nominal",
+      "sort": {
+        "field": "order",
+        "op": "min"
+      },
+      "title": null,
+      "axis": {
+        "labelLimit": 150
+      }
+    },
+    "yOffset": {
+      "field": "group",
+      "type": "nominal",
+      "sort": [
+        "Award winners",
+        "All eligible games"
+      ]
+    },
+    "color": {
+      "field": "group",
+      "type": "nominal",
+      "title": null,
+      "scale": {
+        "domain": [
+          "Award winners",
+          "All eligible games"
+        ],
+        "range": [
+          "#333e48",
+          "#167d73"
+        ]
+      },
+      "legend": {
+        "direction": "vertical",
+        "columns": 1,
+        "symbolSize": 70,
+        "rowPadding": 5
+      }
+    },
+    "tooltip": [
+      {
+        "field": "mechanic",
+        "type": "nominal",
+        "title": "Mechanic"
+      },
+      {
+        "field": "group",
+        "type": "nominal",
+        "title": "Group"
+      },
+      {
+        "field": "share",
+        "type": "quantitative",
+        "title": "Percentage",
+        "format": ".1%"
+      },
+      {
+        "field": "games",
+        "type": "quantitative",
+        "title": "Games"
+      },
+      {
+        "field": "eligible_games",
+        "type": "quantitative",
+        "title": "Eligible games"
+      }
+    ]
+  },
+  "layer": [
+    {
+      "mark": {
+        "type": "bar",
+        "cornerRadiusEnd": 1
+      }
+    },
+    {
+      "transform": [
+        {
+          "filter": "datum.mechanic == 'Cooperative Game'"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "dx": 6,
+        "fontSize": 13,
+        "fontWeight": "bold"
+      },
+      "encoding": {
+        "text": {
+          "field": "share",
+          "type": "quantitative",
+          "format": ".1%"
+        },
+        "color": {
+          "value": "#27313a"
+        }
+      }
+    }
+  ]
+}

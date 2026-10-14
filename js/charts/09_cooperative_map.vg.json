@@ -1,0 +1,169 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Cooperative game share in publisher-linked catalogues",
+  "width": "container",
+  "height": 370,
+  "autosize": {
+    "type": "fit",
+    "contains": "padding"
+  },
+  "data": {
+    "url": "data/cooperative_countries.csv",
+    "format": {
+      "type": "csv",
+      "parse": {
+        "share": "number",
+        "eligible_games": "number",
+        "cooperative_games": "number"
+      }
+    }
+  },
+  "config": {
+    "font": "Arial",
+    "background": "transparent",
+    "view": {
+      "stroke": null
+    },
+    "axis": {
+      "labelFontSize": 13,
+      "titleFontSize": 13,
+      "titleFontWeight": "normal",
+      "labelColor": "#444c54",
+      "titleColor": "#444c54",
+      "gridColor": "#e9ecef",
+      "domain": false,
+      "tickColor": "#d8dde0",
+      "titlePadding": 12,
+      "labelPadding": 7
+    },
+    "legend": {
+      "labelFontSize": 12,
+      "titleFontSize": 12,
+      "titleFontWeight": "normal",
+      "orient": "bottom",
+      "padding": 12,
+      "labelLimit": 190
+    },
+    "text": {
+      "fontSize": 12
+    }
+  },
+  "projection": {
+    "type": "equalEarth"
+  },
+  "params": [
+    {
+      "name": "publication_period",
+      "value": "All"
+    }
+  ],
+  "layer": [
+    {
+      "data": {
+        "url": "data/world.topojson",
+        "format": {
+          "type": "topojson",
+          "feature": "ne_110m_admin_0_countries"
+        }
+      },
+      "mark": {
+        "type": "geoshape",
+        "fill": "#e6e9ec",
+        "stroke": "white",
+        "strokeWidth": 0.6
+      }
+    },
+    {
+      "transform": [
+        {
+          "filter": "datum.period == publication_period"
+        },
+        {
+          "filter": "datum.eligible_games >= 50 && isValid(datum.share)"
+        },
+        {
+          "lookup": "country",
+          "from": {
+            "data": {
+              "url": "data/world.topojson",
+              "format": {
+                "type": "topojson",
+                "feature": "ne_110m_admin_0_countries"
+              }
+            },
+            "key": "properties.ADMIN"
+          },
+          "as": "geo"
+        },
+        {
+          "filter": "isValid(datum.geo)"
+        }
+      ],
+      "mark": {
+        "type": "geoshape",
+        "stroke": "white",
+        "strokeWidth": 0.6
+      },
+      "encoding": {
+        "shape": {
+          "field": "geo",
+          "type": "geojson"
+        },
+        "color": {
+          "field": "share",
+          "type": "quantitative",
+          "title": "Cooperative-game percentage",
+          "scale": {
+            "domain": [
+              0,
+              0.4
+            ],
+            "range": [
+              "#edf8fb",
+              "#b2e2e2",
+              "#66c2a4",
+              "#2ca25f",
+              "#006d2c"
+            ],
+            "interpolate": "lab"
+          },
+          "legend": {
+            "format": ".0%",
+            "values": [
+              0,
+              0.1,
+              0.2,
+              0.3,
+              0.4
+            ]
+          }
+        },
+        "tooltip": [
+          {
+            "field": "country",
+            "type": "nominal",
+            "title": "Publisher country"
+          },
+          {
+            "field": "share",
+            "type": "quantitative",
+            "title": "Cooperative-game percentage",
+            "format": ".1%"
+          },
+          {
+            "field": "cooperative_games",
+            "type": "quantitative",
+            "title": "Cooperative games",
+            "format": ","
+          },
+          {
+            "field": "eligible_games",
+            "type": "quantitative",
+            "title": "Eligible games",
+            "format": ","
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+group,mechanic,order,games,eligible_games,share
+Global,Hand Management,0,12,20,0.6
+Global,Variable Player Powers,1,14,20,0.7
+Global,Variable Set-up,2,14,20,0.7
+Global,Tags,3,12,20,0.6
+Global,Solo / Solitaire Game,4,8,20,0.4
+Global,Hexagon Grid,5,9,20,0.45
+Malaysia,Hand Management,0,13,20,0.65
+Malaysia,Variable Player Powers,1,11,20,0.55
+Malaysia,Variable Set-up,2,10,20,0.5
+Malaysia,Tags,3,8,20,0.4
+Malaysia,Solo / Solitaire Game,4,9,20,0.45
+Malaysia,Hexagon Grid,5,7,20,0.35
+Australia,Hand Management,0,15,20,0.75
+Australia,Variable Player Powers,1,14,20,0.7
+Australia,Variable Set-up,2,11,20,0.55
+Australia,Tags,3,10,20,0.5
+Australia,Solo / Solitaire Game,4,12,20,0.6
+Australia,Hexagon Grid,5,8,20,0.4
