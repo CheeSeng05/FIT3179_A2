@@ -1,0 +1,46 @@
+{
+  "rows": 181218,
+  "unique_game_ids": 181218,
+  "duplicated_game_ids": 0,
+  "game_types": {
+    "boardgame": 141336,
+    "boardgameexpansion": 39882
+  },
+  "missing": {
+    "yearpublished": 0,
+    "averageweight": 104907,
+    "min_player": 1,
+    "max_player": 8623,
+    "minplaytime": 37749,
+    "maxplaytime": 40632,
+    "average": 39969,
+    "usersrated": 0
+  },
+  "valid_complexity": 76311,
+  "year_zero": 12131,
+  "future_years": 955,
+  "sdj_candidate.csv": {
+    "rows": 528,
+    "matched": 528
+  },
+  "ksdj_candidate.csv": {
+    "rows": 101,
+    "matched": 101
+  },
+  "kindersdj_candidate.csv": {
+    "rows": 279,
+    "matched": 279
+  },
+  "mechanic_links": 455498,
+  "mechanics": 200,
+  "games_with_mechanics": 154904,
+  "mechanic_invalid_game_links": 0,
+  "mechanic_invalid_entity_links": 0,
+  "publisher_links": 272897,
+  "publishers": 30116,
+  "wikidata_publisher_id_country_matches": 598,
+  "wikidata_publisher_id_coordinate_matches": 507,
+  "games_with_publisher_country": 45248,
+  "games_with_publisher_coordinate": 40347,
+  "base_games_with_valid_complexity": 62666
+}

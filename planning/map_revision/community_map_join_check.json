@@ -1,0 +1,55 @@
+{
+  "source_rows": 216,
+  "missing_user_codes": [
+    "CI",
+    "BJ",
+    "CF",
+    "LR",
+    "LS",
+    "GW",
+    "GQ",
+    "VU",
+    "FM",
+    "VI",
+    "MP",
+    "SX",
+    "MF",
+    "VG",
+    "PW",
+    "NR",
+    "TV"
+  ],
+  "zero_user_codes": [],
+  "positive_user_rows": 199,
+  "matched_positive_rows": 197,
+  "unmatched_positive_rows": [
+    {
+      "country_code": "BQ",
+      "country_name": "",
+      "num_users": 1
+    },
+    {
+      "country_code": "SS",
+      "country_name": "South Sudan",
+      "num_users": 1
+    }
+  ],
+  "Malaysia": {
+    "country_code": "MY",
+    "country_name": "Malaysia",
+    "num_users": 657,
+    "total_ratings": 33256,
+    "latitude": 4.210484,
+    "longitude": 101.975766,
+    "analysis_published": "2024-04-25"
+  },
+  "Australia": {
+    "country_code": "AU",
+    "country_name": "Australia",
+    "num_users": 9235,
+    "total_ratings": 468659,
+    "latitude": -25.274398,
+    "longitude": 133.775136,
+    "analysis_published": "2024-04-25"
+  }
+}

@@ -1,0 +1,284 @@
+=== PAGE 1 ===
+ of 113
+SCALAR FIELDS
+FIT2179 Data Visualisation 
+Course Notes
+23 September 2026
+
+=== PAGE 2 ===
+ of 213
+VISUALISING SCALAR FIELDS ON MAPS
+Scalar ﬁelds store quantitative values from a 
+continuous spatial domain. The values are 
+measurements or the results of a simulation. 
+Terrain elevation is a common example, usu-
+ally held as a regular grid in which each cell 
+contains an elevation value. However, scalar 
+ﬁelds can also store temperature, air pres-
+sure, rainfall, pollution concentration, or 
+many other continuous phenomena. 
+Four idioms for visualising scalar ﬁelds are 
+covered: spot values, contour lines, colour 
+mapping, and shaded relief. The ﬁrst three 
+apply to scalar ﬁelds of any kind. For exam-
+ple, temperature in a weather forecast map 
+is commonly shown with colour, and air 
+pressure with contour lines. Shaded relief, by 
+contrast, is mainly used for terrain elevation 
+and bathymetry (underwater depth values). 
+The idioms are often combined in one map. 
+Scalar Fields
+Map combining spot values, contour lines, and shaded relief (by swisstopo).
+
+
+=== PAGE 3 ===
+ of 313
+A spot value is a small point mark with a 
+text annotation indicating the ﬁeld's value at 
+a single location. Spot heights or depth 
+soundings indicate elevation or depth. They 
+are placed at easily identiﬁable locations for 
+outdoor navigation, such as highest peaks, 
+passes, road intersections, or the surface 
+elevation and greatest depth of a lake. 
+Unlike the other three idioms, spot values 
+sample the ﬁeld rather than representing it 
+continuously. They provide an exact value at 
+a few selected points but offer no informa-
+tion about the ﬁeld between them. 
+ 
+Scalar Fields
+SPOT VALUES
+
+=== PAGE 4 ===
+ of 413
+CONTOUR LINES
+Contour lines are vertically spaced by a con-
+stant contour interval. The horizontal spac-
+ing of contour lines shows the rate of 
+change of a scalar ﬁeld. On an elevation 
+map, widely spaced lines indicate almost ﬂat 
+terrain, while lines running close together 
+indicate steep slopes. 
+Index contour lines are thicker and often 
+labeled with the represented value. 
+READING CONTOUR LINES 
+Regularly spaced contour lines indicate a 
+steady slope. In the contour map below, two 
+labels indicate the elevation of two thicker 
+index contour lines, from which the contour 
+interval can be derived as 1 metre. It is rea-
+sonable to assume that the lowest elevation 
+lies along the bottom of the map and the 
+highest at the top. 
+ 
+In the example below, values again increase 
+from bottom to top, but the lines are un-
+evenly spaced. A narrow spacing indicates a 
+steep slope at the bottom, then a terrace, 
+then a second steep slope centred on the 
+index contour at 1,105 metres. 
+ 
+Scalar Fields
+TERMINOLOGY 
+Contour lines are also called isolines or iso-
+pleths. Iso is Ancient Greek for equal, so an 
+isoline connects locations of equal value. 
+Many domain-speciﬁc names exist. Lines of 
+equal pressure are isobars, lines of equal tem-
+perature isotherms, lines of equal rainfall iso-
+hyets, and lines of equal travel time 
+isochrones, etc. All are isolines, or simply con-
+tour lines.
+Index contour line
+Intermediate  
+contour line
+
+=== PAGE 5 ===
+ of 513
+Contour lines reﬂect the shape of landforms. 
+In the ﬁrst map below, the wavy lines indi-
+cate a very small and rounded valley. In the 
+second map, the angular contour lines show 
+a sharply incised valley. 
+Scalar Fields
+
+
+=== PAGE 6 ===
+ of 613
+CHOOSING A CONTOUR INTERVAL 
+The contour interval is the difference in val-
+ue between adjacent contour lines. It should 
+be chosen so that multiples of the interval 
+give round numbers. For example, 10, 20, 
+25, or 50 are good choices, because their 
+multiples sum to 100. The interval must be 
+constant across the whole map; a locally 
+varying interval would be confusing. 
+Index contours are thicker and often labelled 
+with their value. They should likewise fall on 
+numbers that are easy to calculate with. For 
+example, the interval could be 20 metres 
+with index contours appearing every 100 
+metres, that is, every ﬁfth line. 
+The interval must be chosen so that the lines 
+are not too dense. Dense contour lines clut-
+ter the map without revealing more detail in 
+most locations.  
+In the pair of maps shown below, the left 
+map has far too many contour lines, while 
+the interval on the right produces informa-
+tive ones. The choice of the interval depends 
+on the map scale and on the maximum gra-
+dient in the ﬁeld. Mapping the Australian 
+Alps calls for a larger interval; mapping the 
+comparatively ﬂat Melbourne area calls for a 
+smaller one. 
+Scalar Fields
+
+=== PAGE 7 ===
+ of 713
+COLOUR MAPPING
+Contour lines take training to read and are 
+often difﬁcult to interpret. Colour mapping 
+is one way to make a scalar ﬁeld easier to 
+read. Values are mapped to a colour in a 
+gradient, with each pixel coloured according 
+to the value at that location. 
+Rainbow colour gradients vary hue, which is 
+a poor choice for showing a quantitative 
+scalar ﬁeld, as illustrated below. 
+A typical gradient for mapping elevation 
+runs from green at low elevations to beige 
+and brown tones at high elevations, imitat-
+ing the colours found in temperate zones. 
+However, green for low elevations does not 
+work well for arid zones, where readers of-
+ten misread the green colour to indicate lush 
+vegetation. Cartographers have therefore 
+developed a variety of alternative colour 
+schemes to show elevation and depth, and 
+are increasingly using colour from aerial im-
+agery. These colours show landcover instead 
+of elevation. 
+The choice of a colour scheme should follow 
+the structure of the data: a sequential 
+scheme for ﬁelds that run from low to high, 
+and a diverging scheme for ﬁelds with a 
+meaningful midpoint, such as temperature 
+anomalies centred on zero. 
+Scalar Fields
+A two-dimensional simulation of noise from a jet aircraft engine (Rogowitz & Treinish: Why should engineers and scientists be worried about 
+color?)
+
+=== PAGE 8 ===
+ of 813
+Shaded relief shows the brightness of a sur-
+face created by a scalar ﬁeld when illuminat-
+ed by an imaginary light source, with each 
+pixel shaded according to the orientation of 
+the surface at that point. A shaded relief is 
+often the background of a map. The exam-
+ple here was created by hand by specialised 
+cartographers and is close to a piece of art. 
+Images like it are not used in this form; in-
+stead, a shaded relief is lightened and then 
+often combined with contour lines and other 
+map elements. 
+SHADED RELIEF
+Scalar Fields
+Manual relief shading by H. Leuzinger and E. Imhof. Source: http://shadedreliefarchive.com 
+
+=== PAGE 9 ===
+ of 913
+This map of part of the European Alps uses 
+contour lines and rock drawings to represent 
+terrain, yet the third dimension remains dif-
+ﬁcult to perceive without the shaded relief. 
+The second map is identical to the ﬁrst one, 
+except that it includes a shaded relief, which 
+makes the terrain immediately legible. 
+Scalar Fields
+
+
+=== PAGE 10 ===
+ of 1013
+The direction of illumination for relief shad-
+ing matters. The shaded relief on the left is 
+lit from the top left, which gives the best 
+results: valleys read as valleys and mountains 
+as mountains. The map on the right is lit 
+from below, which causes problems for 
+many readers, as valleys can appear as 
+mountains and mountains as valleys. The 
+reason for this inversion effect is that the 
+human brain expects light to come from the 
+top or top-left. 
+Shaded relief is easy to read and creates an 
+effective visual impression, but exact values 
+cannot be extracted from it as they can from 
+contour lines. It conveys only a general 
+sense of elevation. 
+Scalar Fields
+MORE ABOUT SHADED RELIEF 
+www.reliefshading.com 
+www.shadedrelief.com 
+www.shadedreliefarchive.com 
+https://eduard.earth/
+Illumination from top-left. Illumination from bottom can create an inversion effect.
+
+=== PAGE 11 ===
+ of 1113
+The idioms for showing scalar ﬁelds are of-
+ten combined on maps. For example, the 
+map of rainfall in Australia uses contour lines 
+ﬁlled with different shades of colour. The 
+colours are not derived directly from the 
+scalar ﬁeld; contours are derived ﬁrst, and 
+these are then ﬁlled. 
+The map of South America combines shaded 
+relief with spot heights and uses color to 
+show land cover. 
+Such combinations of idioms for scalar ﬁelds 
+have the goal to compensate for the respec-
+tive disadvantages of each. See the table on 
+the next page for a comparison of the dif-
+ferent techniques. 
+COMBINING IDIOMS FOR SCALAR FIELDS
+Scalar Fields
+
+
+=== PAGE 12 ===
+ of 1213
+Scalar Fields
+Advantages Disadvantages
+Spot values Easy to read and understand. Values for only a few selected locations; nothing 
+shown between them.
+Contour lines Values can be extracted.
+Reading contour lines requires training. 
+Large or complex forms are difficult to read 
+without additional shaded relief or colour 
+mapping. 
+In steep areas, contour lines are overly dense, 
+resulting in poor readability of other map 
+elements. 
+Near-flat areas contain very fews contour lines and 
+the value of the scalar field is difficult to extracted.
+Shaded relief Both small details and large forms are easy 
+to read.
+Graphical impression only. Numeric values cannot 
+be extracted.
+Colour mapping
+Good for showing an overview.  
+Applicable to categorical fields, such as 
+land cover.
+Only approximate values can be estimated. 
+When used for elevation on maps, the 
+conventional green colour for low areas can be 
+mistaken for landcover.
+
+=== PAGE 13 ===
+ of 1313
+Scalar Fields
+Shaded relief combined with spot heights and colour mapping for land cover. 
+Section of Physical Map of South America by T. Patterson, 2025.

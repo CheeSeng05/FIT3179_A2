@@ -1,0 +1,49 @@
+Use case: ui-mockup.
+Create one high-resolution portrait A4-proportioned hand-drawn pencil-and-fine-black-pen reference sketch of a SINGLE LONG SCROLLING WEBSITE compressed into an A4 planning sheet. This is a learning reference that a university student will redraw themselves. Clean white paper, straight-on flat view, no desk, hands, shadows or photographic perspective. Legible neat hand lettering, lightly imperfect pencil lines, very sparse muted coloured pencil accents. Design the sheet so every chart is recognisable and numbered, with short captions; generous spacing and readable text. Depict exactly FIVE clearly separated horizontal sections and exactly FIFTEEN numbered chart thumbnails. The webpage uses two or three columns within a section, aligned consistently, no navigation tabs. Add tiny dice and board-game-piece doodles in the header only.
+
+Main title, verbatim: "FROM THE WORLD TO YOUR GAME NIGHT".
+Subtitle: "Board games: design, publishers and local favourites".
+Small banner clearly says "LAYOUT REFERENCE — CHART SHAPES ONLY, NOT RESULTS".
+Use schematic illustrative marks, no invented numerical results or trend claims. Chart shapes demonstrate layouts, not data findings. Graph axes can use descriptive labels, not fabricated data values.
+
+SECTION 1 heading: "1. BOARD GAMES THROUGH TIME"
+Three equal cards in one row:
+"01 Releases by year" - simple line-chart thumbnail, axes Year and Games.
+"02 Common mechanics" - horizontal ranked bar-chart thumbnail.
+"03 Mechanics by decade" - rectangular heatmap thumbnail, rows mechanics columns decades.
+Below the row a short handwritten transition: "How do these designs affect playing?"
+
+SECTION 2 heading: "2. HOW GAMES PLAY"
+Three equal cards:
+"04 Mechanics together" - small network of labelled circles and connecting edges.
+"05 Complexity by decade" - recognisable vertical box-and-whisker plots, not bar charts.
+"06 Complexity vs time" - scatterplot thumbnail with discrete dots, x Time and y Complexity.
+Short transition: "Who publishes these experiences?"
+
+SECTION 3 heading: "3. THE PUBLISHING WORLD"
+Four cards in TWO ROWS OF TWO, numbered and recognisable:
+"07 Publisher catalogues" - rectangle-subdivision TREEMAP.
+"08 Headquarters — DOT MAP" - simplified world map, several EQUAL-SIZED dots.
+"09 Game credits — SYMBOL MAP" - simplified world map, circles of DIFFERENT SIZES.
+"10 Cooperative share — CHOROPLETH" - simplified world map with countries filled in different grey tones.
+Directly below all four, short note: "Publisher locations — not players' preferences".
+Short transition: "Do global favourites match local ratings?"
+
+SECTION 4 heading: "4. GLOBAL AND LOCAL FAVOURITES"
+Prominent small date badge: "HISTORICAL RANKINGS: APRIL 2024".
+Three cards:
+"11 Rank comparison" - matrix heatmap with clearly labelled columns "Global", "Malaysia", "Australia" and rows "Game A", "Game B", "Game C". NO numeric ranks, just schematic shaded cells.
+"12 Top-20 mechanics" - grouped horizontal bars with THREE bars per group, tiny legend Global / Malaysia / Australia.
+"13 Top-20 complexity" - horizontal dot-strip plot: three rows Global, Malaysia, Australia, individual dots on x axis Complexity.
+Below: "BGG user samples; show local rating counts".
+Also a tiny readable date note: "Mechanics and complexity: recorded in 2026".
+Short transition: "Awards offer another perspective".
+
+SECTION 5 heading: "5. AWARD-WINNING EXPERIENCES"
+Two equal cards:
+"14 Winners vs wider collection" - grouped horizontal bars with TWO bars per mechanic, legend Winners / Wider collection.
+"15 Compare winning games" - PARALLEL COORDINATES with FOUR upright axes labelled "Complexity", "Time", "Players", "Age", and a few lines crossing between axes.
+Closing text: "Choose for your group, your time and your preferred complexity".
+Footer contains a narrow ruled placeholder: "Sources | Author | Date | AI acknowledgement".
+Add one small note near the footer: "Final submitted sketch: redraw by hand".
+Avoid statistics or conclusions, avoid exact country boundaries, avoid claiming real scores, do not omit or repeat chart numbers, do not substitute chart types. The entire page must be visible and uncropped. Make all lettering crisp and easy to copy.

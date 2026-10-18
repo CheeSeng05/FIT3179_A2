@@ -1,0 +1,54 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": {
+    "text": "How Long People Stay Vs Their Spendings",
+    "fontSize": 16,
+    "anchor": "start"
+  },
+  "width": "container",
+  "height": 400,
+  "data": { "url": "data/idiom1.csv" },
+  "layer": [
+    {
+      "mark": { "type": "line", "strokeWidth": 3 },
+      "encoding": {
+        "x": {
+          "field": "Metric",
+          "type": "nominal",
+          "title": "Comparison",
+          "scale": { "padding": 0.3 }
+        },
+        "y": {
+          "field": "Value",
+          "type": "quantitative",
+          "title": "Value",
+          "scale": { "type": "log" }
+        },
+        "color": {
+          "field": "Reason",
+          "type": "nominal",
+          "title": "Visit Category",
+          "scale": { "scheme": "category10" }
+        }
+      }
+    },
+    {
+      "mark": { "type": "point", "size": 80, "filled": true },
+      "encoding": {
+        "x": { "field": "Metric", "type": "nominal" },
+        "y": {
+          "field": "Value",
+          "type": "quantitative",
+          "scale": { "type": "log" }
+        },
+        "color": { "field": "Reason", "type": "nominal" },
+        "tooltip": [
+          { "field": "Reason", "type": "nominal", "title": "Purpose" },
+          { "field": "Metric", "type": "nominal" },
+          { "field": "Formatted_Value", "type": "nominal", "title": "Value" }
+        ]
+      }
+    }
+  ]
+}
+

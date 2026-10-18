@@ -1,0 +1,71 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": {
+    "text": "Tourist Spending In Big Cities",
+    "fontSize": 16,
+    "anchor": "start"
+  },
+  "width": 600,
+  "height": 400,
+  "projection": {
+    "type": "equirectangular"
+  },
+  "layer": [
+    {
+      "data": {
+        "url": "https://raw.githubusercontent.com/tonywr71/GeoJson-Data/master/australian-states.json",
+        "format": { "type": "json", "property": "features" }
+      },
+      "mark": {
+        "type": "geoshape",
+        "fill": "#eef2f5",
+        "stroke": "#ccc",
+        "strokeWidth": 1
+      }
+    },
+    {
+      "data": {
+        "url": "data/chart2.csv"
+      },
+      "transform": [
+        {
+          "aggregate": [
+            {
+              "op": "sum",
+              "field": "Spend (AUD m)",
+              "as": "Total_Category_Spend"
+            }
+          ],
+          "groupby": ["State", "lat", "lon"]
+        }
+      ],
+      "mark": {
+        "type": "circle",
+        "color": "#1f77b4",
+        "opacity": 0.75,
+        "stroke": "#111",
+        "strokeWidth": 1
+      },
+      "encoding": {
+        "longitude": { "field": "lon", "type": "quantitative" },
+        "latitude": { "field": "lat", "type": "quantitative" },
+        "size": {
+          "field": "Total_Category_Spend",
+          "type": "quantitative",
+          "title": "Total Expenses ($M)",
+          "scale": { "range": [100, 2500] }
+        },
+        "tooltip": [
+          { "field": "State", "type": "nominal", "title": "State" },
+          {
+            "field": "Total_Category_Spend",
+            "type": "quantitative",
+            "title": "Total Expenses ($M)",
+            "format": ",.1f"
+          }
+        ]
+      }
+    }
+  ]
+}
+

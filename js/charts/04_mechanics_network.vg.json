@@ -1,15 +1,19 @@
 {
   "$schema": "https://vega.github.io/schema/vega/v5.json",
   "description": "Mechanics used together; strongest twelve links among eight common mechanics",
-  "width": 360,
-  "height": 310,
+  "width": 700,
+  "height": 340,
   "padding": 5,
   "autosize": "none",
   "background": "transparent",
   "signals": [
     {
-      "name": "radius",
-      "update": "min(width, height) * 0.27"
+      "name": "radius_x",
+      "update": "width * (width < 500 ? 0.25 : 0.34)"
+    },
+    {
+      "name": "radius_y",
+      "update": "height * 0.28"
     }
   ],
   "data": [
@@ -27,12 +31,12 @@
       "transform": [
         {
           "type": "formula",
-          "expr": "width/2 + radius*cos(datum.angle)",
+          "expr": "width/2 + radius_x*cos(datum.angle)",
           "as": "x"
         },
         {
           "type": "formula",
-          "expr": "height/2 + radius*sin(datum.angle)",
+          "expr": "height/2 + radius_y*sin(datum.angle)",
           "as": "y"
         }
       ]
@@ -176,10 +180,10 @@
       "encode": {
         "update": {
           "x": {
-            "signal": "width/2 + (radius+22)*cos(datum.angle)"
+            "signal": "width/2 + (radius_x+22)*cos(datum.angle)"
           },
           "y": {
-            "signal": "height/2 + (radius+22)*sin(datum.angle) - (sin(datum.angle) < -0.9 ? 12 : 0)"
+            "signal": "height/2 + (radius_y+22)*sin(datum.angle) - (sin(datum.angle) < -0.9 ? 12 : 0)"
           },
           "text": {
             "signal": "split(datum.label, '\\n')"
@@ -194,10 +198,10 @@
             "value": "Arial"
           },
           "fontSize": {
-            "value": 13
+            "value": 14
           },
           "fill": {
-            "value": "#333b43"
+            "value": "#27313a"
           }
         }
       }

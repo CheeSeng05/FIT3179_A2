@@ -1,0 +1,57 @@
+State,State code,Category,Spend (AUD m),lat,lon
+New South Wales,NSW,Accommodation services,7088.3,-33.8688,151.2093
+New South Wales,NSW,Long distance transportation,7066.0,-33.8688,151.2093
+New South Wales,NSW,Recreational cultural & gambling,2632.1,-33.8688,151.2093
+New South Wales,NSW,Takeaway and restaurant meals,10222.6,-33.8688,151.2093
+New South Wales,NSW,Taxi fares & rideshare,728.6,-33.8688,151.2093
+New South Wales,NSW,Food alcohol & groceries,8412.0,-33.8688,151.2093
+New South Wales,NSW,Shopping gifts & souvenirs,6247.8,-33.8688,151.2093
+Victoria,VIC,Accommodation services,4662.4,-37.8136,144.9631
+Victoria,VIC,Long distance transportation,5479.5,-37.8136,144.9631
+Victoria,VIC,Recreational cultural & gambling,2734.5,-37.8136,144.9631
+Victoria,VIC,Takeaway and restaurant meals,8418.9,-37.8136,144.9631
+Victoria,VIC,Taxi fares & rideshare,556.9,-37.8136,144.9631
+Victoria,VIC,Food alcohol & groceries,6549.3,-37.8136,144.9631
+Victoria,VIC,Shopping gifts & souvenirs,5860.4,-37.8136,144.9631
+Queensland,QLD,Accommodation services,5969.5,-27.4705,153.0260
+Queensland,QLD,Long distance transportation,8165.9,-27.4705,153.0260
+Queensland,QLD,Recreational cultural & gambling,2195.9,-27.4705,153.0260
+Queensland,QLD,Takeaway and restaurant meals,7130.3,-27.4705,153.0260
+Queensland,QLD,Taxi fares & rideshare,517.0,-27.4705,153.0260
+Queensland,QLD,Food alcohol & groceries,5449.3,-27.4705,153.0260
+Queensland,QLD,Shopping gifts & souvenirs,4557.1,-27.4705,153.0260
+South Australia,SA,Accommodation services,1044.3,-34.9285,138.6007
+South Australia,SA,Long distance transportation,1627.0,-34.9285,138.6007
+South Australia,SA,Recreational cultural & gambling,489.8,-34.9285,138.6007
+South Australia,SA,Takeaway and restaurant meals,1910.7,-34.9285,138.6007
+South Australia,SA,Taxi fares & rideshare,124.7,-34.9285,138.6007
+South Australia,SA,Food alcohol & groceries,1584.6,-34.9285,138.6007
+South Australia,SA,Shopping gifts & souvenirs,1185.7,-34.9285,138.6007
+Western Australia,WA,Accommodation services,1816.9,-31.9505,115.8605
+Western Australia,WA,Long distance transportation,3559.6,-31.9505,115.8605
+Western Australia,WA,Recreational cultural & gambling,706.2,-31.9505,115.8605
+Western Australia,WA,Takeaway and restaurant meals,3000.0,-31.9505,115.8605
+Western Australia,WA,Taxi fares & rideshare,205.3,-31.9505,115.8605
+Western Australia,WA,Food alcohol & groceries,2652.8,-31.9505,115.8605
+Western Australia,WA,Shopping gifts & souvenirs,2096.3,-31.9505,115.8605
+Tasmania,TAS,Accommodation services,568.1,-42.8821,147.3272
+Tasmania,TAS,Long distance transportation,892.4,-42.8821,147.3272
+Tasmania,TAS,Recreational cultural & gambling,321.1,-42.8821,147.3272
+Tasmania,TAS,Takeaway and restaurant meals,810.5,-42.8821,147.3272
+Tasmania,TAS,Taxi fares & rideshare,42.1,-42.8821,147.3272
+Tasmania,TAS,Food alcohol & groceries,720.3,-42.8821,147.3272
+Tasmania,TAS,Shopping gifts & souvenirs,510.2,-42.8821,147.3272
+Northern Territory,NT,Accommodation services,310.2,-12.4634,130.8456
+Northern Territory,NT,Long distance transportation,512.4,-12.4634,130.8456
+Northern Territory,NT,Recreational cultural & gambling,180.1,-12.4634,130.8456
+Northern Territory,NT,Takeaway and restaurant meals,390.2,-12.4634,130.8456
+Northern Territory,NT,Taxi fares & rideshare,25.1,-12.4634,130.8456
+Northern Territory,NT,Food alcohol & groceries,310.1,-12.4634,130.8456
+Northern Territory,NT,Shopping gifts & souvenirs,210.4,-12.4634,130.8456
+Australian Capital Territory,ACT,Accommodation services,420.1,-35.2809,149.1300
+Australian Capital Territory,ACT,Long distance transportation,610.3,-35.2809,149.1300
+Australian Capital Territory,ACT,Recreational cultural & gambling,290.4,-35.2809,149.1300
+Australian Capital Territory,ACT,Takeaway and restaurant meals,580.1,-35.2809,149.1300
+Australian Capital Territory,ACT,Taxi fares & rideshare,48.2,-35.2809,149.1300
+Australian Capital Territory,ACT,Food alcohol & groceries,410.2,-35.2809,149.1300
+Australian Capital Territory,ACT,Shopping gifts & souvenirs,310.5,-35.2809,149.1300

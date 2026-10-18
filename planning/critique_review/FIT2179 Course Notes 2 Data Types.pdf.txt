@@ -1,0 +1,396 @@
+=== PAGE 1 ===
+ of 18
+DATA TYPES
+FIT2179 Data Visualisation 
+Course Notes
+Monash University 
+Version 1.1 of 28 July 2025 
+Based on “Visualization Analysis and Design” (2014) by Tamara Munzner
+
+=== PAGE 2 ===
+ of 28
+DATASET TYPES
+DATASETS 
+A dataset is a collection of information. 
+There are four essential dataset types: ta-
+bles, networks, spatial ﬁelds and spatial 
+geometry. These four dataset types are 
+made up of data attributes. 
+A dataset is not inherently visible. To visu-
+alise a dataset, we select and apply a visuali-
+sation method that transforms the invisible 
+dataset into a visual representation. For each 
+dataset type a range of visualisation meth-
+ods exist. For instance, for table datasets, 
+we can choose from various methods, such 
+as a bar chart, a line chart, or a pie chart. 
+However, not all methods are equally efﬁ-
+cient or effective for a given table dataset. 
+Understanding the characteristics of both 
+attributes and dataset types is essential for 
+selecting a visualisation method that ensures 
+the data can be read effectively. 
+TABLES 
+A basic table consists of cells with values 
+arranged in rows and columns. Each row 
+represents a data item, and each column 
+represents an attribute.  
+When a table is stored in a database, each 
+item is associated with a key that allows for 
+unambiguous identiﬁcation and retrieval of 
+that item. A multidimensional table has mul-
+tiple keys to index each cell. For example, 
+we could build a three-dimensional table 
+storing house prices for different years. The 
+three-dimensional table would have two 
+keys: one key to index the house and one 
+key to index the year.  
+Columns (attributes) and rows (items) of a 
+table can be reordered, deleted, added, 
+modiﬁed, etc. These operations are useful, 
+for example, to sort items in a table by an 
+attribute value, or ﬁlter items of interest. 
+Dataset Types
+TERMINOLOGY 
+Synonyms for attribute are variable and 
+data dimension (or just dimension). The 
+term dimension has many other mean-
+ings; to avoid ambiguity we prefer at-
+tribute and variable.
+TERMINOLOGY 
+The textbook “Visualization Analysis and 
+Design” by T. Munzner uses visualisation 
+idiom instead of visualisation method. 
+TERMINOLOGY 
+A data item (a row in a table) is also 
+called a record of a table.
+TERMINOLOGY 
+In visualisation, data is commonly treated 
+as a singular noun, whereas in the natural 
+sciences, data is often a plural noun.
+
+=== PAGE 3 ===
+ of 38
+NETWORKS AND TREES 
+A network encodes the relationships be-
+tween items. An item in a network is re-
+ferred to as a node or vertex. A relationship 
+is called a link or edge. 
+Examples of network datasets include social 
+networks where people are nodes and 
+friendships are links; food webs, where ani-
+mals are nodes and predator-prey relation-
+ships are links; networks of hyperlinks, 
+where webpages are nodes and hyperlinks 
+are links; and air-trafﬁc networks, where 
+airports are nodes and ﬂights are links. 
+The nodes and links of a network often have 
+attributes. For instance, in an air trafﬁc net-
+work, the nodes may have attributes such as 
+the name of the airport and the number of 
+runways, while the links may have attributes 
+such as the number of daily ﬂights and the 
+number of yearly passengers. 
+A tree is a network without cycles. Each 
+node has only one parent node, and nodes 
+can have multiple child nodes. Examples of 
+trees include ﬁle system hierarchies, which 
+organise folders and ﬁles; biological taxon-
+omy trees, which classify life forms from 
+kingdoms down to species; and organisa-
+tional charts, which represent the hierarchy 
+of a company or other institutions. 
+FIELDS 
+A ﬁeld contains values from a continuous 
+spatial domain. The values of a ﬁeld are 
+measurements or the results of a simulation. 
+Fields typically store values in cells, often 
+square in shape and arranged at a regular 
+interval in a uniform grid. However, more 
+complex forms of ﬁelds also exist. For in-
+stance, the size of cells can vary to capture 
+more detailed information in speciﬁc areas, 
+or square cells can be replaced with irregu-
+larly shaped triangles that form a mesh sur-
+face. 
+Fields can have two or three dimensions. A 
+two-dimensional ﬁeld with square cells is 
+similar to a raster image composed of pixels, 
+but instead of storing colour values, each 
+cell stores attribute values. A three-dimen-
+sional ﬁeld with a regular grid can be imag-
+ined as a Rubik’s cube with many cells. In 
+analogy to two-dimensional pixels, the cells 
+of a three-dimensional grid are called voxels. 
+Voxel models are commonly used in engi-
+neering and earth sciences. 
+The domain of a ﬁeld is continuous, mean-
+ing there are conceptually an inﬁnite number 
+of locations where values could be measured 
+/gid00036/gid00068/gid00075/gid00075/gid00001/gid00066/gid00078/gid00077/gid00083/gid00064/gid00072/gid00077/gid00072/gid00077/gid00070/gid00001/gid00078/gid00077/gid00068/gid00001/gid00078/gid00081/gid00001/gid00076/gid00078/gid00081/gid00068/gid00001/gid00064/gid00083/gid00083/gid00081/gid00072/gid00065/gid00084/gid00083/gid00068/gid00082
+/gid00038/gid00087/gid00064/gid00076/gid00079/gid00075/gid00068/gid00001/gid00064/gid00083/gid00083/gid00081/gid00072/gid00065/gid00084/gid00083/gid00068/gid00082/gid00001/gid00078/gid00069/gid00001/gid00078/gid00077/gid00068/gid00001/gid00066/gid00068/gid00075/gid00075/gid00001 /gid00025/gid00015/gid00023/gid00001°C      1026.8 kg/m 3      /gid00017/gid00015/gid00018/gid00024/gid00019/gid00001/gid00076/gid00016/gid00082
+
+=== PAGE 4 ===
+ of 48
+or simulated. However, a ﬁeld only stores 
+values at speciﬁc, discrete locations. The 
+values can be interpolated to estimate values 
+at positions that do not align with the stored 
+values. 
+Fields can be categorised into three types 
+based on the number and semantic of their 
+attributes: 
+•A scalar ﬁeld contains a single attribute. 
+•A vector ﬁeld contains both directions 
+and magnitudes (typically representing 
+directed speed or force values). 
+•A tensor ﬁeld contains multiple attribut-
+es that logically belong together. 
+Below are examples of typical ﬁeld types: 
+•A CT scan of the interior of a human 
+body is a three-dimensional scalar ﬁeld, 
+containing measurements of tissue den-
+sity that indicate how easily X-rays can 
+pass through each voxel. 
+•A ﬁeld containing elevation values rela-
+tive to sea level, sampled using an air-
+borne laser scanner, is a two-dimen-
+sional scalar ﬁeld. 
+•A ﬁeld with wind velocities computed by 
+a weather forecast model is a three-di-
+mensional vector ﬁeld. 
+•A ﬁeld encoding landcover information 
+stores the type of landcover at the loca-
+tion of the cells in a two-dimensional 
+grid. For example, 0 could represent 
+water, 1 could represent forest, 2 could 
+represent buildings, etc. 
+TABLE VS FIELD 
+Let’s explore the differences between tables 
+and ﬁelds. A major distinction is that tables 
+are non-spatial, whereas ﬁelds are spatial: 
+tables are not positioned within a spatial 
+coordinate system and they do not contain 
+information about the size of their cells. In 
+contrast, ﬁelds are deﬁned within a spatial 
+coordinate system, and their cells have spe-
+ciﬁc dimensions. For instance, the three-di-
+mensional cells of a medical CT scan may 
+measure 0.5 × 0.5 × 0.5 mm, while the two-
+dimensional cells of a surface temperature 
+ﬁeld for Australia could measure 500 × 
+500 m. 
+A second major difference between tables 
+and ﬁelds lies in the operations each dataset 
+type supports. 
+A table consists of columns (attributes) and 
+rows (items). Each column contains a differ-
+ent attribute, such as name, salary or age. 
+Columns can be reordered, deleted or 
+added. For example, the salary and age col-
+umns could be swapped, and the name col-
+umn could be deleted to anonymise the 
+dataset. Rows (items) can also be reordered, 
+deleted or added. For instance, items could 
+be sorted by decreasing salary values. 
+In short, with tables, operations such as re-
+ordering, deleting or adding columns and 
+rows result in a modiﬁed dataset that gener-
+ally remains useful.  
+This is not the case with ﬁelds, which con-
+tain samples of a continuous domain, for 
+Dataset Types
+
+=== PAGE 5 ===
+ of 58
+example, surface temperature sampled at 
+regularly spaced locations. Fields support 
+spatial analysis; for example, we could calcu-
+late the average temperature of a geograph-
+ic area, or search the highest and lowest 
+temperature inside a speciﬁc area. 
+However, it does not make sense to reorder 
+the rows or columns of a 2D grid, as re-
+ordering would scramble the grid cells and 
+destroy the spatial continuity of the sampled 
+values. Changing the order or rows or col-
+umns would alter the position of cells and 
+make spatial analysis impossible. 
+In summary, with tables it is permissible to 
+reorder, add or delete rows and columns, 
+whereas doing so with a ﬁeld would disrupt 
+the spatial continuity of its values and pre-
+vent spatial analysis operations. 
+GEOMETRY 
+The items in a geometry dataset are points, 
+lines, areas or volumes that are positioned in 
+a spatial coordinate system. Point geometry 
+is dimensionless, representing only a loca-
+tion. Line geometry is one-dimensional, al-
+lowing movement along the line in one di-
+mension. Area geometry is two-dimensional, 
+permitting movement along two indepen-
+dent coordinate axes within the area. Vol-
+ume geometry is three-dimensional, allow-
+ing movement along three independent axes 
+within the volume. 
+Lines, areas and volumes are constructed 
+from points. For example, a line is made up 
+of a string of points, an area is formed from 
+a closed line, and a volume is created from 
+points forming a three-dimensional shape. 
+Items in a geometry datasets often have 
+attributes. For example, a geometry dataset 
+representing the states and territories of 
+Australia consists of eight items, each with 
+area geometry and attributes such as the 
+state’s name and population. 
+For practical purposes, a geometry dataset 
+often contains only one type of geometry. 
+For example, the 500 most populous cities in 
+the world (only points) or all the lakes in 
+Victoria (only areas). However, a geometry 
+dataset can also contain a mix of different 
+geometry types. 
+
+=== PAGE 6 ===
+ of 68
+FIELD VS GEOMETRY 
+Field datasets and geometry datasets are 
+both spatial, meaning they are positioned 
+within a spatial coordinate system. Let’s ex-
+plore the difference between them and how 
+they can be transformed into each other. 
+A ﬁeld contains values from a continuous 
+spatial domain. The values may change from 
+one cell to the next, and the level of detail 
+of the information that the ﬁeld stores de-
+pends on its cell size. Consider a satellite 
+image with colours in the spectrum visible to 
+the human eye. If we signiﬁcantly enlarge 
+this ﬁeld dataset, we can see the individual 
+pixels (or cells) of the ﬁeld. When we zoom 
+out, the pixels become indistinguishable and 
+appear as continuous colour gradients. 
+A dataset with area geometry, however, is 
+different because its shapes create abrupt 
+boundaries. Consider an area geometry rep-
+resenting the eight states and territories of 
+Australia. If each shape is shown with a dif-
+ferent colour, zooming in or out always re-
+veals the same eight distinct colours, with 
+borders that remain sharp and clearly de-
+ﬁned. This is because the areas are built 
+from strings of point positions. 
+It is possible to convert a ﬁeld dataset into a 
+geometry dataset. For instance, we could 
+create area geometries for groups of cells 
+that have identical or similar values. 
+Conversely, transforming a geometry dataset 
+to a ﬁeld dataset is also possible. For exam-
+ple, consider measuring soil contamination 
+with mercury within the area of an industrial 
+complex. For each measurement, we mea-
+sure a contamination value and also deter-
+mine the position with a GPS receiver, result-
+ing in a point geometry dataset with a mer-
+cury concentration attribute. By applying a 
+spatial interpolation method, we could esti-
+mate the mercury concentration throughout 
+the entire area of the industrial complex. The 
+result would be a ﬁeld dataset, where cells 
+store interpolated mercury concentrations 
+that vary continuously. This transformation 
+from point geometry to a ﬁeld is useful be-
+cause it allows us to visualise the spatially 
+continuous nature of mercury contamination 
+with methods speciﬁc to ﬁeld datasets, such 
+as contour lines or colour gradients.
+Dataset Types
+
+=== PAGE 7 ===
+ of 78
+ATTRIBUTE TYPES
+There are two main types of data attributes: 
+categorical and ordered. Ordered attributes 
+can be further divided into ordinal and 
+quantitative attributes. 
+CATEGORICAL ATTRIBUTES 
+Categorical attributes, also known as nomi-
+nal or sometimes qualitative attributes, do 
+not have an inherent order. They differenti-
+ate between distinct types of items, each 
+with a unique name (the term nominal 
+comes from the Latin nomen, meaning 
+“name”). 
+Examples of categorical attributes include: 
+•Hair colour (e.g., blonde, brown, black) 
+•Ethnicity (e.g., Asian, Hispanic) 
+•Countries (e.g., Mali, Sudan, Chad) 
+•Car type (e.g., hatchback, sedan, SUV) 
+•Postal code (e.g., 2000 for Sydney, 3000 
+for Melbourne) 
+•Phone number (e.g., 03 9905 4000 for 
+Monash University, 03 9035 5511 for 
+the University of Melbourne) 
+Note that categorical attributes can be nu-
+meric, such as postal codes or phone num-
+bers. However, performing arithmetic opera-
+tions on these numbers does not make 
+sense. 
+Some categorical attributes are part of a 
+hierarchy. For example, the house cat (Felis 
+catus) belongs to the Felidae family, which 
+belongs to the Carnivora order. Similarly, 
+Melbourne is a city in the state of Victoria, 
+which is part of Australia. 
+Attribute Types
+
+
+=== PAGE 8 ===
+ of 88
+ORDERED ATTRIBUTES 
+Ordered attributes are sequential, diverging 
+or cyclic.  
+Sequential attributes vary between a mini-
+mum and a maximum value. Examples in-
+clude age and depth below sea level. 
+Diverging attributes have a midpoint (or zero 
+value), where values greater than the mid-
+point are positive, and values less than the 
+midpoint are negative. Examples include 
+temperature and altitude. 
+Cyclic attributes repeat over a set period. 
+Examples include time of day, months of the 
+year, seasons, and compass directions. 
+Ordered attributes are divided into two 
+types: ordinal and quantitative. 
+ORDINAL ATTRIBUTES 
+Ordinal attributes have an implied order, but 
+numerical calculations, such as subtracting 
+or computing a mean, are not possible. 
+Examples of ordinal attributes include: 
+•Clothing sizes (S, M, L, XL) 
+•Rankings in a competition (1st, 2nd, 3rd) 
+•Grades (HD, D, C, P , N) 
+•Days of the week (Mon, Tue, etc.) 
+•Highest education (high school, under-
+graduate, graduate, PhD) 
+•Customer satisfaction levels (dissatisﬁed, 
+neutral, satisﬁed) 
+QUANTITATIVE ATTRIBUTES 
+Quantitative attributes are real numbers and 
+integers, allowing arithmetic operations, 
+such as calculating the mean value. 
+Examples of quantitative attributes include: 
+•House prices in AUD 
+•Temperature in degrees Celsius 
+•Geographic positions in latitude and 
+longitude 
+Quantitative attributes can be converted into 
+ordinal attributes. For example, quantitative 
+marks over 80% can be mapped to the HD 
+ordinal attribute, marks between 70% and 
+80% to D, and so on. However, the inverse 
+conversion from ordinal attributes to quanti-
+tative attributes is not possible.

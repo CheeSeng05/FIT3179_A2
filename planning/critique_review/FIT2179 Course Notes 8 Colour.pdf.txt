@@ -1,0 +1,302 @@
+=== PAGE 1 ===
+ of 111
+COLOUR
+FIT2179 Data Visualisation 
+Course Notes
+14 August 2026
+
+=== PAGE 2 ===
+ of 211
+COLOUR SPACES
+We have seen three colour channels: 
+•Luminance varies between dark black 
+and bright white. Luminance is also 
+called value or brightness. 
+•Saturation is how far away a colour is 
+from grey. A desaturated colour is grey 
+and a fully saturated colour is a pure 
+colour. 
+•Hue is the position in the spectrum of a 
+rainbow. 
+For storing, displaying, and computing we 
+need colour spaces. Colour spaces are not 
+necessarily based on concepts like hue, satu-
+ration and brightness. 
+RGB 
+The most common colour space is the RGB 
+colour space. It has three axes and can be 
+represented in a cube. It has a red, a green, 
+and a blue axis. The values along each axis 
+vary between a minimum of 0 and a maxi-
+mum value, which is identical for all three 
+axis. If we store each value in an 8-bit value, 
+then red green and blue vary between 0 and 
+255. 
+ 
+0 means absence of light and 255 means a 
+maximum of light. A pure red colour has an 
+R value of 255 and a G and a B value of 0. 
+If all values equal 0, the result is black. Black 
+is placed at the corner of the cube above 
+that we cannot see. If all values are 255, the 
+result is white. This is the corner pointing at 
+us. 
+The RGB colour space is used by computer 
+monitors, web browsers, scanners, and digi-
+tal cameras. However, it is not a convenient 
+colour space to pick colours in a user inter-
+face, for example, when designing a data 
+visualisation. 
+HSV, HSL, HSB  
+The HSV, HSL and HSB colour spaces are 
+made for picking colours in a user interface. 
+They transform the RGB colour space by 
+mathematical transformation to three intu-
+itive colour channels. HSV, HSL and HSB can 
+be presented as cylinders or cones, and they 
+differ by how they transform from and to 
+Colour Spaces
+
+=== PAGE 3 ===
+ of 311
+the RGB colour space. H and S stand for hue 
+and saturation, and V, L and B for value, 
+lightness, and brightness.  
+Below are two colour pickers using the HSB 
+colour space. The ﬁrst one uses three sliders 
+for hue, satura2on and brightness. The sec-
+ond picker is from Adobe Photoshop. The 
+two-dimensional panel varies satura2on along 
+the horizontal axis and brightness along the 
+ver2cal axis. Hue is selected along the ver2cal 
+rainbow scale. The two channels displayed in 
+the two-dimensional panel can be selected. 
+Colour Spaces
+
+
+=== PAGE 4 ===
+ of 411
+PERCEPTUALLY LINEAR OR UNI-
+FORM COLOUR SPACES 
+The RGB colour space and the derived HSV, 
+HSL or HSB colour spaces are not perceptu-
+ally linear or uniform colour spaces. 
+What does that mean? Assume that you 
+move by a distance of 50 units in the RGB 
+colour space. Depending on where you start 
+inside the RGB cube, the colour will change 
+massively, or it will only change a little bit. 
+This is a problem when we need to compute 
+with colour values, for example, when inter-
+polating between two colours. When we 
+compute the numerical mean value of two 
+colours, we also expect this colour to be 
+visually between the two original colours. 
+Colour management also requires uniform 
+colour spaces. Colour management trans-
+forms colour values between devices with 
+different colour properties, for example, 
+from a video camera to a monitor, or from a 
+scanner to a printer. 
+CIELAB OR L*a*b* 
+The L*a*b* colour space is a perceptually 
+linear colour space. If we compute the com-
+ponent-wise mean value of two colours in 
+this colour space, the resulting mean value is 
+also visually between the two original 
+colours. There are three axes: 
+•L*: luminance axis 
+•a: green–red axis 
+•b: yellow–blue axis 
+The a axis varies between green and red. 
+The b axis varies between yellow and blue. 
+Note that values can be negative. Green is 
+negative and yellow is negative. If the a val-
+ue and the b value are zero, then we get a 
+colourless, or grey colour. 
+Colour Spaces
+A perceptual linear or uniform colour space is a 
+colour model that seeks to make the colour-
+making attributes perceptually uniform, i.e. 
+identical spatial distance between two colours 
+equals identical amount of perceived colour 
+difference. 
+Source: Wikipedia Color Appearance Model
+
+=== PAGE 5 ===
+ of 511
+DESIGNING DATA VISUALISATIONS WITH COLOUR
+Colour Design
+How should we choose colour when design-
+ing data visualizations? To answer this ques-
+tion, read the excellent blog post What to 
+consider when choosing colors for data vi-
+sualization by Lisa Charlotte Muth at 
+Datawrapper. The following ideas and ﬁg-
+ures are copied from her blog post. 
+WHEN TO USE COLOUR 
+The ﬁrst recommendation is to not overuse 
+colour. For example, we should not use 
+more than a handful of hues to indicate dif-
+ferent categories. If we use too many differ-
+ent colour hues, it becomes very difﬁcult to 
+remember and match colours with attribute 
+values. In fact, in the example below it is 
+better to not use colour at all, and replace 
+the legend with labels and annotations. 
+SAME COLOUR SAME VARIABLE 
+The second advise is to use the same colours 
+for the same variables. In the ﬁrst visualiza-
+tion below, the blue colour is used inconsis-
+tently. In the improved visualisation, blue is 
+used consistently for information about Chi-
+na. 
+
+
+=== PAGE 6 ===
+ of 611
+COLOUR CONTRAST 
+Make sure the contrast between foreground 
+and background colour is visually strong 
+enough. For example, gray text on a blue 
+background is difﬁcult to read. 
+INTUITIVE COLOURS 
+Use colours that your readers intuitively un-
+derstand. Green means yes, or good. Red 
+means no, stop or bad. Also prefer colour 
+that can be observed in real life, such as, 
+green for forest, and blue for water. Avoid 
+stereotypes when selecting colour, such as 
+for different human races, religion, or gen-
+der. For example, avoid pink for girls and 
+blue for boys. 
+LIGHT IS LOW, DARK IS HIGH 
+Use bright colours for low values and dark 
+colours for high values. This is intuitive for 
+readers, but there are exceptions. One ex-
+ception is when using a very dark back-
+ground. With a dark background, bright 
+colours can be used to indicate high values. 
+Another exception applies to elevation on 
+topographic maps, where higher values are 
+commonly shown with brighter colours.
+Colour Design
+
+
+=== PAGE 7 ===
+ of 711
+HUE IS FOR CATEGORIES 
+Avoid using saturation and brightness for 
+showing different categorical attribute val-
+ues. The main channel should be hue. 
+The same applies when using a colour gra-
+dient for a quantitative attribute. Use light-
+ness as the primary channel and optionally 
+vary between two hues. See the page on the 
+evil rainbow colour palette later in this 
+script.
+COLORBREWER 
+Building good colour gradients is difﬁcult; use 
+ColorBrewer instead. ColorBrewer lets you 
+select the number of colours, the colour hue, 
+and whether you need a sequential, diverging 
+or qualitative colour scheme.  
+ColorBrewer can also suggest colours that are 
+visible to people with colour vision impair-
+ment. 
+https://colorbrewer2.org/
+Colour Design
+
+=== PAGE 8 ===
+ of 811
+COLOUR CONSISTENCY 
+Consistency in colour use also helps link mul-
+tiple visualizations and build a brand. Below 
+are visualisations created for the Economist 
+website. You can see that all visualisations 
+consistently use the same red colour and a 
+pale blue colour. 
+Also note that all visualization only use a 
+small number of different colours. This re-
+sults in elegant, recognisable, and easy-to-
+read visualisations. 
+Typography
+Colour Design
+
+=== PAGE 9 ===
+ of 911
+The map below uses one of many different 
+rainbow colour palettes that mainly vary hue 
+for showing quantitative information. 
+This palette is an extremely poor choice, 
+because it is difﬁcult to interpret. When con-
+verted to greyscale, it is obvious that bright-
+ness is not applied consistently. Light colours 
+do not consistently indicate low values and 
+vice versa. 
+Various user studies have been conducted to 
+ﬁnd and evaluate colourful and effective 
+alternatives to rainbow colour palettes. 
+A study by Liu and Heer (2018) found that 
+palettes with a single hue work well. Varying 
+hue within limits also works well when 
+combined with changing luminance. A suc-
+cessful example is the Viridis palette. It 
+varies hue among blue, green and yellow, 
+but the main visual channel is still bright-
+ness. The brightest colours in Viridis show 
+the highest values, and vice versa.
+Rainbow Palettes
+Liu, Y. and Heer, J. (2018).  
+Somewhere over the rainbow: An empirical assessment of 
+quantitative colormaps. 2018 CHI Conference on Human 
+Factors in Computing Systems (p. 598). ACM.
+THE EVIL RAINBOW COLOUR PALETTE
+
+=== PAGE 10 ===
+ of 1011
+COLOUR VISION DEFICIENCY
+Colour vision deﬁciency or colour blindness 
+affects about 8% of all men. Women are 
+rarely affected, because the condition is 
+linked to the X chromosome.  
+A variety of colour vision deﬁciencies exist, 
+but most affected people have difﬁculty dis-
+tinguishing red and green. The term colour-
+blind is misleading, because they perfectly 
+see other colours, and most can still distin-
+guish shades of red and green to a certain 
+degree. 
+The ﬁgure below shows how someone with 
+colour vision impairment perceives colour. 
+On the left are a few colours that someone 
+with normal vision can distinguish. On the 
+right are the same colours as seen by some-
+one with deuteranopia, a strong red-green 
+vision impairment. If the two sides look very 
+similar or even identical to you, then you 
+have the deuteronopia condition.  
+Red-green palettes are particularly problem-
+atic in data visiualisation. On the next page 
+is an example of a map showing no votes in 
+red and yes votes in green. On the right side 
+is the map as someone with colour blindness 
+sees it. The yes and no votes are indistin-
+guishable. 
+Below is the same map with a different 
+colour palette. The red colours are replaced 
+with purple colours, which are seen as blue 
+colours by those with colour vision impair-
+ment. 
+Colour Blindness
+
+
+=== PAGE 11 ===
+ of 1111
+COLOR ORACLE 
+Software can simulate colour blind vision, 
+which is useful to make sure data visualiza-
+tions are readable by everybody. An example is 
+the Color Oracle app. 
+colororacle.org
+Colour Blindness

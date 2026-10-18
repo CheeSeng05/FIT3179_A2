@@ -1,0 +1,160 @@
+=== PAGE 1 ===
+FIT3179 DATA VISUALISATIONWeek 7 Studio Activity (Part A): Introduction to JavaScript
+1. Introduction to JavaScript 2
+1.1 Syntax of JavaScript 2
+1.2 Saving and Embedding JavaScript files 2
+2. Data Types in JavaScript 3
+2.1 An Easy Practice Window 3
+2.2 Primitive values 4
+2.3 Objects 6
+2.4 Adding numbers and adding strings 6
+2.5 Convert string to number or number to string 7
+2.6 Date data type 7
+3. Adding Interactivity with JavaScript 9
+3.1 Variables in JavaScript 9
+3.2 Triggering Events in JavaScript 9
+
+=== PAGE 2 ===
+1. Introduction to JavaScript
+JavaScriptis a Client-sidescriptinglanguage.JavaScriptcodeis downloadedto theuser'scomputer to be executed in the browser. This has advantages:
+● The browser can process user interaction events in real-time.
+● Code can execute without using server resources.
+1.1 Syntax of JavaScript
+JavaScriptstatementsareplacedwithinthe<script>...</script>HTMLtagsinawebpage.JavaScriptusesaC/Java-likesyntax.EachindividualstatementinJavaScriptshouldbeseparatedusingsemicolons.Blocksofcodeshouldbewrittenbetweenapairof{}.Ablockofcodeisusedfordeclaring functions, loops, etc.
+var end = 10; // An individual statement.for (let i = 0; i < end; i++) { // Start of a block of code with one statement.console.log(i * 2) // A single statement inside the block of code.} // The end of the the block of code.
+Figure 1. Basic JavaScript code
+1.2 Saving and Embedding JavaScript files
+There are two methods to embed a JavaScript file in HTML code:
+● InternalEmbedding: JavaScriptcanbeembeddeddirectlyintotheHTMLdocumentbyplacingcodeinan<script>element,whichisbestplacedinthe<head>elementorattheendof thedocumentjustbeforeclosingthe<body>elementasshownin thefirst<script>element in Figure 2.
+● ExternalEmbedding: JavaScriptcanbe writtenin a separatedocumentandcanbeembeddedintheHTMLdocumentbyusingthe<script>elementthatlinkstothe.jsfileusing thesrcattribute, as shown by the second<script>element in Figure 2.
+Figure 2. Internal and external embedding
+
+
+=== PAGE 3 ===
+2. Data Types in JavaScript
+Therearemanydifferentbuilt-indatatypesinJavaScript.Thissectionattemptstolistmostofthebuilt-in data types available in JavaScript with their properties.
+2.1 The Console Window for Practicing
+OneeasywaytotestJavaScriptcommandsistousetheconsolewindowfromthedevelopertoolsofyourwebbrowser. To openit in Chrome,pressF12if youareusingWindows,oryoucanpressoption + command + Iif you are using macOS.
+Figure 3. Console Window in Chrome Browser.
+JavaScripthas primitivevalue typesand objecttypes.Youcanusethetypeoffunctiontocheckthedata type of a variable.
+Figure 4. Thetypeoffunction returns the type ofa variable.
+
+
+=== PAGE 4 ===
+2.2Primitive values
+● Number type(numberandNaN)JavaScript has only one number type; all numbers are always 64-bit floating point.
+NaNis shortfor“Nota Number”.It is theresultofanarithmeticoperationthatcannotbeexpressedasanumber, forexample,adivisionbyzero.ItisalsotheonlyvalueinJavaScriptthat is not equal to itself.
+● Boolean type(trueandfalse)
+trueandfalsecanbeusedtodeterminetheoutputoflogicaloperations.Forexample,ifyouroperationis1equalto1,thentheoutputwillbetrue,ifyouroperationis1equalto2,thentheoutputwillbefalse.The==operatorcomparestwovariablesandreturnstrueiftheyhavethesame value. The == operator compares values across different data types.
+If youwantto comparevalueanddatatypeat thesametime,usethe===operator.Numerical numbers 1 and 0 can be interchangeable fortrueandfalse.
+Intheconsole,comparefalsewith0usingthe==operatorandthe===operator. Makesureyou understand the different results.
+Figure 5. Usage of == and === in JavaScript
+Figure 6.Equalityof boolean data and numeric data.
+
+
+=== PAGE 5 ===
+● Null type(null)
+Nullin general means nonexistence or invalid, andthe data type ofnullis an object.
+Figure 7. Null is defined as an object type in JavaScript.
+● Undefined type(undefined)
+Undefinedmeansthatdatahasn’tbeenassignedtoanything.Itcommonlyhappensifyoutryto access data or objects with an invalid name.
+Figure 8. Variables without value assignment are undefined.
+● Stringtype(charactersincludenumbers,alphabet,andspecialcharacters)JavaScript'sstringtype is used to represent textual data.
+Figure 9. Different characters for string type data.
+
+
+=== PAGE 6 ===
+2.3Objects
+In JavaScript, objects can be seen as a collection of properties. 
+Figure 10. Examples of object type data.
+2.4 Adding numbers and adding strings
+Addingnumberswillcomputethearithmeticsum;whileaddingstringswillconcatenatetheindividualstringstogetherandcreatea newstring.AddingnumbersandstringstogethermightnotleadtoanerrorinJavaScript,butitisimportanttomakesurethedatatypeofallitemsisthesamebeforeyouadd them together.
+Figure 11. Example of adding numbers and adding strings.
+
+
+=== PAGE 7 ===
+2.5 Convert string to number or number to string
+You can convertthe data type fromstringto numberby usingparseInt(string)orparseFloat(string). You can also converta numberinto a string by usingYourNumber.toString().
+Figure 12. Convert number to string or string to number in JavaScript.
+Exercise 1:
+Createtwovariablesaandb,andseta=1andb=10.ConvertaandbtotwostringvariableswithnewnamesusingtoString. Thenusethe+ operatortocreatevariablesc,d,e,andf withthevalues and types as listed below. You may useparseIntto create f.
+c = 11
+d = ‘11’
+e = ‘101’
+f = 101
+2.6 Date data type
+The parse() methodtakesadatestring(suchas "2011-10-10T14:48:00")andreturnsthenumberofmillisecondssinceJanuary1,1970,00:00:00UTC.Youcanalsocreateanewdatewithaspecificyear, month, and day.
+
+
+=== PAGE 8 ===
+Figure 13. Create a date object or get the current date in JavaScript.
+● Date format
+Thedateobjectcanbe formattedintoa specificstyle.For example,youcanuseDateObject.toLocaleString()to convertthe dateintothe“day-month-year, time”format,or youcanuseDateObject.toDateString()to convertthe dateintothe“weekday month day year” format.
+Figure 14. Usage oftoLocaleString()andtoDateString()
+You can also specify your choice of format in the parametersof theDateObject.toLocaleString()function.
+Figure 15. Change date format with a different style or customized styles.
+
+
+=== PAGE 9 ===
+Exercise 2:
+Createa datestringof thecurrentdateandtimein threedifferentformats:“Day-Month-Year,HH:MM:SS AM/PM”, “Year-Month-Day, HH:MM:SS”, and “Weekday, Day/Month, HH:MM:SS”.
+
+=== PAGE 10 ===
+3. Adding Interactivity with JavaScript
+3.1 Variables in JavaScript
+VariablesinJavaScriptcanbedeclaredwiththevarkeyword,asshownintheexampleinFigure16.Variablesarecontainersforstoringdata(values).Thegeneralrulesforconstructingnamesforvariables (unique identifiers) are:
+● Names can contain letters, digits, underscores, and dollar signs.● Names must begin with a letter.● Names are case sensitive (Abc, ABC and abc are different variables).
+Itisrecommendedthatyouusethecamelcaseconventionwhennamingvariables,forexample,getElementByIdinstead of something likeget_elementBy_ID.
+Thevalueofanyvariablecanbeprintedtoa consolewithconsole.log(variableName), seeFigure1(section1).Everybrowserhasdevelopertoolsthatareaccessiblethroughyourbrowser’smenu; one of these tools is the console.
+Figure 16. A simple example of declaring and using variables
+3.2 Triggering Events in JavaScript
+A JavaScriptfunctionis definedwiththefunctionkeyword,followedbythenameofthefunction,whichisthenfollowedbyparentheses()asshowninFigure17.AJavaScriptfunctionisexecutedwhensomeothercodeinvokesit (callsit) or it is calledbyitself.Therecanbemultipleornoargumentsatallintheparentheses.Thecodethatisplacedinthe{}isexecutedlinebylineintheorder it has been written.
+Inthisexample,wewilldemonstratea JavaScriptfunctionthatiscalledwhenabuttonispressed.Thefunctionwillincrementa countervalueeachtimeit iscalledanddisplaythenumberofbuttonclicksinan<span>element.Thisexamplewillalsodemonstratehowtotogglethevisibilityofanelement when a text element is clicked.
+Step 1: As shown in Figure 17,
+● Create a new HTML document and save it as events.html.
+● Under the<head>element, add theevents.cssfile
+● Insidethe<body>element,createa<h1>element,a<button>elementanda<span>elementto demonstrateclickeventsgettingtriggeredontheclickof thebutton.AddanumberOfClicksattributeto the<span>elementandsetitsvalueto 0.ThiscustomnumberOfClicksattributewillstorethenumberoftimesthebuttonhasbeenclickedandwill be updated every time the JavaScript function shown in  Figure 20 is called.
+● Justbeforeclosingthe<body>element,addan<script>elementandin thesrcattribute, mention the name of our script file (events.js).
+
+
+=== PAGE 11 ===
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><title>Triggering Events in HTML</title>
+<!-- The style sheet applied to this document. --><link rel="stylesheet" href="events.css"></head><body><h1>Triggering click events on HTML elements</h1>
+<!-- A click on this button will trigger an event. --><button id="incrementButton">Increase the Counter</button><!-- The text and the numberOfClicks attribute change when the button isclicked. --><span id="counter" numberOfClicks="0">0</span>
+<!-- This .js file is loaded and then runs after all other elements areloaded. --><script src="events.js"></script></body></html>
+Figure 17. Structure of the events.html document
+Step2: Createa newCSSfileandsaveit asevents.css.Includethefollowingcodeto setanappropriate spacing  between the<button>and<span>element.
+Figure 18. Structure of events.css file
+Step3:Now, let’saddtheJavaScriptcodetohandleevents.CreateanewJavaScriptfileandsaveitas events.js● CreatetwoJavaScriptcommentsbyadding//infrontofaline,asshowninFigure19.Bydoing this, it is easy to separate function declarations and function calls.
+Figure 19. Comments in JavaScript
+
+
+=== PAGE 12 ===
+● Declarea functionthatwillhandletheclickevent.CallthisfunctionincrementCounter.Thisfunctionfirstretrievesthespanelement,thenreadsthenumberOfClicksattributeofthespanelement,incrementsthatvalueby one,andfinallyupdatesthetextandthenumberOfClicksattribute of the span element.
+○ To retrieve an element, we use the predefined JavaScript functiondocument.getElementById(‘yourID’). Wehavesettheidattributeofthe<span>elementin the HTMLdocumentto “counter”(see Figure17). So usedocument.getElementById(‘counter’);
+○ UsethepredefinedElement.getAttribute(‘attributeName’)functiontoget the value of thenumberOfClicksattribute andstore it in a count variable:var count = element.getAttribute('numberOfClicks');
+○ Increment the value of the count variable by one.
+○ Element.innerTextisthetextualcontentdisplayedbyaspanelement.Assigninganewvalueto theinnerTextattributemodifiesthetext,inthisexample,thenewtextisthecountvalue.
+○ UseElement.setAttribute(name,value)to replacethe valueof our customnumberOfClicksattribute.The initialvaluethatwe set whendefiningthenumberOfClicksattributewas0.EachtimetheincrementCounterfunctionisrun, the value of thenumberOfClicksattribute willbe increased by 1.
+○ Figure20showstheentirefunction.Makesureyouunderstandeachstepinthis
+function incrementCounter() {var spanElement = document.getElementById('counter');var count = spanElement.getAttribute('numberOfClicks');count++;spanElement.innerText = count;spanElement.setAttribute('numberOfClicks', count);}
+Figure 20. Function declaration for incrementing counter
+● Inthescriptinitialisationsection,weneedtoassigntheincrementCounterfunctionasaneventhandlertothebutton.AgainusethegetElementByIdfunctiontoretrievethebutton.ThenaddtheincrementCounterfunctionasa handlerforclickeventstothebuttonusingthe predefinedtarget.addEventListener(‘eventname’,listener)function.Thefirstparameterforthisfunctionisthetypeofeventwewanttolistento,whichis‘click’inourcase.Thesecondparameteristhefunctionthatwillbecalledwhentheeventoccurs, which is ourincrementCounterfunction (seeFigure 21).
+// Script callsdocument.getElementById('incrementButton').addEventListener('click',incrementCounter);
+Figure 21. Assigning theincrementCounterfunctionas an event handler to the button
+
+=== PAGE 13 ===
+● MakesuretheincrementCounterfunctionisnowcalledeverytimethebuttonwithID'incrementButton', andyouseethetextincrementby1on each button click.
+● Togglingvisibilityofelements:Let’saddanimagethatisshownorhiddenwhenatextelementisclicked.Youcanlaterextendthisexampletoswaptwoormoreimages(orother HTML elements).
+● In theevents.htmlfile,createa new<div>elementasa containerto holdan<img>element.Addthepathof thetoggle.pngimagefileintothesrcattributeof theimageelement,asshownin Figure22.Also adda<p>element.Whenthistextisclicked,theimage will change visibility. Assign a unique id to thediv, theimgand thepelements.
+<divclass="chartContainer"><pid="chartToggle">Click to toggle chart visibility</p><imgsrc="images/toggle.png"id="chart1"></div>
+Figure 22. Creating a new container to toggle the visibility of an image
+● Intheevents.cssfile,addthefollowingcodetogivethecontaineranappropriatemarginandrestrict the size of the image (Figure 23).
+.chartContainer{margin-left:50px;margin-top:100px;}img{width:400px;}
+Figure 23. events.css file
+● Intheevents.jsfile,createthefunctionnamedtoggleVisibility(), whichwillbetheeventhandler. EachHTMLelementhasa styleattribute(whichcanbedefinedbyCSS).Onechildattributeofthisstyleiscalleddisplay,whichcanbe“none”or“block”.Avalueofdisplay:nonemeanstheelementis notrendered,andno spaceis reservedforitbetweentheotherelements.Avalueofdisplay:blockistheopposite,thatis,spaceforthe element is “blocked”, and the element is rendered.
+function toggleVisibility() {var chartImage = document.getElementById('chart1');if (chartImage.style.display === "none") {chartImage.style.display = "block";} else {chartImage.style.display = "none";}} Figure 24. Toggle Visibility function
+
+=== PAGE 14 ===
+● AsshowninFigure24,thevariablechartImageselectstheimagewiththeIDattributechart1. With.style.display, thevalueofanelement’sdisplaytypeiseithersetorread.
+● TheIF-ELSEconditionalin Figure24comparestheelement’s displaypropertywith“none”and“block”strings.ThecodeaftertheIFchecksthestyle.displaypropertytoblock(if the element is currently hidden), elsestyle.displayis set tonone.

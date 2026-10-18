@@ -1,0 +1,287 @@
+=== PAGE 1 ===
+ of 18
+MAP PROJECTIONS
+FIT3179 Data Visualisation 
+Course Notes
+7 September 2026
+
+=== PAGE 2 ===
+ of 28
+SPHERICAL COORDINATES
+The rotation axis of the Earth deﬁnes the 
+location of the North Pole and the South 
+Pole. Half-circles on the sphere running from 
+the North Pole to the South Pole are called 
+meridians. There are an inﬁnite number of 
+meridians. The globe on this page shows 
+meridians with a spacing of 30°. The Prime 
+Meridian passes through Greenwich, in Lon-
+don and is the origin for longitudinal angles. 
+Longitude is measured relative to the Prime 
+Meridian and is positive eastwards and neg-
+ative westwards. Its range is between −180° 
+and +180°.  
+The equator is the circle around the sphere 
+halfway between the two poles that divides 
+the sphere into two hemispheres. The equa-
+tor is the origin for latitudinal angles. Lati-
+tude is measured starting at the equator and 
+is positive towards the North Pole and nega-
+tive towards the South Pole. Its range is be-
+tween −90° and +90°. 
+A parallel is a circle of constant latitude, 
+which is parallel to the equator, hence the 
+name. As with meridians, there exist an inﬁ-
+nite number of parallels. The globe on this 
+page has parallels drawn for every 30°. 
+Earth is a three-dimensional object, but 
+when we assume that Earth is a perfect 
+sphere, we need only a two-dimensional 
+coordinate system (latitude and longitude) 
+to deﬁne any location on its surface. 
+Map Projections
+SIZE OF EARTH 
+The size of Earth is simple to remember. 
+The metre unit was originally deﬁned by 
+stating that the distance between the 
+equator and one of the poles is 
+10,000 km. The full circumference of the 
+globe is therefore approximately 
+40,000 km. The radius is 6,371 km.
+MAP PROJECTION DEFINITION 
+A map projection is a transformation from 
+the curved two-dimensional surface of a 
+globe to a plane.  
+A map projection is normally deﬁned by 
+two equations that convert spherical lon-
+gitude/latitude coordinates to Cartesian 
+XY coordinates.  
+
+
+=== PAGE 3 ===
+ of 38
+MAP PROJECTION DISTORTION
+Transforming the curved globe surface to a 
+plane is impossible without distortion. Un-
+derstanding distortion is important when 
+selecting a projection for a map. 
+There exist two fundamental types of distor-
+tion introduced by map projections: areal 
+distortion and angular distortion. 
+The Mercator projection is an example that 
+distorts area (below). Areas are increasingly 
+exaggerated towards the poles, which is 
+why Antarctica appears enormous For this 
+reason, the Mercator projection is not a 
+good choice for a world map. The Mercator 
+projection, however, does not distort angles, 
+which makes it a useful projection when 
+angles are measured on a map, for example 
+for navigation at sea.
+ 
+Equal Earth is an example of an equal-area 
+map projection (below). Equal-area projec-
+tions do not distort the relative size of areas. 
+For example, Greenland is 14 times smaller 
+in area than Africa. On a map using an 
+equal-area projection, this ratio is preserved: 
+On the map, Greenland is also 14 times 
+smaller than Africa. However, this is not the 
+case on a map using a projection that does 
+not preserve relative areas. For example, on 
+a map using the Mercator projection, Green-
+land is greatly inﬂated in size because it is 
+close to a pole, resulting in Greenland and 
+Africa being shown at a similar size. 
+A disadvantage of equal-area projections is 
+that they distort the shape of landforms. In 
+general, shapes are more distorted when 
+they are closer to the border of the map. For 
+example, on the Equal Earth map, New Zea-
+land is rotated and Alaska is distorted. 
+Map Projections
+
+=== PAGE 4 ===
+ of 48
+PROJECTIONS FOR WORLD MAPS
+Many projections for world maps exist. Such 
+projections either are equal-area projections 
+that do not distort area, or compromise pro-
+jections that accept a small amount of area 
+distortion to show landforms with less de-
+formation. 
+ 
+The Robinson projection (above) is a com-
+promise projection that distorts both areas 
+and angles. It slightly enlarges area towards 
+the poles to more clearly show their shapes. 
+The Robinson projection is widely used, and 
+many people consider it visually pleasing. 
+ 
+The Equal Earth projection (above) is an 
+equal-area projection. The Equal Earth map 
+projection is very similar to the Robinson 
+projection, but areas near the poles are not 
+enlarged. Compare, for example, the size of 
+Antarctica on both maps. 
+ 
+The Mollweide projection also does not dis-
+tort areas. The outer shape is an ellipse, 
+which hints at the spherical shape of Earth. 
+However, the shape of landforms is consid-
+erably deformed near the poles. 
+ 
+The equirectangular projection transforms 
+meridians and parallels to straight lines of 
+constant spacing. It distorts areas and an-
+gles, and is often used to distribute geodata.
+Map Projections
+PROJECTIONWIZARD.ORG 
+ProjectionWizard.org simpliﬁes the selec-
+tion of map projections for world and 
+regional maps. The user selects the area 
+shown on the map and the property that 
+you want to preserve, and ProjectionWiz-
+ard suggests an appropriate projection. 
+
+=== PAGE 5 ===
+ of 58
+PROJECTIONS FOR REGIONAL MAPS
+When selecting a projection for a map that 
+shows a section of Earth, such as a conti-
+nent, a country, or a smaller area, there are 
+three classical types of map projections to 
+choose from. They are grouped by their de-
+velopable surface. A developable surface is a 
+geometric shape that can be unwrapped to 
+a ﬂat plane. There are three developable 
+surfaces: cylinders, cones, and planes.  
+Conceptually, a map projection for a region-
+al area transforms coordinates from the 
+sphere to these developable surfaces, which 
+are then ﬂattened (or developed) to create 
+the ﬁnal map. In practice, only a few projec-
+tion equations use developable surfaces, but 
+the concept of developable surface is never-
+theless useful for selecting a map projection 
+that minimises distortion. 
+The resulting groups of projections are 
+called cylindrical projections, conic projec-
+tions, and azimuthal (or planar) projections. 
+When selecting a projection for a regional 
+map, the ﬁrst step is to identify the aspect 
+ratio of the mapped area: (1) landscape, 
+(2) portrait, or (3) square.  
+The second step is to identify the central 
+latitude of the area: (1) close to the equator, 
+(2) between the equator and a pole, or (3) at 
+a pole. 
+With these two pieces of information, the 
+developable surface that most tightly ﬁts the 
+mapped area on the globe can be selected.  
+The developable surfaces below illustrate 
+three examples. When the area shown on 
+the map has a landscape aspect ratio and it 
+is located along the equator, then a cylinder 
+ﬁts the area tightly, and a cylindrical map 
+projection is chosen (left). When the area 
+has a landscape aspect ratio and is located 
+between the equator and a pole, then a 
+cone ﬁts the area tightly, and a conic map 
+projection is chosen (centre). When the area 
+has a square aspect ratio, a plane ﬁts the 
+area most closely, and an azimuthal (or pla-
+nar) map projection is used (right).
+Map Projections
+
+
+=== PAGE 6 ===
+ of 68
+Map Projections
+PROJECTION TYPES
+The many map projections can be grouped 
+into ﬁve categories: the three developable 
+surfaces, plus a category for projections for 
+world maps and one for special cases. 
+•Conic projections are useful for showing a 
+section of the globe on a map with a land-
+scape orientation. They show lines of con-
+stant longitude as straight lines and lines 
+of constant latitude as arcs of circles. 
+•Azimuthal or planar projections are use-
+ful for square-format maps, for showing 
+the poles with a spider-web-like pattern of 
+meridians and parallels of latitude, and for 
+showing a hemisphere.  
+•Cylindrical projections are useful for maps 
+showing an area along the equator. They 
+show parallels of latitude and meridians as 
+straight lines intersecting at straight an-
+gles. Cylindrical projections can also be 
+used with a so-called transverse aspect to 
+show an area with a portrait format. 
+Transverse cylindrical projections have 
+curved parallels and meridians. 
+•Pseudocylindrical projections show par-
+allels of latitude as straight, parallel hori-
+zontal lines, while meridians are curved 
+(except for the straight central meridian). 
+Most pseudocylindrical projections show 
+the poles as lines to reduce the distortion 
+of shapes in polar areas. The Robinson, 
+Equal Earth, and Mollweide map projec-
+tions are examples of pseudocylindrical 
+projections. Pseudocylindrical projections 
+are only useful for world maps. 
+•Many other projections exist that do not 
+ﬁt neatly into the four categories above. 
+
+=== PAGE 7 ===
+ of 78
+Map Projections
+A cylinder with a transverse aspect (left) un-
+wrapped (center) for a map in portrait for-
+mat (right).
+The Spilhaus map projection is an example 
+that belongs to the other category. It was 
+designed to show all of Earth’s oceans as a 
+connected area, which is useful for mapping 
+the seaﬂoor.
+
+=== PAGE 8 ===
+ of 88
+WEB MERCATOR
+Map Projections
+Tableau, Google Maps, OpenStreetMap, and 
+many other mapping tools use the Web 
+Mercator projection, which is a variation of 
+the Mercator projection with a square for-
+mat. The Mercator projection is appropriate 
+for maps that zoom in on a small area be-
+cause then the area distortion across the 
+map is not large. However, it is a poor 
+choice for world maps because it dramatical-
+ly inﬂates the size of polar areas. The ﬁgure 
+below shows a map with the Mercator pro-
+jection (bright blue) with countries scaled to 
+their correct relative size overlaid (dark blue). 
+ 
+The Mercator projection is a cylindrical pro-
+jection that shows parallels and meridians as 
+straight lines. This is very convenient for de-
+velopers of web maps because north is al-
+ways oriented upwards, which is not the 
+case with many other projections. 
+The Web Mercator projection also clips the 
+map at latitudes of about ±85°, resulting in 
+a square map. A square map is convenient 
+to subdivide into regular tiles at a series of 
+zoom levels, and a tiled image pyramid.  
+Zoom level 0 consists of a single square tile 
+of 256×256 pixels showing the entire globe 
+within ±85° latitude. Zoom level 1 doubles 
+the number of tiles in both directions and 
+uses four tiles. The level 1 map is twice as 
+large and contains more detail. The same 
+tiling scheme is used for level 2 and all sub-
+sequent levels.

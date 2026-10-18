@@ -1,0 +1,394 @@
+=== PAGE 1 ===
+ of 19
+MARKS AND 
+CHANNELS
+FIT2179 Data Visualisation 
+Course Notes
+Monash University 
+27 February 2026
+
+=== PAGE 2 ===
+ of 29
+MARKS
+Marks and channels are the building blocks 
+for visualising table, network, ﬁeld, and 
+geometry datasets. Marks and channels to-
+gether make invisible data attributes visible. 
+Marks are the fundamental geometric ele-
+ments that are placed on a canvas to build 
+data visualisations. There are ﬁve types of 
+marks: point (zero-dimensional), line (one-
+dimensional), area (two-dimensional), vol-
+ume (three-dimensional), and text. 
+ 
+Three-dimensional volume marks are mainly 
+used for three-dimensional visualisation. 
+Examples include cubes, spheres, or sur-
+faces. This text focuses on two-dimensional 
+visualisation and does not further discuss 
+three-dimensional volume marks. 
+Text is also a fundamental graphical element 
+that conveys information. However, whether 
+text should be considered as a type of mark 
+is debatable because it can be argued that 
+the outlines of a text are areas. 
+A channel (or visual variable) determines the 
+visual appearance of marks. For example, a 
+colour channel may show line marks on a 
+map with red to represent highways. 
+When the author of a data visualisation 
+chooses a visualisation method, they also 
+implicitly select the marks and channels of a 
+visualisation. For example, when selecting a 
+bar chart for a table dataset, we use line 
+marks, which form the individual bars of the 
+chart, and the size channel, which varies the 
+length of the bars to encode attribute val-
+ues. 
+The author of a visualisation can also explic-
+itly vary a channel. In the bar chart example, 
+we could show bars representing past values 
+with blue and bars representing forecast 
+values in light grey. In this example, we use 
+the colour channel to show a categorical 
+attribute (that is, past or forecast). 
+The combination of marks and channels 
+encodes data: invisible attribute values are 
+encoded as visual signs that form a data 
+visualisation. Readers of a data visualisation 
+Points Lines Areas
+Marks and Channels
+CHANNELS
+TERMINOLOGY 
+The term channel is common in the data 
+visualisation literature, but there are many 
+synonyms consisting of combinations of 
+visual/graphical/perceptual with channel/
+variable. A widely used synonym is visual 
+variable, which is used in the cartographic 
+literature.
+
+=== PAGE 3 ===
+ of 39
+invert the encoding: they observe the visual 
+signs and gain an understanding of the data. 
+Not all channels are equally effective at en-
+coding data attributes. Some channels are 
+more effective than others. 
+There exist two major groups of channels: 
+channels for ordered attributes, and chan-
+nels for categorical attributes. Most channels 
+can only be used for encoding either or-
+dered attributes or categorical attributes. 
+There are six important channels: three dis-
+tinct colour channels (hue, saturation, and 
+luminance), the size channel (with distinc-
+tions for point, line, and area marks), the 
+shape channel (mainly for point and line 
+marks), and the position channel. There are 
+additional channels, which are occasionally 
+used for encoding data in a visualisation. 
+COLOUR HUE 
+Hue is the property that distinguishes the 
+colours in a rainbow. 
+A rainbow transitions between these hues: 
+red, orange, yellow, green, cyan, blue, violet. 
+ 
+Brown and pink are two examples of hues 
+that are not visible on a rainbow. Brown is 
+orange with reduced luminance, and pink is 
+red with reduced saturation. 
+The colour gradient below gradually varies 
+hue; all colours are fully saturated and lumi-
+nance is constant.
+ 
+The hue channel can encode categorical 
+attributes but not ordered attributes, be-
+cause there is no intuitive order in hues. For 
+example, when comparing a blue and a 
+green dot, we do not intuitively infer that 
+the blue dot is encoding a higher value and 
+the green dot a lower value (or vice versa). 
+Black and white are not colour hues. Black is 
+the absence of light and white is the pres-
+ence of light with all visible wavelengths. 
+
+
+=== PAGE 4 ===
+ of 49
+ 
+COLOUR SATURATION 
+Saturation indicates how far away a colour 
+is from a shade of grey. 
+A rainbow shows fully saturated colours. 
+Saturation varies between grey and a pure 
+colour as a rainbow shows it. In the example 
+below, hue and brightness do not change; 
+only the saturation channel decreases from 
+left to right. Minimum saturation is on the 
+right side, where the blue colour has transi-
+tioned into grey. 
+ 
+COLOUR LUMINANCE, VALUE, 
+BRIGHTNESS OR LIGHTNESS 
+Luminance/value/brightness/lightness refers 
+to how bright or dark a colour appears.  
+For the purpose of data visualisation, colour 
+luminance can also be called colour value, 
+colour brightness or colour lightness. All 
+terms express how dark or bright a colour is. 
+In the example below, the hue is purple and 
+colour luminance varies between dark and 
+bright. Black on the left side is the minimum 
+brightness, and white on the right side is the 
+maximum brightness. 
+ 
+SIZE  
+The size channel is for ordered attributes. 
+We can vary the size of a dot (for instance, 
+to distinguish small and large cities on a 
+map), we can vary the width or length of a 
+line (for instance, to show attribute values in 
+a bar chart) , or we can shrink or enlarge an 
+area (for instance, to encode values in a tree 
+map). 
+There are three different size channels, one 
+for each added dimension: length is a one-
+dimensional size, area is a two-dimensional 
+size, and volume is a three-dimensional size. 
+SHAPE ˛ ˒ ˙⬛ 
+Marks with different shapes can indicate 
+different categorical attributes. 
+POSITION 
+Spatial position is often overlooked when 
+listing marks. The position channel can 
+change the meaning of a mark. For example, 
+a knob of a slider indicates a small or a large 
+quantity, depending on its position. Another 
+example is the position of a dot in a scatter-
+plot. Depending on where the dot is posi-
+tioned, it encodes different attribute values. 
+OTHER CHANNELS 
+Besides the three colour channels, size, 
+shape, and position, there are various other 
+visual channels that can be applied to marks 
+for visualising data. 
+Marks and Channels
+
+=== PAGE 5 ===
+ of 59
+Orientation, angle, and tilt can be consid-
+ered synonyms. It orients or rotates a mark 
+to visualise an attribute. For example, an 
+arrow can be oriented to indicate an increas-
+ing ⾭ or a decreasing ↘︎ value. 
+Transparency or opacity changes how a 
+mark is blended with its background. Trans-
+parency is an important tool for creating 
+aesthetically pleasing visualisations, but it is 
+rarely used to encode data. 
+Curvature bends a mark. It is rarely used for 
+visualising ordered attributes.  
+Text can be varied with typographic chan-
+nels. Examples include type weight (bold vs. 
+thin) to show ordered attributes or style 
+(slanted vs. upright) to show categorical 
+attributes. These typographic channels are 
+speciﬁc to text. 
+Various authors have extended the frame-
+work of visual marks and channels to include 
+animation, sound, and tactile channels. 
+However, animation and sound are rarely 
+used for encoding data. 
+CHANNELS APPLIED TO MARKS 
+The following ﬁgure illustrates how channels 
+and marks are combined. Note that the 
+combinations of areas with size and shape 
+channels result in cartograms, which are a 
+group of specialised visualisation methods 
+for geographic maps. 
+Image after: GIS&T Body of 
+Knowledge 
+www.ucgis.org/site/gis-t-body-
+of-knowledge
+TERMINOLOGY 
+Note that the term area has two distinct 
+meanings. On the one hand, an area is a 
+type of mark that has a two-dimensional 
+extent (such as a square or a region on a 
+map). On the other hand, area is also a 
+channel when referring to a two-dimen-
+sional size.
+
+=== PAGE 6 ===
+ of 69
+We can also apply more than one channel to 
+a mark. For example, we can vary the size 
+and the colour of a dot. The two channels 
+could be redundant and encode the same 
+data attribute, or they could be complemen-
+tary and encode two different attributes.
+When two channels are applied to a mark, 
+we speak of bivariate encoding. Multivariate 
+encoding is the term for two or more chan-
+nels expressing different attributes. 
+The small map below shows an example 
+with a single ordered attribute. The size of 
+the circles, the brightness of the circles, and 
+also the hue of the circles (yellow-green for 
+small values and green for large values) vary 
+to show a single attribute with a redundant 
+encoding. 
+ 
+The large map showing penguin colonies 
+also uses bivariate encoding, but varies the 
+colour of the circles depending on a second 
+attribute, which indicates when the colony 
+was discovered. 
+Marks and Channels
+Image: National Geographic Magazine, November 2012.
+
+=== PAGE 7 ===
+ of 79
+CHANNELS RANKING
+Some channels can only encode ordered 
+attributes, and other channels can only en-
+code categorical attributes. The following 
+ﬁgure shows the two groups. The left col-
+umn lists the most important channels for 
+encoding ordered attributes. The right col-
+umn shows the channels that can be used to 
+visualize categorical attributes. 
+The ranking of the channels from most ef-
+fective at the top to the least effective at the 
+bottom is the result of many human subject 
+studies. Cleveland and McGill published a 
+foundational study that introduced this or-
+der by effectiveness. 
+Effective in this context means how accu-
+rately humans decode the channels.  
+The order from most effective to least effec-
+tive is particularly important for ordered at-
+tributes. Position is the most effective chan-
+nel for ordered attributes. That is, with posi-
+tion, humans are very good at decoding 
+attribute values from a mark. If you look at 
+the dots on the horizontal scales on the top-
+left, it is intuitive to understand why, as it is 
+easy to estimate that the ﬁrst dot is posi-
+Channels for Ordered Attributes
+Most effectiveLeast effective
+Channels for Categorical Attributes
+Spatial region 
+Colour hue 
+Shape 
+Position on common scale 
+Position on unaligned scale 
+Length (1D size) 
+Orientation/angle/tilt 
+Area (2D size) 
+Colour luminance 
+Colour saturation 
+Cur vature 
+Volume (3D size) 
+SameSame
+ Image after: Visualization 
+Analysis and Design, 2014 
+by Tamara Munzner.
+
+=== PAGE 8 ===
+ of 89
+Marks and Channels
+tioned at about 80% of the total length, and 
+the second value at about 20%. 
+If the reference scales are of different 
+lengths or do not start at the same position, 
+then estimating and reading positions is 
+more difﬁcult. That is, the decoding process 
+is slightly less accurate. 
+There is a clear hierarchy among the three 
+size channels. The length (or one-dimen-
+sional size) of lines is an effective channel. It 
+is easy for humans to compare the length of 
+horizontal or vertical bars. The area (or two-
+dimensional size) of a mark is clearly less 
+accurate to interpret: Humans tend to over-
+estimate the size of larger marks when com-
+paring them to smaller marks. The lowest-
+ranked channel in the list for ordered data is 
+volume (or three-dimensional size). Humans 
+are particularly bad at accurately comparing 
+volumes, even with simple shapes such as 
+cubes or spheres. In summary, humans are 
+very good at comparing the length of lines, 
+less good at comparing areas, and not good 
+at all at comparing volumes. 
+Of the three colour channels, only luminance 
+and saturation can encode ordered attribut-
+es. (There is no intuitive order in colour 
+hues.) Luminance is positioned before satu-
+ration, so luminance is more effective at 
+showing ordered attributes. But luminance 
+and saturation are both ranked quite low in 
+this list. 
+The right column lists the channel appropri-
+ate for categorical attributes.  
+Spatial region is related to position, but ap-
+plies to categorical attributes. An example is 
+a Venn diagram. If a dot is inside a ﬁrst cir-
+cle, it belongs to the ﬁrst category, and if the 
+dot is inside the second circle, it belongs to 
+the second category. 
+Colour hue and shape are both effective 
+channels for showing different categories. 
+STEVENS’ POWER LAW 
+A rationale for the ranking of channels is 
+provided by Stevens’ power law. Stevens’ 
+empirical law expresses the relationship be-
+tween a physical stimulus and the perceived 
+sensation created by the stimulus. The stim-
+ulus is a physical intensity, such as the area 
+of circles in mm², and the perceived sensa-
+tion is the area estimated by an average per-
+son. 
+The line chart illustrates that the relation 
+between stimulus I and perceived sensation 
+S is not linear for every channel. For exam-
+ple, length is close to linear (S = I1), which 
+means that humans can accurately judge the 
+length of a mark. The length channel is 
+therefore ranked highly. Area (S = I0.7) is typi-
+cally underestimated, which means that hu-
+mans are less accurate at reading and com-
+paring marks of different areas. They tend to 
+underestimate the area of larger marks, and 
+the area channel is accordingly ranked low-
+er.  
+
+=== PAGE 9 ===
+ of 99
+Colour brightness tends to be strongly un-
+derestimated (S = I0.5) and colour saturation 
+strongly overestimated (S = I1.7), which re-
+sults in a low ranking for these channels 
+Note that Stevens' law ignores individual 
+differences in how people match a stimulus 
+to a sensation; there are generally large indi-
+vidual differences in this relationship. 
+FURTHER READING 
+Munzner, T. (2014). Visualization Analysis and 
+Design. A K Peters Visualization Series. CRC -
+Press. 
+Cleveland, W. S., & McGill, R. (1984). Graphical 
+perception: Theory, experimentation, and ap-
+plication to the development of graphical 
+methods. Journal of the American Statistical 
+Association, 79(387), 531–554. https://doi.org/
+10.1080/01621459.1984.10478080 
+Ware, C. (2008). Visual Thinking for Design. 
+Morgan Kaufmann.   
+Ware, C. (2004). Information Visualization: 
+Perception for Design (3rd ed.). Morgan Kauf-
+mann.
+Image source: Visualization Analysis and Design, 2014 by Tama-
+ra Munzner.

@@ -1,0 +1,121 @@
+=== PAGE 1 ===
+ of 16
+FLOW MAPS
+FIT2179 Data Visualisation 
+Course Notes
+13 September 2026
+
+=== PAGE 2 ===
+ of 26
+FLOW MAPS
+Flow maps show movement. There are three 
+main types: origin–destination ﬂow maps, 
+maps that show the geometry of paths, and 
+maps that show vector ﬁelds. 
+Origin–destination ﬂow maps are spatial 
+Sankey diagrams of networks; the geometry 
+of links is not relevant. 
+ The second type does show real geometry, 
+as in a map of ﬂight paths. The third type 
+visualises vector ﬁelds, for example air 
+movement drawn with tightly packed ar-
+rows. 
+ORIGIN–DESTINATION FLOW MAPS 
+Origin–destination ﬂow maps show ﬂows in 
+a network as straight or curved lines. They 
+do not aim to show the exact geometry be-
+tween origin and destination locations; the 
+focus is on the quantity or quality of what 
+ﬂows through the network. 
+Line width can be varied to indicate quanti-
+tative attributes. A line does usually not rep-
+resent a single item, but the sum of items 
+ﬂowing between two nodes. 
+The map shows telecommunication trafﬁc, 
+measured in minutes, between European 
+countries. The exact position and geometry 
+of the telecommunication infrastructure is 
+irrelevant. Only the amount of communica-
+tion matters, so the author is free to arrange 
+the ﬂow lines in whatever way optimises 
+readability. 
+Up to about 50, or perhaps 100, ﬂows can 
+be shown on a single origin-destination ﬂow 
+map. Beyond that, overlapping ﬂows tend to 
+produce cluttered maps that are difﬁcult to 
+read. 
+Flow Maps
+
+
+=== PAGE 3 ===
+ of 36
+Converging or diverging ﬂows can be shown 
+to indicate regional totals. An excellent ex-
+ample shows the origins and numbers of 
+foreign ﬁghters in the Syrian war in 2014. 
+Merging makes it easy to compare the num-
+ber of ﬁghters from Europe with the number 
+from North Africa, for instance. Constructing 
+merged ﬂow lines of this kind is not simple, 
+and might require vector editing software, 
+such as Adobe Illustrator. 
+Flow Maps
+Map by Washington Post October 2014
+
+
+=== PAGE 4 ===
+ of 46
+What can be automated is shown by a map 
+that uses a force-directed algorithm to bend 
+ﬂow lines. The approach resembles algo-
+rithms for node-link diagrams, except that 
+node positions are ﬁxed. Flows push each 
+other apart, minimising overlaps and improv-
+ing readability. The map is available at usmi-
+grationﬂowmapper.com. 
+FLOW MAPS SHOWING PATH GEOMETRY 
+The second type shows individual moving 
+items such s animals tracked by GPS, or air-
+craft, as in the example here. Each line rep-
+resents one item. Bundling algorithms are 
+useful for this type of map. 
+ 
+Flow Maps
+usmigrationﬂowmapper.com
+
+=== PAGE 5 ===
+ of 56
+VECTOR FIELD FLOW MAPS 
+The third type shows vector ﬁelds: spatial 
+ﬁelds containing direction information and 
+possibly further attributes. Fields can be 
+two- or three-dimensional.  
+The algorithms behind these visualisations 
+extract ﬂow directions from the vector ﬁeld, 
+tracing a line by following the directions 
+stored in the ﬁeld’s cells. The extracted lines 
+are then visualised either by placing a 
+streamline glyph along the line, or by smear-
+ing the pixels of a raster image along its di-
+rection. Both techniques can produce aes-
+thetic and effective results. The ocean cur-
+rent map uses an algorithm that selects 
+streamlines so that they are evenly spaced. 
+The pixel-smearing method appears in an 
+interactive globe at earth.nullschool.net, 
+which is enjoyable to explore. There, the 
+ﬂow visualisation is combined with other 
+scalar ﬁelds, such as air temperature, encod-
+ed with colour. 
+Flow Maps
+earth.nullschool.net
+
+=== PAGE 6 ===
+ of 66
+DESIGN PRINCIPLES 
+More speciﬁc design guidelines for placing 
+ﬂow lines on origin–destination ﬂow maps 
+follow below. 
+Flow Maps
+Source: Jenny et al. (2018). Design principles for origin-destination 
+ﬂow maps. Cartography and Geographic Information Science.

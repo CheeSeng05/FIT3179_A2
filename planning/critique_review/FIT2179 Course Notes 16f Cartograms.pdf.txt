@@ -1,0 +1,79 @@
+=== PAGE 1 ===
+ of 13
+AREA CARTOGRAMS
+FIT2179 Data Visualisation 
+Course Notes
+23 September 2026
+
+=== PAGE 2 ===
+ of 23
+AREA CARTOGRAMS
+Area cartograms vary the size of areas so 
+that each area is proportional to a quantita-
+tive attribute. This requires an optimisation 
+algorithm that iteratively adjusts the size of 
+the areas, and a variety of such algorithms 
+have been proposed. Colour is often used to 
+show a second quantitative or categorical 
+attribute. Area cartograms are unusual eye-
+catchers that grab the attention of readers. 
+Area cartograms differ from traditional maps 
+in that they do not use a map projection. 
+The projection is effectively replaced by an 
+algorithm that distorts space in order to ad-
+just the size of area marks. There are three 
+main types of area cartogram: contiguous, 
+non-contiguous, and Dorling cartograms. 
+CONTIGUOUS CARTOGRAMS 
+Contiguous cartograms distort areas without 
+breaking the connections between adjacent 
+areas. Every area keeps its neighbours, but 
+the resulting shapes can be highly distorted. 
+This type has become popular; worldmap-
+per.org holds a large collection of examples. 
+ 
+NON-CONTIGUOUS CARTOGRAMS 
+Non-contiguous cartograms also scale areas 
+in proportion to the attribute value, but the 
+shapes themselves are not otherwise dis-
+torted. The scaled areas are arranged so that 
+the original spatial arrangement is retained 
+as far as possible, but they no longer touch 
+one another. 
+ 
+DORLING CARTOGRAMS 
+Dorling cartograms, named after their inven-
+tor, replace each area with a circle whose 
+area is proportional to the mapped value. 
+The circles are arranged so that the neigh-
+bourhood relationships between the original 
+areas are retained as far as possible. 
+ 
+Area Cartograms
+
+=== PAGE 3 ===
+ of 33
+READING CARTOGRAMS 
+Two difﬁculties affect area cartograms. 
+The ﬁrst is that readers need to be familiar 
+with the size and shape of the undistorted 
+areas. Readers locate places on a map by 
+recognising familiar outlines, but contiguous 
+cartograms can deform outlines beyond 
+recognition in order to encode the attribute. 
+Non-contiguous cartograms keep each 
+shape intact and so remain the most recog-
+nisable of the three. Dorling cartograms dis-
+card shape entirely, and depend on the 
+reader being familiar with the arrangement 
+of the areas. 
+The second difﬁculty is size comparison. The 
+attribute is encoded in area, and readers 
+systematically underestimate how much 
+larger one area is than another. This affects 
+contiguous cartograms most, because areas 
+with irregular outlines are harder to compare 
+than the regular circles of a Dorling car-
+togram. 
+Area Cartograms
+Earthquakes Homeless 2000-2025 by World Mapper

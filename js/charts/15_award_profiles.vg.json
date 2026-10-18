@@ -117,8 +117,8 @@
       "grid": false,
       "tickCount": 4,
       "labelFont": "Arial",
-      "labelFontSize": 12,
-      "labelColor": "#444c54",
+      "labelFontSize": 14,
+      "labelColor": "#27313a",
       "domainColor": "#bdc5cc",
       "tickColor": "#bdc5cc"
     },
@@ -134,8 +134,8 @@
       "grid": false,
       "tickCount": 4,
       "labelFont": "Arial",
-      "labelFontSize": 12,
-      "labelColor": "#444c54",
+      "labelFontSize": 14,
+      "labelColor": "#27313a",
       "domainColor": "#bdc5cc",
       "tickColor": "#bdc5cc"
     },
@@ -151,8 +151,8 @@
       "grid": false,
       "tickCount": 4,
       "labelFont": "Arial",
-      "labelFontSize": 12,
-      "labelColor": "#444c54",
+      "labelFontSize": 14,
+      "labelColor": "#27313a",
       "domainColor": "#bdc5cc",
       "tickColor": "#bdc5cc"
     },
@@ -168,8 +168,8 @@
       "grid": false,
       "tickCount": 4,
       "labelFont": "Arial",
-      "labelFontSize": 12,
-      "labelColor": "#444c54",
+      "labelFontSize": 14,
+      "labelColor": "#27313a",
       "domainColor": "#bdc5cc",
       "tickColor": "#bdc5cc"
     }
@@ -193,7 +193,7 @@
             "value": "Arial"
           },
           "fontSize": {
-            "value": 11
+            "value": 14
           },
           "align": {
             "value": "left"
@@ -222,7 +222,7 @@
             "value": "Arial"
           },
           "fontSize": {
-            "value": 11
+            "value": 14
           },
           "align": {
             "value": "center"
@@ -254,7 +254,7 @@
             "value": "Arial"
           },
           "fontSize": {
-            "value": 11
+            "value": 14
           },
           "align": {
             "value": "center"
@@ -286,7 +286,7 @@
             "value": "Arial"
           },
           "fontSize": {
-            "value": 11
+            "value": 14
           },
           "align": {
             "value": "right"

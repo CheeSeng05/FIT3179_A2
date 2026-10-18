@@ -1,8 +1,8 @@
 {
   "$schema": "https://vega.github.io/schema/vega/v5.json",
   "description": "Twelve largest named publisher catalogues by game credits",
-  "width": 360,
-  "height": 310,
+  "width": 700,
+  "height": 400,
   "padding": 2,
   "autosize": "none",
   "background": "transparent",
@@ -34,7 +34,9 @@
             "field": "value",
             "order": "descending"
           },
-          "method": "squarify",
+          "method": {
+            "signal": "width < 500 ? 'binary' : 'squarify'"
+          },
           "size": [
             {
               "signal": "width"
@@ -106,10 +108,10 @@
             "signal": "(datum.x0+datum.x1)/2"
           },
           "y": {
-            "signal": "(datum.y0+datum.y1)/2"
+            "signal": "(datum.y0+datum.y1)/2 - (length(split(datum.publisher, ' '))-1)*10"
           },
           "text": {
-            "field": "publisher"
+            "signal": "split(datum.publisher, ' ')"
           },
           "align": {
             "value": "center"
@@ -117,20 +119,17 @@
           "baseline": {
             "value": "middle"
           },
-          "limit": {
-            "signal": "max(0, datum.x1-datum.x0-12)"
+          "lineHeight": {
+            "value": 20
           },
           "font": {
             "value": "Arial"
           },
           "fontSize": {
-            "value": 13
+            "signal": "width < 500 ? 14 : 16"
           },
           "fill": {
             "value": "#27313a"
-          },
-          "opacity": {
-            "signal": "datum.x1-datum.x0 > 70 && datum.y1-datum.y0 > 28 ? 1 : 0"
           }
         }
       }

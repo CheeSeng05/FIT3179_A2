@@ -26,11 +26,11 @@
       "stroke": null
     },
     "axis": {
-      "labelFontSize": 13,
-      "titleFontSize": 13,
+      "labelFontSize": 14,
+      "titleFontSize": 14,
       "titleFontWeight": "normal",
-      "labelColor": "#444c54",
-      "titleColor": "#444c54",
+      "labelColor": "#27313a",
+      "titleColor": "#27313a",
       "gridColor": "#e9ecef",
       "domain": false,
       "tickColor": "#d8dde0",
@@ -38,15 +38,17 @@
       "labelPadding": 7
     },
     "legend": {
-      "labelFontSize": 12,
-      "titleFontSize": 12,
+      "labelFontSize": 14,
+      "titleFontSize": 14,
       "titleFontWeight": "normal",
+      "labelColor": "#27313a",
+      "titleColor": "#27313a",
       "orient": "bottom",
       "padding": 12,
-      "labelLimit": 190
+      "labelLimit": 240
     },
     "text": {
-      "fontSize": 12
+      "fontSize": 14
     }
   },
   "params": [
@@ -145,7 +147,7 @@
     {
       "mark": {
         "type": "text",
-        "fontSize": 13
+        "fontSize": 14
       },
       "encoding": {
         "text": {
