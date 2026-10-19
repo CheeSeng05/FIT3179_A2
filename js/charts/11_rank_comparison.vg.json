@@ -156,10 +156,10 @@
         },
         "color": {
           "condition": {
-            "test": "isValid(datum.rank) && datum.rank <= 8",
+            "test": "isValid(datum.rank) && datum.rank <= 12",
             "value": "white"
           },
-          "value": "#27313a"
+          "value": "black"
         }
       }
     }

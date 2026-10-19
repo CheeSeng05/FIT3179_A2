@@ -8,12 +8,16 @@
   --australia: #2674ae;
   --catalogue: #167d73;
   --complexity: #965071;
+  --tabletop: #f2eee5;
+  --hero: #173e3e;
+  --mint: #b6ded5;
+  --soft: #f7f8f5;
 }
 * { box-sizing: border-box; }
 body {
   margin: 0;
   color: var(--ink);
-  background: #f3f4f5;
+  background: var(--tabletop);
   font-family: "Segoe UI", Arial, sans-serif;
   font-size: 18px;
   line-height: 1.55;
@@ -23,6 +27,7 @@ body {
   margin: 24px auto;
   padding: 42px 42px 30px;
   background: var(--paper);
+  box-shadow: 0 8px 32px rgba(39, 49, 58, .06);
 }
 h1, h2, h3, p { margin-top: 0; }
 h1 {
@@ -33,22 +38,50 @@ h1 {
   letter-spacing: -1.5px;
   margin-bottom: 20px;
 }
-h2 { font-size: 30px; line-height: 1.2; margin-bottom: 12px; }
+h2 { font-family: Georgia, "Times New Roman", serif; font-size: 32px; line-height: 1.2; margin-bottom: 12px; }
 h3 { font-size: 21px; line-height: 1.3; margin-bottom: 12px; }
 p { max-width: 50ch; margin-bottom: 10px; }
-.page-header { padding-bottom: 24px; }
+/* A coloured title area establishes the theme; charts stay on white. */
+.page-header {
+  margin: -42px -42px 0;
+  padding: 42px;
+  background: var(--hero);
+  color: #ffffff;
+  border-top: 6px solid var(--catalogue);
+}
+.hero-layout { display: grid; grid-template-columns: minmax(0, 1fr) 250px; gap: 48px; align-items: center; }
+.hero-copy { min-width: 0; }
+.title-accent { color: var(--mint); }
+.page-header .eyebrow { color: var(--mint); letter-spacing: 2px; text-transform: uppercase; }
+.hero-facts { display: grid; gap: 22px; }
+.hero-fact { border-left: 2px solid var(--mint); padding-left: 18px; }
+.hero-fact p { margin-bottom: 3px; }
+.fact-value { font-family: Georgia, "Times New Roman", serif; font-size: 38px; line-height: 1.1; font-weight: 700; }
+.fact-label { font-size: 16px; color: #e1eeea; }
+.colour-notes { display: flex; flex-wrap: wrap; gap: 8px 28px; width: fit-content; margin-top: 24px; padding: 12px 18px; background: white; color: var(--ink); border-radius: 6px; }
+.story-nav { display: flex; flex-wrap: wrap; gap: 10px 24px; padding: 22px 0; border-bottom: 1px solid var(--rule); }
+.story-nav a { color: var(--hero); font-size: 16px; font-weight: 600; text-decoration: none; }
+.story-nav a:hover { text-decoration: underline; }
 .intro { font-size: 21px; }
 .eyebrow, .section-number { font-size: 16px; font-weight: 600; }
 .scope-notes p, .colour-notes p { font-size: 17px; margin-bottom: 5px; }
-.story-section { border-top: 1px solid var(--rule); padding: 26px 0 12px; }
-.section-heading { margin-bottom: 22px; }
-.section-heading .section-number { margin-bottom: 8px; }
+.story-section { --section-accent: var(--catalogue); border-bottom: 1px solid var(--rule); padding: 30px 0 12px; }
+.section--complexity { --section-accent: var(--complexity); }
+.section--communities { --section-accent: var(--global); }
+.section--awards { --section-accent: #8a561b; }
+.section-heading { margin-bottom: 26px; padding: 20px 22px; background: var(--soft); border-left: 4px solid var(--section-accent); }
+.section-heading .section-number { margin-bottom: 8px; color: var(--section-accent); font-size: 14px; letter-spacing: 1.4px; text-transform: uppercase; }
+.section-heading p:last-child { margin-bottom: 0; }
+h2[id] { scroll-margin-top: 24px; }
 /* Two equal columns, like the multiple-charts class example.
    Each chart has its own caption below, rather than a narrow sidebar. */
-.chart-row { display: flex; gap: 28px; align-items: flex-start; }
+.chart-row { display: flex; flex-wrap: wrap; gap: 28px; align-items: flex-start; }
 .chart-row > .chart-block { width: calc(50% - 14px); }
+.chart-row > .chart-block > h3 { min-height: 2.6em; }
+/* Maps always use a full row, even inside a future chart grouping. */
+.map-block, .chart-row > .map-block { width: 100%; flex-basis: 100%; }
 .chart-row .chart-layout { display: block; }
-.chart-row .chart-note { margin-top: 14px; }
+.chart-row .chart-note { margin-top: 14px; padding: 12px 0 0; border-left: 0; border-top: 1px solid var(--rule); }
 .chart-block { min-width: 0; margin: 0 0 30px; }
 .chart-layout {
   display: grid;
@@ -57,10 +90,11 @@ p { max-width: 50ch; margin-bottom: 10px; }
   gap: 28px;
 }
 .chart-main, .chart-note { min-width: 0; }
+.chart-note { border-left: 3px solid var(--rule); padding-left: 14px; }
 .chart-note p { margin-bottom: 12px; }
 .chart-note details { margin-top: 14px; }
 .mobile-note { display: none; }
-.chart-number { font-size: 16px; margin-right: 8px; font-weight: 400; }
+.chart-number { display: inline-block; min-width: 30px; padding: 4px; border-radius: 5px; background: #edf5f2; color: var(--hero); font-size: 14px; margin-right: 8px; font-weight: 600; text-align: center; vertical-align: middle; }
 .vis-container { width: 100%; min-height: 160px; margin: 4px 0 8px; }
 .vis-container .vega-embed { display: block; width: 100%; }
 .vis-container canvas, .vis-container svg { display: block; max-width: 100%; }
@@ -77,19 +111,20 @@ button, select {
   font: inherit;
   color: var(--ink);
   background: white;
-  border: 1px solid #aab3bc;
-  border-radius: 3px;
+  border: 1px solid #718b85;
+  border-radius: 5px;
   min-height: 40px;
   padding: 6px 12px;
 }
 select { max-width: 100%; }
 button { cursor: pointer; }
-button:hover { background: #f0f3f5; }
+button:hover { background: #edf5f2; }
+button:disabled, select:disabled { opacity: .6; cursor: default; }
 button:focus-visible, select:focus-visible, a:focus-visible, summary:focus-visible {
   outline: 2px solid var(--ink); outline-offset: 4px;
 }
 .group-key { display: flex; flex-wrap: wrap; gap: 12px 24px; font-weight: 600; }
-.comparison-key { margin: 0 0 18px; }
+.comparison-key { margin: 0 0 18px; padding: 12px 16px; background: var(--soft); border-radius: 5px; }
 .global { color: var(--global); }
 .malaysia { color: var(--malaysia); }
 .australia { color: var(--australia); }
@@ -99,6 +134,7 @@ button:focus-visible, select:focus-visible, a:focus-visible, summary:focus-visib
 .no-data-swatch { display: inline-block; width: 17px; height: 17px; background: #e6e9ec; border: 1px solid #aab3bc; flex-shrink: 0; }
 a { color: var(--ink); text-underline-offset: 3px; }
 .page-footer { border-top: 1px solid var(--rule); padding-top: 24px; }
+.page-footer details { border-bottom: 1px solid var(--rule); padding-bottom: 14px; }
 .page-footer h2 { font-size: 23px; }
 .page-footer p, .page-footer li { font-size: 16px; }
 details { margin: 10px 0 16px; }
@@ -119,25 +155,41 @@ details p { margin-top: 10px; }
 @media (max-width: 1200px) {
   .chart-row { display: block; }
   .chart-row > .chart-block { width: 100%; }
+  .chart-row > .chart-block > h3 { min-height: 0; }
   .chart-row .chart-layout {
     display: grid;
     grid-template-columns: minmax(0, 1fr) 240px;
   }
-  .chart-row .chart-note { margin-top: 0; }
+  .chart-row .chart-note { margin-top: 0; padding: 0 0 0 14px; border-top: 0; border-left: 3px solid var(--rule); }
 }
 @media (max-width: 800px) {
   .page { margin: 0; padding: 28px 20px; }
+  .page-header { margin: -28px -20px 0; padding: 28px 20px; }
+  .hero-layout { grid-template-columns: minmax(0, 1fr); gap: 24px; }
+  .hero-facts { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
+  .hero-fact { padding-left: 10px; }
+  .fact-value { font-size: 30px; }
+  .fact-label { font-size: 14px; }
+  .section-heading { padding: 16px; }
   .chart-layout, .chart-row .chart-layout, .download-list { grid-template-columns: minmax(0, 1fr); gap: 8px; }
   h2 { font-size: 26px; }
   h3 { font-size: 20px; }
   .chart-note p { max-width: 46ch; }
+  .chart-note, .chart-row .chart-note { border-left: 0; border-top: 1px solid var(--rule); padding: 12px 0 0; }
   .mobile-note { display: block; }
   .chart-block { margin-bottom: 26px; }
   .story-section { padding-top: 24px; }
+}
+@media (max-width: 450px) {
+  .hero-facts { grid-template-columns: minmax(0, 1fr); gap: 12px; }
+  .hero-fact { display: grid; grid-template-columns: 124px minmax(0, 1fr); align-items: center; gap: 14px; }
 }
 @media print {
   body { background: white; }
   .page { margin: 0; padding: 20px; }
   .controls { display: none; }
+  .page-header { margin: 0; padding: 20px; background: white; color: var(--ink); }
+  .title-accent, .page-header .eyebrow, .fact-label { color: var(--ink); }
+  .story-nav { display: none; }
   .chart-block { break-inside: avoid; }
 }

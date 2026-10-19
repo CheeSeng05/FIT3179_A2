@@ -24,28 +24,18 @@ var charts = [
 var views = {};
 var loadedCharts = 0;
 
-// Keep live explanations short, just like the written HTML captions.
-function setExplanation(id, lines) {
-  var element = document.getElementById(id);
-  element.replaceChildren();
-  lines.forEach(function (line, index) {
-    if (index) element.appendChild(document.createElement("br"));
-    element.appendChild(document.createTextNode(line));
-  });
-}
-
 // Keep the actual world drawing large, not just its surrounding container.
 function fitChart(id) {
   if (!views[id]) return;
   var containerWidth = document.getElementById("vis" + id).clientWidth;
   if (["08", "09", "10"].includes(id)) {
     var legendSpace = { "08": 0, "09": 85, "10": 120 }[id];
-    views[id].height(Math.round(containerWidth * 0.52) + legendSpace).runAsync();
+    return views[id].height(Math.round(containerWidth * 0.52) + legendSpace).runAsync();
   }
   // These three Vega specifications use an explicit plotting width.
   if (["04", "07", "15"].includes(id)) {
-    var padding = id === "15" ? 54 : 12;
-    views[id].width(Math.max(200, containerWidth - padding)).runAsync();
+    var padding = id === "15" ? 74 : 12;
+    return views[id].width(Math.max(200, containerWidth - padding)).runAsync();
   }
 }
 
@@ -53,20 +43,22 @@ function fitChart(id) {
 function loadChart(chart) {
   var target = "#vis" + chart.id;
   var spec = "js/charts/" + chart.file + ".vg.json";
-  vegaEmbed(target, spec, { actions: false, renderer: "svg" }).then(function (result) {
+  document.querySelector(target).setAttribute("aria-busy", "true");
+  return vegaEmbed(target, spec, { actions: false, renderer: "svg" }).then(function (result) {
     views[chart.id] = result.view;
-    fitChart(chart.id);
+    return fitChart(chart.id);
+  }).then(function () {
     loadedCharts++;
-    if (loadedCharts === charts.length) {
-      connectControls();
-      document.body.dataset.ready = "true";
-    }
   }).catch(function (error) {
+    delete views[chart.id];
     console.error("Chart " + chart.id, error);
     var message = document.createElement("p");
     message.className = "chart-error";
-    message.textContent = "Chart unavailable. Open with VS Code Live Server.";
+    message.setAttribute("role", "status");
+    message.textContent = "Chart unavailable. Refresh to retry.";
     document.querySelector(target).replaceChildren(message);
+  }).then(function () {
+    document.querySelector(target).setAttribute("aria-busy", "false");
   });
 }
 
@@ -94,23 +86,32 @@ function selectMapPeriod() {
   for (var id of ["08", "09"]) {
     if (views[id]) views[id].signal("publication_period", period).runAsync();
   }
+  if (!cooperativeRows) {
+    document.getElementById("cooperative-coverage").textContent = "Country coverage unavailable.";
+    return;
+  }
   var eligible = cooperativeRows.filter(function (row) {
     return row.period === period && row.eligible_games >= 50;
   });
-  setExplanation("cooperative-coverage", [eligible.length + " countries meet the 50-game threshold."]);
+  document.getElementById("cooperative-coverage").textContent = eligible.length + " countries meet the 50-game threshold.";
 }
 
-var cooperativeRows = [];
+var cooperativeRows = null;
 var profiles = [];
 
 // Native button/select events follow Week 7. The view calls pass their
 // values to the parameters already declared in the chart JSON files.
 function connectControls() {
+  document.getElementById("reset-years").disabled = !views["01"];
+  document.getElementById("clear-game").disabled = !views["11"];
+  document.getElementById("map-period").disabled = !views["08"] && !views["09"];
+  document.getElementById("reset-maps").disabled = !views["08"] && !views["09"];
   if (views["01"]) {
     views["01"].addSignalListener("year_brush", function (name, value) { selectYears(value); });
   }
   document.getElementById("reset-years").addEventListener("click", function () {
-    if (views["01"]) views["01"].data("year_brush_store", []).runAsync();
+    // Clear the visual interval too, so resizing cannot restore old bounds.
+    if (views["01"]) views["01"].signal("year_brush_x", []).data("year_brush_store", []).runAsync();
     selectYears(null);
   });
   if (views["11"]) {
@@ -121,15 +122,15 @@ function connectControls() {
   document.getElementById("clear-game").addEventListener("click", function () { selectGame(0, ""); });
 
   var profileMenu = document.getElementById("profile-game");
+  profileMenu.disabled = !views["15"] || !profiles.length;
   profileMenu.addEventListener("change", function () {
     var id = Number(profileMenu.value);
     if (views["15"]) views["15"].signal("selected_profile", id).runAsync();
     var game = profiles.find(function (profile) { return profile.id === id; });
-    setExplanation("profile-details", game ? [
-      game.name + " (" + game.award_year + ").",
-      "Complexity: " + game.complexity.toFixed(2) + ". Playing time: " + game.minutes + " minutes.",
-      "Maximum players: " + game.max_players + ". Minimum age: " + game.min_age + "."
-    ] : ["Each axis uses its own units and scale."]);
+    document.getElementById("profile-details").textContent = game ?
+      game.minutes + " minutes; complexity " + game.complexity.toFixed(2) + "; " +
+      game.max_players + " players maximum; ages " + game.min_age + "+." :
+      "Trace one game across four separately scaled axes.";
   });
 
   document.getElementById("map-period").addEventListener("change", selectMapPeriod);
@@ -143,9 +144,13 @@ function connectControls() {
 // Read supporting captions from the same prepared data used by the charts.
 // fetch is ordinary browser JavaScript; it is an addition to the class demo.
 function startPage() {
-  fetch("data/summary.json").then(function (response) {
+  // Independent requests keep a missing caption from blocking the charts.
+  // Promise.all extends the studio's existing then/catch embed pattern.
+  var profileRequest = fetch("data/summary.json").then(function (response) {
+    if (!response.ok) throw new Error("Winner details: HTTP " + response.status);
     return response.json();
   }).then(function (summary) {
+    if (!Array.isArray(summary.award_profiles)) throw new Error("Winner profiles missing");
     profiles = summary.award_profiles;
     var profileMenu = document.getElementById("profile-game");
     profiles.forEach(function (game) {
@@ -154,14 +159,24 @@ function startPage() {
       option.textContent = game.name + " (" + game.award_year + ")";
       profileMenu.appendChild(option);
     });
-    return fetch("data/cooperative_countries.csv");
-  }).then(function (response) {
+  }).catch(function (error) {
+    console.error("Winner details", error);
+    document.getElementById("profile-details").textContent = "Winner details unavailable. Hover profiles for names.";
+  });
+  var coverageRequest = fetch("data/cooperative_countries.csv").then(function (response) {
+    if (!response.ok) throw new Error("Country coverage: HTTP " + response.status);
     return response.text();
   }).then(function (csvText) {
     cooperativeRows = vega.read(csvText, { type: "csv", parse: { eligible_games: "number" } });
-    charts.forEach(loadChart);
   }).catch(function (error) {
-    console.error("Page setup", error);
+    console.error("Country coverage", error);
+  });
+  // Each embed handles its own error, so working views retain controls.
+  var chartRequests = charts.map(loadChart);
+  Promise.all(chartRequests.concat([profileRequest, coverageRequest])).then(function () {
+    connectControls();
+    selectMapPeriod();
+    document.body.dataset.ready = "true";
   });
 }
 

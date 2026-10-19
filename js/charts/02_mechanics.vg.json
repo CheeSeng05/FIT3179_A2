@@ -1,6 +1,6 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "description": "Ten most recorded mechanics",
+  "description": "Catalogue-wide top ten mechanics within selected years",
   "width": "container",
   "height": 350,
   "autosize": {

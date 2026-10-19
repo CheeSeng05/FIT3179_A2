@@ -5,8 +5,8 @@
   "height": 260,
   "padding": {
     "left": 35,
-    "right": 15,
-    "top": 45,
+    "right": 35,
+    "top": 60,
     "bottom": 20
   },
   "autosize": "none",
@@ -184,7 +184,7 @@
             "value": "complexity"
           },
           "y": {
-            "value": -23
+            "value": -38
           },
           "text": {
             "value": "Complexity"
@@ -196,7 +196,10 @@
             "value": 14
           },
           "align": {
-            "value": "left"
+            "value": "center"
+          },
+          "lineHeight": {
+            "value": 16
           },
           "fill": {
             "value": "#27313a"
@@ -213,7 +216,7 @@
             "value": "minutes"
           },
           "y": {
-            "value": -23
+            "value": -38
           },
           "text": {
             "value": "Minutes"
@@ -226,6 +229,9 @@
           },
           "align": {
             "value": "center"
+          },
+          "lineHeight": {
+            "value": 16
           },
           "fill": {
             "value": "#27313a"
@@ -242,7 +248,7 @@
             "value": "max_players"
           },
           "y": {
-            "value": -23
+            "value": -38
           },
           "text": {
             "value": [
@@ -259,6 +265,9 @@
           "align": {
             "value": "center"
           },
+          "lineHeight": {
+            "value": 16
+          },
           "fill": {
             "value": "#27313a"
           }
@@ -274,7 +283,7 @@
             "value": "min_age"
           },
           "y": {
-            "value": -23
+            "value": -38
           },
           "text": {
             "value": [
@@ -289,7 +298,10 @@
             "value": 14
           },
           "align": {
-            "value": "right"
+            "value": "center"
+          },
+          "lineHeight": {
+            "value": 16
           },
           "fill": {
             "value": "#27313a"

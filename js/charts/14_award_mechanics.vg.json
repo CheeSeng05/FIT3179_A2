@@ -57,12 +57,13 @@
       "type": "quantitative",
       "title": "Percentage of eligible games",
       "axis": {
-        "format": ".0%"
+        "format": ".0%",
+        "tickCount": 4
       },
       "scale": {
         "domain": [
           0,
-          1
+          0.6
         ]
       }
     },

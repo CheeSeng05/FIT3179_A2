@@ -16,30 +16,56 @@
     <a class="skip-link" href="#story">Skip to the story</a>
     <main class="page" id="story">
       <header class="page-header">
-        <p class="eyebrow">Board games / FIT3179</p>
-        <h1>From the World<br>to Your Game Night</h1>
-        <p class="intro">Explore the games behind your next game night.</p>
-        <div class="scope-notes">
-          <p>Catalogue: base games published from 1950 to 2025.</p>
-          <p>Country comparisons: historical April 2024 BGG analysis.</p>
+        <div class="hero-layout">
+          <div class="hero-copy">
+            <p class="eyebrow">Board games / FIT3179</p>
+            <h1>From the World<br><span class="title-accent">to Your Game Night</span></h1>
+            <p class="intro">Explore the games behind your next game night.</p>
+            <div class="scope-notes">
+              <p>BoardGameGeek (BGG) records games and community ratings.</p>
+              <p>Catalogue: base games published from 1950 to 2025.</p>
+              <p>Country comparisons: historical April 2024 BGG analysis.</p>
+            </div>
+          </div>
+          <aside class="hero-facts" aria-label="Collection overview">
+            <div class="hero-fact">
+              <p class="fact-value">120,563</p>
+              <p class="fact-label">Base games, 1950–2025</p>
+            </div>
+            <div class="hero-fact">
+              <p class="fact-value">387</p>
+              <p class="fact-label">Publishers with mapped headquarters</p>
+            </div>
+            <div class="hero-fact">
+              <p class="fact-value">3</p>
+              <p class="fact-label">Ranking lists, April 2024</p>
+            </div>
+          </aside>
         </div>
         <div class="colour-notes" aria-label="Chart colour meanings">
           <p><span class="colour-swatch catalogue-swatch" aria-hidden="true"></span>Teal: catalogue and publisher data.</p>
           <p><span class="colour-swatch complexity-swatch" aria-hidden="true"></span>Rose: complexity distributions.</p>
         </div>
       </header>
+      <nav class="story-nav" aria-label="Story sections">
+        <a href="#section-1">01 Through time</a>
+        <a href="#section-2">02 Playing experience</a>
+        <a href="#section-3">03 Publishers</a>
+        <a href="#section-4">04 Community favourites</a>
+        <a href="#section-5">05 Award winners</a>
+      </nav>
 
-      <section class="story-section" aria-labelledby="section-1">
+      <section class="story-section section--catalogue" aria-labelledby="section-1">
         <div class="section-heading">
           <p class="section-number">01 / Through time</p>
           <h2 id="section-1">How have board games changed?</h2>
-          <p>Mechanics are the systems behind game play.</p>
+          <p class="finding">2025 leads the catalogue with 6,752 recorded games.</p>
         </div>
         <article class="chart-block">
           <h3><span class="chart-number">01</span> Games published each year</h3>
           <div class="chart-layout">
             <div class="chart-main">
-              <div class="controls"><button id="reset-years" type="button">Reset years</button>
+              <div class="controls"><button id="reset-years" type="button" disabled>Reset years</button>
                 <span id="year-selection" aria-live="polite">Showing 1950 to 2025</span></div>
               <div id="vis01" class="vis-container" role="img" aria-label="Line chart of catalogue game counts by publication year"></div>
             </div>
@@ -55,11 +81,20 @@
             <div class="chart-layout">
               <div class="chart-main">
 
-                <div id="vis02" class="vis-container" role="img" aria-label="Bar chart of the ten most recorded mechanics"></div>
+                <div id="vis02" class="vis-container" role="img" aria-label="Catalogue-wide top ten mechanics, counted within selected years"></div>
               </div>
               <aside class="chart-note" aria-label="Chart 02 context">
-                <p id="mechanic-note">Games can use several mechanics.</p>
-                <details><summary>Mechanic definitions</summary><p>Hand management: choosing which cards to keep or play.</p><p>Cooperative play: working towards a shared goal.</p><p>Drafting: choosing from available items.</p></details>
+                <p id="mechanic-note">Catalogue-wide top ten; counts follow your selected years.</p>
+                <details><summary>Mechanic definitions</summary>
+                  <p>Mechanics describe how games are played; games can combine them.</p>
+                  <p>Hand management: choosing which cards to keep or play.</p>
+                  <p>Cooperative play: working towards a shared goal.</p>
+                  <p>Drafting: choosing from available items.</p>
+                  <p>Set collection: gathering matching groups of items.</p>
+                  <p>Player powers: different abilities for different players.</p>
+                  <p>Hexagon grid: movement or placement on six-sided spaces.</p>
+                  <p>Simulation: modelling a real or imagined situation.</p>
+                </details>
               </aside>
             </div>
           </article>
@@ -71,18 +106,19 @@
                 <div id="vis03" class="vis-container" role="img" aria-label="Heatmap of mechanic percentages by publication decade"></div>
               </div>
               <aside class="chart-note" aria-label="Chart 03 context">
-                <p>Missing mechanic records are excluded.<br>The latest decade is partial.</p>
+                <p>Percentages follow selected years; decades may be partial.</p>
+                <p>Missing mechanic records are excluded.</p>
               </aside>
             </div>
           </article>
         </div>
       </section>
 
-      <section class="story-section" aria-labelledby="section-2">
+      <section class="story-section section--complexity" aria-labelledby="section-2">
         <div class="section-heading">
           <p class="section-number">02 / Playing experience</p>
           <h2 id="section-2">What will a game night feel like?</h2>
-          <p>Different rules create different playing experiences.</p>
+          <p class="finding">Median complexity: 1.57 (1950s), 2.24 (2020–2025).</p>
           <p class="definition">Complexity: 1 (light) to 5 (heavy).</p>
         </div>
         <article class="chart-block">
@@ -93,7 +129,8 @@
               <div id="vis04" class="vis-container" role="img" aria-label="Network of shared mechanics among games"></div>
             </div>
             <aside class="chart-note" aria-label="Chart 04 context">
-              <p>Thicker links mean more shared games.</p>
+              <p class="finding">Simulation and dice rolling share 5,199 games.</p>
+              <p>Eight mechanics; twelve strongest links. Thickness represents shared games.</p>
             </aside>
           </div>
         </article>
@@ -106,7 +143,8 @@
                 <div id="vis05" class="vis-container" role="img" aria-label="Box plots of game complexity by publication decade"></div>
               </div>
               <aside class="chart-note" aria-label="Chart 05 context">
-                <p>Centre line: median.<br>Boxes: the middle half of scores.</p>
+                <p>Centre line: middle score. Box: middle half.</p>
+                <p>Whiskers show the spread, excluding unusually distant scores.</p>
               </aside>
             </div>
           </article>
@@ -119,17 +157,18 @@
               </div>
               <aside class="chart-note" aria-label="Chart 06 context">
                 <p>Sample: 1,200 games with 10+ complexity votes.</p>
+                <p>Recorded times above 360 minutes are excluded.</p>
               </aside>
             </div>
           </article>
         </div>
       </section>
 
-      <section class="story-section" aria-labelledby="section-3">
+      <section class="story-section section--publishing" aria-labelledby="section-3">
         <div class="section-heading">
           <p class="section-number">03 / The publishing world</p>
           <h2 id="section-3">Who publishes these games?</h2>
-          <p>Games can have credits from several publishers.</p>
+          <p class="finding">Hasbro has the largest catalogue among named publishers.</p>
         </div>
 
         <article class="chart-block">
@@ -148,18 +187,19 @@
           <h3><span class="chart-number">08</span> Recorded headquarters places</h3>
           <div class="controls">
             <label for="map-period">Publication decade for maps 08 and 09:</label>
-            <select id="map-period">
+            <select id="map-period" disabled>
               <option value="All">All years</option><option value="1950s">1950s</option>
               <option value="1960s">1960s</option><option value="1970s">1970s</option>
               <option value="1980s">1980s</option><option value="1990s">1990s</option>
               <option value="2000s">2000s</option><option value="2010s">2010s</option>
               <option value="2020–2025">2020 to 2025</option>
-            </select><button id="reset-maps" type="button">Reset maps</button>
+            </select><button id="reset-maps" type="button" disabled>Reset maps</button>
           </div>
           <div id="vis08" class="vis-container" role="img" aria-label="Equal-dot map of recorded publisher headquarters places"></div>
           <div class="map-notes">
-            <p id="hq-coverage">Locations can represent cities or regions.</p>
-            <p>Geographic coverage is partial.</p>
+            <p id="hq-coverage">One dot represents one publisher; 387 mapped overall.</p>
+            <p>Coverage is partial; places can represent cities or regions.</p>
+            <p>Recorded headquarters do not reconstruct historical office locations.</p>
           </div>
         </article>
         <article class="chart-block map-block">
@@ -174,11 +214,11 @@
         </article>
       </section>
 
-      <section class="story-section" aria-labelledby="section-4">
+      <section class="story-section section--communities" aria-labelledby="section-4">
         <div class="section-heading">
           <p class="section-number">04 / Global and local favourites</p>
           <h2 id="section-4">Do communities rank the same games alike?</h2>
-          <p>BGG users report their own country locations.</p>
+          <p class="finding">Brass: Birmingham ranks first globally, sixth among Malaysian users.</p>
           <p class="date-note">Historical comparison: April 2024.<br>
             Global snapshot: 25 April 2024.</p>
         </div>
@@ -191,16 +231,17 @@
           </div>
         </article>
         <article class="chart-block">
-          <h3><span class="chart-number">11</span> One game, different ranking positions</h3>
+          <h3><span class="chart-number">11</span> Each list's top five, compared</h3>
           <div class="chart-layout">
             <div class="chart-main">
-              <div class="controls"><button id="clear-game" type="button">Clear selection</button>
+              <div class="controls"><button id="clear-game" type="button" disabled>Clear selection</button>
                 <span id="game-selection" aria-live="polite">No game selected</span></div>
               <div id="vis11" class="vis-container" role="img" aria-label="Heatmap with ranks from global, Malaysian and Australian lists"></div>
             </div>
             <aside class="chart-note" aria-label="Chart 11 context">
-              <p class="chart-help">Select a game to highlight chart 13.</p>
-              <p>Rank 1 is best.<br>Country calculations and vote thresholds differ.</p>
+              <p class="chart-help">Select a rank to reveal its game's full name.</p>
+              <p>Darker means better; ranks above 30 share one shade.</p>
+              <p>Country calculations and vote thresholds differ.</p>
               <p class="mobile-note">MY = Malaysia; AU = Australia.</p>
             </aside>
           </div>
@@ -229,7 +270,7 @@
                 <div id="vis13" class="vis-container" role="img" aria-label="Dot plot of complexity scores in three top-20 ranking lists"></div>
               </div>
               <aside class="chart-note" aria-label="Chart 13 context">
-                <p>Repeated games have the same recorded score.</p>
+                <p>Vertical offsets separate dots; repeated games share complexity scores.</p>
               </aside>
             </div>
           </article>
@@ -237,37 +278,42 @@
         <p class="section-note">Charts 12 and 13: 2024 lists, 2026 metadata.</p>
       </section>
 
-      <section class="story-section" aria-labelledby="section-5">
+      <section class="story-section section--awards" aria-labelledby="section-5">
         <div class="section-heading">
           <p class="section-number">05 / Award-winning experiences</p>
           <h2 id="section-5">What kinds of games receive recognition?</h2>
-          <p>Awards recognise different kinds of playing experiences.</p>
+          <p class="finding">Cooperative mechanics feature more often among these award winners.</p>
         </div>
-        <article class="chart-block">
-          <h3><span class="chart-number">14</span> Winners and the wider collection</h3>
-          <div class="chart-layout">
-            <div class="chart-main">
+        <div class="controls">
+          <label for="profile-game">Highlight a winner in chart 15:</label>
+          <select id="profile-game" disabled><option value="0">All six winners</option></select>
+        </div>
+        <div class="chart-row chart-row--awards">
+          <article class="chart-block">
+            <h3><span class="chart-number">14</span> Spiel des Jahres winners versus the catalogue</h3>
+            <div class="chart-layout">
+              <div class="chart-main">
 
-              <div id="vis14" class="vis-container" role="img" aria-label="Grouped bars comparing mechanics among award winners and all eligible games"></div>
+                <div id="vis14" class="vis-container" role="img" aria-label="Grouped bars comparing mechanics among award winners and all eligible games"></div>
+              </div>
+              <aside class="chart-note" aria-label="Chart 14 context">
+                <p>44 winners; 63,563 games, published 2011 to 2025.<br>Winners are included in the wider comparison.</p>
+              </aside>
             </div>
-            <aside class="chart-note" aria-label="Chart 14 context">
-              <p>44 winners; 63,563 games, published 2011 to 2025.<br>Winners are included in the wider comparison.</p>
-            </aside>
-          </div>
-        </article>
-        <article class="chart-block">
-          <h3><span class="chart-number">15</span> Compare winning game profiles</h3>
-          <div class="chart-layout">
-            <div class="chart-main">
-              <div class="controls"><label for="profile-game">Highlight a winner:</label>
-                <select id="profile-game"><option value="0">All six winners</option></select></div>
-              <div id="vis15" class="vis-container" role="img" aria-label="Parallel-coordinates profiles of six award-winning games"></div>
+          </article>
+          <article class="chart-block">
+            <h3><span class="chart-number">15</span> Compare winning game profiles</h3>
+            <div class="chart-layout">
+              <div class="chart-main">
+                <div id="vis15" class="vis-container" role="img" aria-label="Parallel-coordinates profiles of six award-winning games"></div>
+              </div>
+              <aside class="chart-note" aria-label="Chart 15 context">
+                <p id="profile-details" aria-live="polite">Trace one game across four separately scaled axes.</p>
+                <p>Awards cover general, experienced and children's games.</p>
+              </aside>
             </div>
-            <aside class="chart-note" aria-label="Chart 15 context">
-              <p id="profile-details" aria-live="polite">Each axis uses its own units and scale.</p>
-            </aside>
-          </div>
-        </article>
+          </article>
+        </div>
         <p class="closing-copy">Choose games that suit your group.</p>
       </section>
 

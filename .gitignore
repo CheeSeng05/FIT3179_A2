@@ -1,0 +1,35 @@
+# Local course materials, research, planning and development tools.
+/class_content/
+/data_research/
+/planning/
+/scripts/
+
+# Local notes and interview preparation.
+/STORY_PLAN.md
+/GRAPH_PLAN.md
+/FINAL_GRAPH_LIST.md
+/DATA_FIELD_MAP.md
+/interview_prep.md
+
+# Supplied instructions and blank submission template.
+/FIT3179 Data Visualisation 2_v1.2.pdf
+/DV2 - Assignment Template v3.0.docx
+
+# Unused intermediate table and library download notes.
+# Keep runtime data, readable chart JSON and library licences.
+/data/award_profiles.csv
+/js/vendor/README.md
+
+# Operating-system, editor and development-generated files.
+.DS_Store
+._*
+__MACOSX/
+__pycache__/
+*.py[cod]
+node_modules/
+.vscode/
+.idea/
+*.log
+
+# Put the final sketch PDF and submission documents in /submission/.
+# Final documents are deliberately not ignored by extension.
