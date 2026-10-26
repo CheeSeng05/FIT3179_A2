@@ -221,16 +221,11 @@
     },
     {
       "data": {
-        "values": [
-          {
-            "coverage": "No data or fewer than 50 eligible games"
-          }
-        ]
+        "values": []
       },
       "mark": {
         "type": "point",
-        "opacity": 0,
-        "size": 0
+        "filled": true
       },
       "encoding": {
         "color": {

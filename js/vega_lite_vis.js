@@ -24,16 +24,6 @@ var charts = [
 var views = {};
 var loadedCharts = 0;
 
-// Keep live explanations short, just like the written HTML captions.
-function setExplanation(id, lines) {
-  var element = document.getElementById(id);
-  element.replaceChildren();
-  lines.forEach(function (line, index) {
-    if (index) element.appendChild(document.createElement("br"));
-    element.appendChild(document.createTextNode(line));
-  });
-}
-
 // Keep the actual world drawing large, not just its surrounding container.
 function fitChart(id) {
   if (!views[id]) return;
@@ -100,17 +90,9 @@ function selectMapPeriod() {
   }
 }
 
-var profiles = [];
-
 function selectProfile() {
   var id = Number(document.getElementById("profile-game").value);
   if (views["15"]) views["15"].signal("selected_profile", id).runAsync();
-  var game = profiles.find(function (profile) { return profile.id === id; });
-  setExplanation("profile-details", game ? [
-    game.name + " (" + game.award_year + ").",
-    "Complexity: " + game.complexity.toFixed(2) + ". Playing time: " + game.minutes + " minutes.",
-    "Maximum players: " + game.max_players + ". Recommended age: " + game.min_age + "+."
-  ] : ["All six winners are shown."]);
 }
 
 // Native button/select events follow Week 7. The view calls pass their
@@ -136,9 +118,9 @@ function connectControls() {
   document.getElementById("clear-game").addEventListener("click", function () { selectGame(0, ""); });
 
   var profileMenu = document.getElementById("profile-game");
-  profileMenu.disabled = !views["15"] || !profiles.length;
+  profileMenu.disabled = !views["15"];
   profileMenu.addEventListener("change", selectProfile);
-  if (views["15"] && profiles.length) selectProfile();
+  if (views["15"]) selectProfile();
 
   document.getElementById("map-period").addEventListener("change", selectMapPeriod);
   document.getElementById("reset-maps").addEventListener("click", function () {
@@ -148,24 +130,10 @@ function connectControls() {
 
 }
 
-// Read supporting captions from the same prepared data used by the charts.
-// fetch is ordinary browser JavaScript; it is an addition to the class demo.
+// Promise.all waits for the independent class-style embed calls.
 function startPage() {
-  // Independent requests keep a missing caption from blocking the charts.
-  // Promise.all extends the studio's existing then/catch embed pattern.
-  var profileRequest = fetch("data/summary.json").then(function (response) {
-    if (!response.ok) throw new Error("Winner details: HTTP " + response.status);
-    return response.json();
-  }).then(function (summary) {
-    if (!Array.isArray(summary.award_profiles)) throw new Error("Winner profiles missing");
-    profiles = summary.award_profiles;
-  }).catch(function (error) {
-    console.error("Winner details", error);
-    document.getElementById("profile-details").textContent = "Winner details unavailable. Hover profiles for names.";
-  });
   // Each embed handles its own error, so working views retain controls.
-  var chartRequests = charts.map(loadChart);
-  Promise.all(chartRequests.concat([profileRequest])).then(function () {
+  Promise.all(charts.map(loadChart)).then(function () {
     connectControls();
     selectMapPeriod();
     document.body.dataset.ready = "true";

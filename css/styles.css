@@ -101,6 +101,11 @@ h2[id] { scroll-margin-top: 24px; }
 }
 .finding { font-weight: 600; }
 .section-note { margin: 0 0 20px; }
+.profile-key { display: flex; flex-wrap: wrap; gap: 12px 24px; margin-top: 14px; }
+.profile-key span { display: inline-flex; align-items: center; gap: 8px; }
+.profile-line { display: inline-block; width: 28px; border-top: 2px solid #3d4852; }
+.profile-line--experienced { border-top-style: dashed; }
+.profile-line--children { border-top-style: dotted; }
 .closing-copy { font-size: 20px; font-weight: 600; margin-top: 10px; }
 .controls { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 14px; margin: 10px 0 14px; font-size: 17px; }
 button, select {
