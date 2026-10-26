@@ -20,7 +20,7 @@
     }
   },
   "config": {
-    "font": "Arial",
+    "font": "'Source Sans 3'",
     "background": "transparent",
     "view": {
       "stroke": null
@@ -48,7 +48,9 @@
       "labelLimit": 240
     },
     "text": {
-      "fontSize": 14
+      "fontSize": 14,
+      "lineBreak": "~",
+      "lineHeight": 17
     }
   },
   "mark": {
@@ -57,17 +59,18 @@
   },
   "encoding": {
     "x": {
-      "field": "share",
+      "field": "games",
       "type": "quantitative",
-      "title": "Percentage of eligible games",
-      "axis": {
-        "format": ".0%"
-      },
+      "title": "Games in each top 20",
       "scale": {
         "domain": [
           0,
-          1
+          20
         ]
+      },
+      "axis": {
+        "tickCount": 5,
+        "format": "d"
       }
     },
     "y": {
@@ -102,7 +105,7 @@
           "Australia"
         ],
         "range": [
-          "#7651a8",
+          "#3d4852",
           "#b65c0a",
           "#2674ae"
         ]

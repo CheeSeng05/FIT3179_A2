@@ -24,18 +24,29 @@ var charts = [
 var views = {};
 var loadedCharts = 0;
 
+// Keep live explanations short, just like the written HTML captions.
+function setExplanation(id, lines) {
+  var element = document.getElementById(id);
+  element.replaceChildren();
+  lines.forEach(function (line, index) {
+    if (index) element.appendChild(document.createElement("br"));
+    element.appendChild(document.createTextNode(line));
+  });
+}
+
 // Keep the actual world drawing large, not just its surrounding container.
 function fitChart(id) {
   if (!views[id]) return;
   var containerWidth = document.getElementById("vis" + id).clientWidth;
   if (["08", "09", "10"].includes(id)) {
-    var legendSpace = { "08": 0, "09": 85, "10": 120 }[id];
-    return views[id].height(Math.round(containerWidth * 0.52) + legendSpace).runAsync();
+    var legendSpace = { "08": 0, "09": 0, "10": 100 }[id];
+    return views[id].height(Math.round(containerWidth * 0.45) + legendSpace).runAsync();
   }
-  // These three Vega specifications use an explicit plotting width.
   if (["04", "07", "15"].includes(id)) {
     var padding = id === "15" ? 74 : 12;
-    return views[id].width(Math.max(200, containerWidth - padding)).runAsync();
+    views[id].width(Math.max(200, containerWidth - padding));
+    if (id === "07") views[id].height(containerWidth < 500 ? 780 : 520);
+    return views[id].runAsync();
   }
 }
 
@@ -79,6 +90,7 @@ function selectGame(id, name) {
     if (views[chart]) views[chart].signal("selected_game", id).runAsync();
   }
   document.getElementById("game-selection").textContent = id ? name : "No game selected";
+  document.getElementById("game-selection-13").textContent = id ? "Selected: " + name : "No game selected";
 }
 
 function selectMapPeriod() {
@@ -93,11 +105,23 @@ function selectMapPeriod() {
   var eligible = cooperativeRows.filter(function (row) {
     return row.period === period && row.eligible_games >= 50;
   });
-  document.getElementById("cooperative-coverage").textContent = eligible.length + " countries meet the 50-game threshold.";
+  var coverage = eligible.length === 1 ? "1 country meets" : eligible.length + " countries meet";
+  document.getElementById("cooperative-coverage").textContent = coverage + " the 50-game threshold.";
 }
 
 var cooperativeRows = null;
 var profiles = [];
+
+function selectProfile() {
+  var id = Number(document.getElementById("profile-game").value);
+  if (views["15"]) views["15"].signal("selected_profile", id).runAsync();
+  var game = profiles.find(function (profile) { return profile.id === id; });
+  setExplanation("profile-details", game ? [
+    game.name + " (" + game.award_year + ").",
+    "Complexity: " + game.complexity.toFixed(2) + ". Playing time: " + game.minutes + " minutes.",
+    "Maximum players: " + game.max_players + ". Recommended age: " + game.min_age + "+."
+  ] : ["All six winners are shown."]);
+}
 
 // Native button/select events follow Week 7. The view calls pass their
 // values to the parameters already declared in the chart JSON files.
@@ -123,15 +147,8 @@ function connectControls() {
 
   var profileMenu = document.getElementById("profile-game");
   profileMenu.disabled = !views["15"] || !profiles.length;
-  profileMenu.addEventListener("change", function () {
-    var id = Number(profileMenu.value);
-    if (views["15"]) views["15"].signal("selected_profile", id).runAsync();
-    var game = profiles.find(function (profile) { return profile.id === id; });
-    document.getElementById("profile-details").textContent = game ?
-      game.minutes + " minutes; complexity " + game.complexity.toFixed(2) + "; " +
-      game.max_players + " players maximum; ages " + game.min_age + "+." :
-      "Trace one game across four separately scaled axes.";
-  });
+  profileMenu.addEventListener("change", selectProfile);
+  if (views["15"] && profiles.length) selectProfile();
 
   document.getElementById("map-period").addEventListener("change", selectMapPeriod);
   document.getElementById("reset-maps").addEventListener("click", function () {
@@ -152,13 +169,6 @@ function startPage() {
   }).then(function (summary) {
     if (!Array.isArray(summary.award_profiles)) throw new Error("Winner profiles missing");
     profiles = summary.award_profiles;
-    var profileMenu = document.getElementById("profile-game");
-    profiles.forEach(function (game) {
-      var option = document.createElement("option");
-      option.value = game.id;
-      option.textContent = game.name + " (" + game.award_year + ")";
-      profileMenu.appendChild(option);
-    });
   }).catch(function (error) {
     console.error("Winner details", error);
     document.getElementById("profile-details").textContent = "Winner details unavailable. Hover profiles for names.";
@@ -185,4 +195,5 @@ window.addEventListener("resize", function () {
   clearTimeout(resizeTimer);
   resizeTimer = setTimeout(function () { ["04", "07", "08", "09", "10", "15"].forEach(fitChart); }, 150);
 });
-startPage();
+// Wait for the chosen fonts before Vega measures chart labels.
+document.fonts.ready.then(startPage);

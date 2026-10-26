@@ -22,7 +22,7 @@
     }
   },
   "config": {
-    "font": "Arial",
+    "font": "'Source Sans 3'",
     "background": "transparent",
     "view": {
       "stroke": null
@@ -50,18 +50,14 @@
       "labelLimit": 240
     },
     "text": {
-      "fontSize": 14
+      "fontSize": 14,
+      "lineBreak": "~",
+      "lineHeight": 17
     }
-  },
-  "mark": {
-    "type": "circle",
-    "color": "#965071",
-    "opacity": 0.45,
-    "size": 27
   },
   "encoding": {
     "x": {
-      "field": "minutes",
+      "field": "minutes_j",
       "type": "quantitative",
       "title": "Recorded playing time (minutes)",
       "scale": {
@@ -71,7 +67,8 @@
         ]
       },
       "axis": {
-        "grid": false
+        "grid": false,
+        "tickCount": 6
       }
     },
     "y": {
@@ -115,5 +112,61 @@
         "format": ","
       }
     ]
-  }
+  },
+  "layer": [
+    {
+      "transform": [
+        {
+          "calculate": "clamp(datum.minutes + (random() - 0.5) * 8, 0, 360)",
+          "as": "minutes_j"
+        }
+      ],
+      "mark": {
+        "type": "circle",
+        "color": "#965071",
+        "opacity": 0.45,
+        "size": 27
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "minutes_j": 15,
+            "complexity": 4.6,
+            "note": [
+              "30 minutes or less:",
+              "middle score 1.4"
+            ]
+          },
+          {
+            "minutes_j": 250,
+            "complexity": 1.6,
+            "note": [
+              "2 hours or more:",
+              "middle score 3.0"
+            ]
+          }
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "align": {
+          "expr": "datum.minutes_j > 180 ? 'right' : 'left'"
+        },
+        "fontWeight": "bold",
+        "lineHeight": 17,
+        "color": "#27313a"
+      },
+      "encoding": {
+        "text": {
+          "field": "note",
+          "type": "nominal"
+        },
+        "tooltip": {
+          "value": null
+        }
+      }
+    }
+  ]
 }

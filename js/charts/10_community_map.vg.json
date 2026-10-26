@@ -20,7 +20,7 @@
     }
   },
   "config": {
-    "font": "Arial",
+    "font": "'Source Sans 3'",
     "background": "transparent",
     "view": {
       "stroke": null
@@ -48,7 +48,9 @@
       "labelLimit": 240
     },
     "text": {
-      "fontSize": 14
+      "fontSize": 14,
+      "lineBreak": "~",
+      "lineHeight": 17
     }
   },
   "projection": {
@@ -63,6 +65,11 @@
           "feature": "ne_110m_admin_0_countries"
         }
       },
+      "transform": [
+        {
+          "filter": "datum.properties.ADMIN !== 'Antarctica'"
+        }
+      ],
       "mark": {
         "type": "geoshape",
         "fill": "#e6e9ec",
@@ -73,7 +80,7 @@
     {
       "transform": [
         {
-          "filter": "datum.highlight == 'Other countries'"
+          "filter": "datum.highlight == 'Other countries' && datum.country_name != 'Antarctica'"
         }
       ],
       "mark": {

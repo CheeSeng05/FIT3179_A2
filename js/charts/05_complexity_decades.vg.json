@@ -22,7 +22,7 @@
     }
   },
   "config": {
-    "font": "Arial",
+    "font": "'Source Sans 3'",
     "background": "transparent",
     "view": {
       "stroke": null
@@ -50,16 +50,25 @@
       "labelLimit": 240
     },
     "text": {
-      "fontSize": 14
+      "fontSize": 14,
+      "lineBreak": "~",
+      "lineHeight": 17
     }
   },
+  "transform": [
+    {
+      "calculate": "datum.decade + '~' + format(datum.games, ',') + ' games'",
+      "as": "decade_label"
+    }
+  ],
   "encoding": {
     "x": {
-      "field": "decade",
+      "field": "decade_label",
       "type": "ordinal",
-      "title": "Publication decade",
+      "title": "Publication decade / sample games",
       "axis": {
-        "labelAngle": -35
+        "labelAngle": 0,
+        "labelExpr": "width < 500 ? [slice(datum.label, 0, 4), split(split(datum.label, '~')[1], ' ')[0]] : [replace(split(datum.label, '~')[0], '2020–2025', '2020–25'), split(split(datum.label, '~')[1], ' ')[0], 'games']"
       }
     },
     "tooltip": [

@@ -20,7 +20,7 @@
     }
   },
   "config": {
-    "font": "Arial",
+    "font": "'Source Sans 3'",
     "background": "transparent",
     "view": {
       "stroke": null
@@ -48,7 +48,9 @@
       "labelLimit": 240
     },
     "text": {
-      "fontSize": 14
+      "fontSize": 14,
+      "lineBreak": "~",
+      "lineHeight": 17
     }
   },
   "params": [
@@ -114,7 +116,7 @@
     {
       "mark": {
         "type": "rect",
-        "strokeWidth": 2
+        "strokeWidth": 1
       },
       "encoding": {
         "color": {
@@ -123,23 +125,31 @@
             "field": "rank",
             "type": "quantitative",
             "scale": {
-              "scheme": "greys",
+              "range": [
+                "#252525",
+                "#bdbdbd"
+              ],
               "domain": [
                 1,
                 30
               ],
-              "reverse": true,
               "clamp": true
             },
             "legend": null
           },
-          "value": "#e6e9ec"
+          "value": "white"
         },
         "stroke": {
-          "condition": {
-            "test": "datum.id == selected_game",
-            "value": "#27313a"
-          },
+          "condition": [
+            {
+              "test": "datum.id == selected_game",
+              "value": "#27313a"
+            },
+            {
+              "test": "!isValid(datum.rank) || datum.rank <= 0",
+              "value": "#bdbdbd"
+            }
+          ],
           "value": "white"
         }
       }
@@ -151,12 +161,16 @@
       },
       "encoding": {
         "text": {
-          "field": "rank_label",
-          "type": "nominal"
+          "condition": {
+            "test": "isValid(datum.rank) && datum.rank > 0",
+            "field": "rank_label",
+            "type": "nominal"
+          },
+          "value": "–"
         },
         "color": {
           "condition": {
-            "test": "isValid(datum.rank) && datum.rank <= 12",
+            "test": "isValid(datum.rank) && datum.rank <= 16",
             "value": "white"
           },
           "value": "black"

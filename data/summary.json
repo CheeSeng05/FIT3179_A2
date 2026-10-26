@@ -1,5 +1,5 @@
 {
-  "prepared_date": "2026-10-10",
+  "prepared_date": "2026-10-26",
   "core_games": 120563,
   "games_with_mechanics": 105204,
   "complexity_games": 14257,
@@ -29,9 +29,12 @@
       "complexity_votes": 386.0,
       "minutes": 30.0,
       "max_players": 5.0,
-      "min_age": 10.0,
+      "min_age": 10,
       "category": "General",
-      "award_year": 2025
+      "award_year": 2025,
+      "bgg_min_age": 10.0,
+      "age_source": "https://pegasus.de/Bomb-Busters-Spiel-des-Jahres-2025/51280G",
+      "age_edition": "Pegasus German edition"
     },
     {
       "id": 373106,
@@ -41,9 +44,12 @@
       "complexity_votes": 756.0,
       "minutes": 20.0,
       "max_players": 2.0,
-      "min_age": 10.0,
+      "min_age": 12,
       "category": "General",
-      "award_year": 2024
+      "award_year": 2024,
+      "bgg_min_age": 10.0,
+      "age_source": "https://www.scorpionmasque.com/fr/blog/le-commandant-robert-pich%C3%A9-aux-commandes-de-sky-team",
+      "age_edition": "Scorpion Masque publisher recommendation; award jury recommends 10"
     },
     {
       "id": 367966,
@@ -53,9 +59,12 @@
       "complexity_votes": 435.0,
       "minutes": 120.0,
       "max_players": 4.0,
-      "min_age": 10.0,
+      "min_age": 14,
       "category": "Experienced",
-      "award_year": 2025
+      "award_year": 2025,
+      "bgg_min_age": 10.0,
+      "age_source": "https://shop.grandgamersguild.com/products/endeavor-deep-sea-deluxe-1-essen-2026",
+      "age_edition": "Grand Gamers Guild US deluxe listing; award edition recommends 12"
     },
     {
       "id": 334986,
@@ -65,9 +74,12 @@
       "complexity_votes": 222.0,
       "minutes": 120.0,
       "max_players": 4.0,
-      "min_age": 10.0,
+      "min_age": 10,
       "category": "Experienced",
-      "award_year": 2024
+      "award_year": 2024,
+      "bgg_min_age": 10.0,
+      "age_source": "https://www.daybreakgame.org/",
+      "age_edition": "CMYK English edition"
     },
     {
       "id": 423232,
@@ -77,9 +89,12 @@
       "complexity_votes": 12.0,
       "minutes": 20.0,
       "max_players": 4.0,
-      "min_age": 6.0,
+      "min_age": 6,
       "category": "Children",
-      "award_year": 2025
+      "award_year": 2025,
+      "bgg_min_age": 6.0,
+      "age_source": "https://www.schmidtspiele.de/details/produkt/topp-die-torte-.html",
+      "age_edition": "Schmidt Topp die Torte edition"
     },
     {
       "id": 368899,
@@ -89,9 +104,12 @@
       "complexity_votes": 17.0,
       "minutes": 30.0,
       "max_players": 4.0,
-      "min_age": 6.0,
+      "min_age": 6,
       "category": "Children",
-      "award_year": 2024
+      "award_year": 2024,
+      "bgg_min_age": 6.0,
+      "age_source": "https://www.gamefactory-spiele.com/die-magischen-schluessel",
+      "age_edition": "Game Factory Die magischen Schluessel edition"
     }
   ],
   "top20_samples": {

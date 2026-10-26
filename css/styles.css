@@ -3,7 +3,7 @@
   --ink: #27313a;
   --rule: #dce1e5;
   --paper: #ffffff;
-  --global: #7651a8;
+  --global: #3d4852;
   --malaysia: #b65c0a;
   --australia: #2674ae;
   --catalogue: #167d73;
@@ -18,7 +18,7 @@ body {
   margin: 0;
   color: var(--ink);
   background: var(--tabletop);
-  font-family: "Segoe UI", Arial, sans-serif;
+  font-family: "Source Sans 3", Arial, sans-serif;
   font-size: 18px;
   line-height: 1.55;
 }
@@ -30,15 +30,15 @@ body {
   box-shadow: 0 8px 32px rgba(39, 49, 58, .06);
 }
 h1, h2, h3, p { margin-top: 0; }
+h1, h2, .fact-value { font-family: "Bree Serif", Georgia, serif; font-weight: 400; }
 h1 {
-  font-family: Georgia, "Times New Roman", serif;
   font-size: clamp(38px, 5vw, 66px);
-  font-weight: 700;
+  font-weight: 400;
   line-height: 1.06;
   letter-spacing: -1.5px;
   margin-bottom: 20px;
 }
-h2 { font-family: Georgia, "Times New Roman", serif; font-size: 32px; line-height: 1.2; margin-bottom: 12px; }
+h2 { font-size: 32px; line-height: 1.2; margin-bottom: 12px; }
 h3 { font-size: 21px; line-height: 1.3; margin-bottom: 12px; }
 p { max-width: 50ch; margin-bottom: 10px; }
 /* A coloured title area establishes the theme; charts stay on white. */
@@ -56,7 +56,7 @@ p { max-width: 50ch; margin-bottom: 10px; }
 .hero-facts { display: grid; gap: 22px; }
 .hero-fact { border-left: 2px solid var(--mint); padding-left: 18px; }
 .hero-fact p { margin-bottom: 3px; }
-.fact-value { font-family: Georgia, "Times New Roman", serif; font-size: 38px; line-height: 1.1; font-weight: 700; }
+.fact-value { font-family: "Bree Serif", Georgia, serif; font-size: 42px; line-height: 1.1; font-weight: 400; }
 .fact-label { font-size: 16px; color: #e1eeea; }
 .colour-notes { display: flex; flex-wrap: wrap; gap: 8px 28px; width: fit-content; margin-top: 24px; padding: 12px 18px; background: white; color: var(--ink); border-radius: 6px; }
 .story-nav { display: flex; flex-wrap: wrap; gap: 10px 24px; padding: 22px 0; border-bottom: 1px solid var(--rule); }
@@ -67,8 +67,8 @@ p { max-width: 50ch; margin-bottom: 10px; }
 .scope-notes p, .colour-notes p { font-size: 17px; margin-bottom: 5px; }
 .story-section { --section-accent: var(--catalogue); border-bottom: 1px solid var(--rule); padding: 30px 0 12px; }
 .section--complexity { --section-accent: var(--complexity); }
-.section--communities { --section-accent: var(--global); }
-.section--awards { --section-accent: #8a561b; }
+.section--communities { --section-accent: var(--ink); }
+.section--awards { --section-accent: var(--ink); }
 .section-heading { margin-bottom: 26px; padding: 20px 22px; background: var(--soft); border-left: 4px solid var(--section-accent); }
 .section-heading .section-number { margin-bottom: 8px; color: var(--section-accent); font-size: 14px; letter-spacing: 1.4px; text-transform: uppercase; }
 .section-heading p:last-child { margin-bottom: 0; }
@@ -83,14 +83,9 @@ h2[id] { scroll-margin-top: 24px; }
 .chart-row .chart-layout { display: block; }
 .chart-row .chart-note { margin-top: 14px; padding: 12px 0 0; border-left: 0; border-top: 1px solid var(--rule); }
 .chart-block { min-width: 0; margin: 0 0 30px; }
-.chart-layout {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) 240px;
-  align-items: center;
-  gap: 28px;
-}
+.chart-layout { display: block; }
 .chart-main, .chart-note { min-width: 0; }
-.chart-note { border-left: 3px solid var(--rule); padding-left: 14px; }
+.chart-note { margin-top: 14px; padding: 12px 0 0; border-top: 1px solid var(--rule); }
 .chart-note p { margin-bottom: 12px; }
 .chart-note details { margin-top: 14px; }
 .mobile-note { display: none; }
@@ -140,7 +135,7 @@ a { color: var(--ink); text-underline-offset: 3px; }
 details { margin: 10px 0 16px; }
 summary { cursor: pointer; font-size: 17px; font-weight: 600; }
 details p { margin-top: 10px; }
-.source-list { max-width: 65ch; padding-left: 22px; }
+.source-list { max-width: 50ch; padding-left: 22px; }
 .source-list li { margin: 10px 0; }
 .colour-swatch { display: inline-block; width: 12px; height: 12px; margin-right: 8px; }
 .catalogue-swatch { background: var(--catalogue); }
@@ -150,17 +145,15 @@ details p { margin-top: 10px; }
 .chart-error { padding: 16px; border-left: 3px solid #b54b39; }
 .skip-link { position: absolute; left: 16px; top: -100px; background: white; padding: 8px; }
 .skip-link:focus { top: 12px; }
-.vega-tooltip { font-family: "Segoe UI", Arial, sans-serif !important; font-size: 15px !important; }
+.vega-tooltip { font-family: "Source Sans 3", Arial, sans-serif !important; font-size: 15px !important; }
+.definition-list { display: grid; grid-template-columns: 1fr 1fr; gap: 4px 28px; margin-top: 14px; }
+.definition-list p { margin: 0 0 8px; }
+.mechanic-definitions { margin: 4px 0 24px; }
 /* Stack pairs before either chart becomes too narrow for its labels. */
 @media (max-width: 1200px) {
   .chart-row { display: block; }
   .chart-row > .chart-block { width: 100%; }
   .chart-row > .chart-block > h3 { min-height: 0; }
-  .chart-row .chart-layout {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) 240px;
-  }
-  .chart-row .chart-note { margin-top: 0; padding: 0 0 0 14px; border-top: 0; border-left: 3px solid var(--rule); }
 }
 @media (max-width: 800px) {
   .page { margin: 0; padding: 28px 20px; }
@@ -171,7 +164,7 @@ details p { margin-top: 10px; }
   .fact-value { font-size: 30px; }
   .fact-label { font-size: 14px; }
   .section-heading { padding: 16px; }
-  .chart-layout, .chart-row .chart-layout, .download-list { grid-template-columns: minmax(0, 1fr); gap: 8px; }
+  .definition-list, .download-list { grid-template-columns: minmax(0, 1fr); gap: 8px; }
   h2 { font-size: 26px; }
   h3 { font-size: 20px; }
   .chart-note p { max-width: 46ch; }

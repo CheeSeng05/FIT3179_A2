@@ -1,14 +1,19 @@
-id,parent,publisher,games
-root,,All credits,0
-51,root,Hasbro,1692
-34,root,Ravensburger AG,1290
-20,root,Milton Bradley,1241
-28,root,Parker Brothers,1052
-37,root,KOSMOS,1007
-873,root,Warp Spawn Games,985
-384,root,HABA,935
-93,root,"Mattel, Inc.",893
-39,root,Pegasus Spiele,825
-18852,root,Hobby World,819
-22,root,Piatnik,791
-38,root,Schmidt Spiele,778
+id,parent,publisher,games,country
+root,,All credits,0,
+country_US,root,United States,0,United States
+country_DE,root,Germany,0,Germany
+country_Unknown,root,Unverified,0,Unverified
+country_RU,root,Russia,0,Russia
+country_AT,root,Austria,0,Austria
+51,country_US,Hasbro,1692,United States
+34,country_DE,Ravensburger AG,1290,Germany
+20,country_US,Milton Bradley,1241,United States
+28,country_US,Parker Brothers,1052,United States
+37,country_DE,KOSMOS,1007,Germany
+873,country_Unknown,Warp Spawn Games,985,Unverified
+384,country_DE,HABA,935,Germany
+93,country_US,"Mattel, Inc.",893,United States
+39,country_DE,Pegasus Spiele,825,Germany
+18852,country_RU,Hobby World,819,Russia
+22,country_AT,Piatnik,791,Austria
+38,country_DE,Schmidt Spiele,778,Germany

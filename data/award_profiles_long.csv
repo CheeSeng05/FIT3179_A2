@@ -2,24 +2,24 @@ id,name,category,award_year,metric,value,order
 413246,Bomb Busters,General,2025,complexity,2.0078,0
 413246,Bomb Busters,General,2025,minutes,30.0,1
 413246,Bomb Busters,General,2025,max_players,5.0,2
-413246,Bomb Busters,General,2025,min_age,10.0,3
+413246,Bomb Busters,General,2025,min_age,10,3
 373106,Sky Team,General,2024,complexity,2.041,0
 373106,Sky Team,General,2024,minutes,20.0,1
 373106,Sky Team,General,2024,max_players,2.0,2
-373106,Sky Team,General,2024,min_age,10.0,3
+373106,Sky Team,General,2024,min_age,12,3
 367966,Endeavor: Deep Sea,Experienced,2025,complexity,2.9287,0
 367966,Endeavor: Deep Sea,Experienced,2025,minutes,120.0,1
 367966,Endeavor: Deep Sea,Experienced,2025,max_players,4.0,2
-367966,Endeavor: Deep Sea,Experienced,2025,min_age,10.0,3
+367966,Endeavor: Deep Sea,Experienced,2025,min_age,14,3
 334986,Daybreak,Experienced,2024,complexity,2.8784,0
 334986,Daybreak,Experienced,2024,minutes,120.0,1
 334986,Daybreak,Experienced,2024,max_players,4.0,2
-334986,Daybreak,Experienced,2024,min_age,10.0,3
+334986,Daybreak,Experienced,2024,min_age,10,3
 423232,Cherry on the Cake,Children,2025,complexity,1.1667,0
 423232,Cherry on the Cake,Children,2025,minutes,20.0,1
 423232,Cherry on the Cake,Children,2025,max_players,4.0,2
-423232,Cherry on the Cake,Children,2025,min_age,6.0,3
+423232,Cherry on the Cake,Children,2025,min_age,6,3
 368899,Magic Keys,Children,2024,complexity,1.0588,0
 368899,Magic Keys,Children,2024,minutes,30.0,1
 368899,Magic Keys,Children,2024,max_players,4.0,2
-368899,Magic Keys,Children,2024,min_age,6.0,3
+368899,Magic Keys,Children,2024,min_age,6,3

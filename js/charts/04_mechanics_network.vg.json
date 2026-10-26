@@ -86,6 +86,16 @@
           ]
         }
       ]
+    },
+    {
+      "name": "key_link",
+      "source": "links",
+      "transform": [
+        {
+          "type": "filter",
+          "expr": "datum.source_name == 'Simulation' && datum.target_name == 'Dice Rolling'"
+        }
+      ]
     }
   ],
   "scales": [
@@ -99,6 +109,19 @@
       "range": [
         1,
         7
+      ],
+      "zero": true
+    },
+    {
+      "name": "node_size",
+      "type": "sqrt",
+      "domain": {
+        "data": "nodes",
+        "field": "games"
+      },
+      "range": [
+        80,
+        600
       ],
       "zero": true
     }
@@ -124,10 +147,10 @@
             "field": "y2"
           },
           "stroke": {
-            "value": "#167d73"
+            "signal": "datum.source_name == 'Simulation' && datum.target_name == 'Dice Rolling' ? '#27313a' : '#167d73'"
           },
           "strokeOpacity": {
-            "value": 0.55
+            "signal": "datum.source_name == 'Simulation' && datum.target_name == 'Dice Rolling' ? 1 : 0.4"
           },
           "strokeWidth": {
             "scale": "link_width",
@@ -153,7 +176,8 @@
             "field": "y"
           },
           "size": {
-            "value": 160
+            "scale": "node_size",
+            "field": "games"
           },
           "fill": {
             "value": "#167d73"
@@ -195,10 +219,47 @@
             "value": "middle"
           },
           "font": {
-            "value": "Arial"
+            "value": "'Source Sans 3'"
           },
           "fontSize": {
             "value": 14
+          },
+          "fill": {
+            "value": "#27313a"
+          }
+        }
+      }
+    },
+    {
+      "type": "text",
+      "from": {
+        "data": "key_link"
+      },
+      "encode": {
+        "update": {
+          "x": {
+            "signal": "(datum.x1+datum.x2)/2 + (width < 500 ? 50 : 35)"
+          },
+          "y": {
+            "signal": "(datum.y1+datum.y2)/2 - 20"
+          },
+          "text": {
+            "signal": "width < 500 ? [format(datum.shared_games, ','), 'shared games'] : [format(datum.shared_games, ',') + ' shared games']"
+          },
+          "align": {
+            "value": "center"
+          },
+          "font": {
+            "value": "'Source Sans 3'"
+          },
+          "fontSize": {
+            "value": 14
+          },
+          "fontWeight": {
+            "value": "bold"
+          },
+          "lineHeight": {
+            "value": 16
           },
           "fill": {
             "value": "#27313a"

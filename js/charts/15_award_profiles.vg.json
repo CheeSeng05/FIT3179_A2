@@ -14,7 +14,7 @@
   "signals": [
     {
       "name": "selected_profile",
-      "value": 0
+      "value": 373106
     },
     {
       "name": "hover_profile",
@@ -44,6 +44,16 @@
           "award_year": "number"
         }
       }
+    },
+    {
+      "name": "selected_label",
+      "source": "profiles",
+      "transform": [
+        {
+          "type": "filter",
+          "expr": "datum.id == selected_profile && datum.metric == 'complexity'"
+        }
+      ]
     }
   ],
   "scales": [
@@ -97,7 +107,7 @@
       "type": "linear",
       "domain": [
         0,
-        10.0
+        14
       ],
       "range": "height",
       "zero": false,
@@ -116,7 +126,8 @@
       "title": null,
       "grid": false,
       "tickCount": 4,
-      "labelFont": "Arial",
+      "labelPadding": 6,
+      "labelFont": "'Source Sans 3'",
       "labelFontSize": 14,
       "labelColor": "#27313a",
       "domainColor": "#bdc5cc",
@@ -133,7 +144,8 @@
       "title": null,
       "grid": false,
       "tickCount": 4,
-      "labelFont": "Arial",
+      "labelPadding": 6,
+      "labelFont": "'Source Sans 3'",
       "labelFontSize": 14,
       "labelColor": "#27313a",
       "domainColor": "#bdc5cc",
@@ -150,7 +162,8 @@
       "title": null,
       "grid": false,
       "tickCount": 4,
-      "labelFont": "Arial",
+      "labelPadding": 6,
+      "labelFont": "'Source Sans 3'",
       "labelFontSize": 14,
       "labelColor": "#27313a",
       "domainColor": "#bdc5cc",
@@ -167,7 +180,8 @@
       "title": null,
       "grid": false,
       "tickCount": 4,
-      "labelFont": "Arial",
+      "labelPadding": 6,
+      "labelFont": "'Source Sans 3'",
       "labelFontSize": 14,
       "labelColor": "#27313a",
       "domainColor": "#bdc5cc",
@@ -190,7 +204,7 @@
             "value": "Complexity"
           },
           "font": {
-            "value": "Arial"
+            "value": "'Source Sans 3'"
           },
           "fontSize": {
             "value": 14
@@ -222,7 +236,7 @@
             "value": "Minutes"
           },
           "font": {
-            "value": "Arial"
+            "value": "'Source Sans 3'"
           },
           "fontSize": {
             "value": 14
@@ -257,7 +271,7 @@
             ]
           },
           "font": {
-            "value": "Arial"
+            "value": "'Source Sans 3'"
           },
           "fontSize": {
             "value": 14
@@ -287,12 +301,12 @@
           },
           "text": {
             "value": [
-              "Minimum",
-              "age"
+              "Age",
+              "(years)"
             ]
           },
           "font": {
-            "value": "Arial"
+            "value": "'Source Sans 3'"
           },
           "fontSize": {
             "value": 14
@@ -346,6 +360,9 @@
               "strokeWidth": {
                 "signal": "datum.id == selected_profile || datum.id == hover_profile ? 3 : 1.5"
               },
+              "strokeDash": {
+                "signal": "datum.category == 'General' ? [] : datum.category == 'Experienced' ? [6,3] : [2,3]"
+              },
               "strokeOpacity": {
                 "signal": "selected_profile == 0 && hover_profile == 0 || datum.id == selected_profile || datum.id == hover_profile ? 0.8 : 0.12"
               },
@@ -356,6 +373,52 @@
           }
         }
       ]
+    },
+    {
+      "type": "text",
+      "name": "selected_profile_label",
+      "from": {
+        "data": "selected_label"
+      },
+      "interactive": false,
+      "encode": {
+        "update": {
+          "x": {
+            "scale": "dimension",
+            "value": "complexity",
+            "offset": 10
+          },
+          "y": {
+            "scale": "complexity",
+            "field": "value",
+            "offset": -12
+          },
+          "text": {
+            "signal": "width < 500 ? split(datum.name, ' ') : datum.name"
+          },
+          "font": {
+            "value": "'Source Sans 3'"
+          },
+          "fontSize": {
+            "value": 14
+          },
+          "fontWeight": {
+            "value": "bold"
+          },
+          "lineHeight": {
+            "value": 16
+          },
+          "align": {
+            "value": "left"
+          },
+          "baseline": {
+            "value": "bottom"
+          },
+          "fill": {
+            "value": "#27313a"
+          }
+        }
+      }
     }
   ]
 }

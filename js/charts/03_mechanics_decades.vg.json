@@ -2,7 +2,7 @@
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "description": "Mechanic shares by publication decade",
   "width": "container",
-  "height": 350,
+  "height": 400,
   "autosize": {
     "type": "fit",
     "contains": "padding"
@@ -20,7 +20,7 @@
     }
   },
   "config": {
-    "font": "Arial",
+    "font": "'Source Sans 3'",
     "background": "transparent",
     "view": {
       "stroke": null
@@ -48,7 +48,9 @@
       "labelLimit": 240
     },
     "text": {
-      "fontSize": 14
+      "fontSize": 14,
+      "lineBreak": "~",
+      "lineHeight": 17
     }
   },
   "params": [
@@ -92,18 +94,14 @@
       "as": "share"
     }
   ],
-  "mark": {
-    "type": "rect",
-    "stroke": "white",
-    "strokeWidth": 2
-  },
   "encoding": {
     "x": {
       "field": "decade",
       "type": "ordinal",
       "title": "Publication decade",
       "axis": {
-        "labelAngle": -35
+        "labelAngle": 0,
+        "labelExpr": "width < 300 ? [slice(datum.label, 0, 4), datum.label == '2020–2025' ? '–25' : 's'] : replace(datum.label, '2020–2025', '2020–25')"
       }
     },
     "y": {
@@ -114,7 +112,9 @@
         "field": "order"
       },
       "axis": {
-        "labelLimit": 155
+        "labelLimit": 100,
+        "labelExpr": "datum.label == 'Roll / Spin and Move' ? ['Roll / Spin', 'and Move'] : split(datum.label, ' ')",
+        "labelLineHeight": 14
       }
     },
     "color": {
@@ -131,9 +131,10 @@
         ],
         "domain": [
           0,
-          1
+          0.6
         ],
-        "interpolate": "lab"
+        "interpolate": "lab",
+        "clamp": true
       },
       "legend": {
         "title": "Mechanic percentage",
@@ -141,9 +142,10 @@
         "gradientLength": 160,
         "values": [
           0,
-          0.5,
-          1
-        ]
+          0.3,
+          0.6
+        ],
+        "labelExpr": "datum.value == 0.6 ? '60%+' : format(datum.value, '.0%')"
       }
     },
     "tooltip": [
@@ -176,5 +178,39 @@
         "format": ","
       }
     ]
-  }
+  },
+  "layer": [
+    {
+      "mark": {
+        "type": "rect",
+        "stroke": "white",
+        "strokeWidth": 2
+      }
+    },
+    {
+      "transform": [
+        {
+          "filter": "(datum.mechanic == 'Roll / Spin and Move' && (datum.decade == '1950s' || datum.decade == '2020–2025')) || (datum.mechanic == 'Cooperative Game' && datum.decade == '2020–2025')"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "fontWeight": "bold"
+      },
+      "encoding": {
+        "text": {
+          "field": "share",
+          "type": "quantitative",
+          "format": ".0%"
+        },
+        "color": {
+          "condition": {
+            "test": "datum.share > 0.3",
+            "value": "white"
+          },
+          "value": "#27313a"
+        }
+      }
+    }
+  ]
 }

@@ -19,7 +19,7 @@
     }
   },
   "config": {
-    "font": "Arial",
+    "font": "'Source Sans 3'",
     "background": "transparent",
     "view": {
       "stroke": null
@@ -47,7 +47,9 @@
       "labelLimit": 240
     },
     "text": {
-      "fontSize": 14
+      "fontSize": 14,
+      "lineBreak": "~",
+      "lineHeight": 17
     }
   },
   "projection": {
@@ -68,6 +70,11 @@
           "feature": "ne_110m_admin_0_countries"
         }
       },
+      "transform": [
+        {
+          "filter": "datum.properties.ADMIN !== 'Antarctica'"
+        }
+      ],
       "mark": {
         "type": "geoshape",
         "fill": "#e6e9ec",
@@ -131,6 +138,7 @@
           },
           "legend": {
             "title": "Cooperative games (%)",
+            "orient": "bottom-left",
             "format": ".0%",
             "values": [
               0,
@@ -166,6 +174,49 @@
             "format": ","
           }
         ]
+      }
+    },
+    {
+      "transform": [
+        {
+          "filter": "datum.period == publication_period && datum.eligible_games >= 50 && isValid(datum.share)"
+        },
+        {
+          "filter": "datum.country == 'Czechia' || datum.country == 'United States of America'"
+        },
+        {
+          "calculate": "datum.country == 'Czechia' ? 15.5 : -98",
+          "as": "longitude"
+        },
+        {
+          "calculate": "datum.country == 'Czechia' ? 49.8 : 39",
+          "as": "latitude"
+        },
+        {
+          "calculate": "(datum.country == 'Czechia' ? 'Czechia ' : 'USA ') + format(datum.share, datum.country == 'Czechia' ? '.0%' : '.1%')",
+          "as": "label"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "fontSize": 14,
+        "fontWeight": "bold",
+        "color": "#27313a",
+        "dy": -15
+      },
+      "encoding": {
+        "longitude": {
+          "field": "longitude",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "latitude",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "label",
+          "type": "nominal"
+        }
       }
     }
   ]

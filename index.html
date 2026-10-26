@@ -10,6 +10,7 @@
     <script src="js/vendor/vega.min.js"></script>
     <script src="js/vendor/vega-lite.min.js"></script>
     <script src="js/vendor/vega-embed.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Bree+Serif&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/styles.css">
   </head>
   <body>
@@ -20,25 +21,26 @@
           <div class="hero-copy">
             <p class="eyebrow">Board games / FIT3179</p>
             <h1>From the World<br><span class="title-accent">to Your Game Night</span></h1>
-            <p class="intro">Explore the games behind your next game night.</p>
+            <p class="intro">Games today are more cooperative and a little heavier.</p>
+            <p class="intro">Malaysian BGG users also rank some global favourites differently.</p>
             <div class="scope-notes">
               <p>BoardGameGeek (BGG) records games and community ratings.</p>
               <p>Catalogue: base games published from 1950 to 2025.</p>
               <p>Country comparisons: historical April 2024 BGG analysis.</p>
             </div>
           </div>
-          <aside class="hero-facts" aria-label="Collection overview">
+          <aside class="hero-facts" aria-label="Catalogue overview and findings">
             <div class="hero-fact">
               <p class="fact-value">120,563</p>
               <p class="fact-label">Base games, 1950–2025</p>
             </div>
             <div class="hero-fact">
-              <p class="fact-value">387</p>
-              <p class="fact-label">Publishers with mapped headquarters</p>
+              <p class="fact-value">5×</p>
+              <p class="fact-label">More new games in 2025 than in 2000</p>
             </div>
             <div class="hero-fact">
-              <p class="fact-value">3</p>
-              <p class="fact-label">Ranking lists, April 2024</p>
+              <p class="fact-value">41%</p>
+              <p class="fact-label">Of sampled award winners are cooperative games</p>
             </div>
           </aside>
         </div>
@@ -59,10 +61,12 @@
         <div class="section-heading">
           <p class="section-number">01 / Through time</p>
           <h2 id="section-1">How have board games changed?</h2>
-          <p class="finding">2025 leads the catalogue with 6,752 recorded games.</p>
+          <p class="finding">Releases grew five-fold since 2000: 1,315 to 6,752.</p>
+          <p class="finding">Roll-and-move fell from 53% of games to under 4%.</p>
+          <p>Mechanics are the systems behind game play.</p>
         </div>
         <article class="chart-block">
-          <h3><span class="chart-number">01</span> Games published each year</h3>
+          <h3><span class="chart-number">01</span> New games per year grew five-fold since 2000</h3>
           <div class="chart-layout">
             <div class="chart-main">
               <div class="controls"><button id="reset-years" type="button" disabled>Reset years</button>
@@ -70,73 +74,86 @@
               <div id="vis01" class="vis-container" role="img" aria-label="Line chart of catalogue game counts by publication year"></div>
             </div>
             <aside class="chart-note" aria-label="Chart 01 context">
-              <p class="chart-help">Drag years to update charts 02 and 03.</p>
-              <p>Catalogue entries do not measure worldwide sales.</p>
-            </aside>
+                <p>Drag years to update charts 02 and 03.</p>
+                <p>Catalogue entries do not measure worldwide sales.</p>
+              </aside>
           </div>
         </article>
         <div class="chart-row">
           <article class="chart-block">
-            <h3><span class="chart-number">02</span> Common ways of playing</h3>
+            <h3><span class="chart-number">02</span> Dice rolling leads the full-period catalogue</h3>
             <div class="chart-layout">
               <div class="chart-main">
 
                 <div id="vis02" class="vis-container" role="img" aria-label="Catalogue-wide top ten mechanics, counted within selected years"></div>
               </div>
               <aside class="chart-note" aria-label="Chart 02 context">
-                <p id="mechanic-note">Catalogue-wide top ten; counts follow your selected years.</p>
-                <details><summary>Mechanic definitions</summary>
-                  <p>Mechanics describe how games are played; games can combine them.</p>
-                  <p>Hand management: choosing which cards to keep or play.</p>
-                  <p>Cooperative play: working towards a shared goal.</p>
-                  <p>Drafting: choosing from available items.</p>
-                  <p>Set collection: gathering matching groups of items.</p>
-                  <p>Player powers: different abilities for different players.</p>
-                  <p>Hexagon grid: movement or placement on six-sided spaces.</p>
-                  <p>Simulation: modelling a real or imagined situation.</p>
-                </details>
+                <p>Games can use several mechanics.</p>
+                <p>Catalogue-wide top ten; counts follow selected years.</p>
+                <p>Term definitions follow charts 02 and 03.</p>
               </aside>
             </div>
           </article>
           <article class="chart-block">
-            <h3><span class="chart-number">03</span> Mechanics across decades</h3>
+            <h3><span class="chart-number">03</span> Roll-and-move faded as cooperative play grew</h3>
             <div class="chart-layout">
               <div class="chart-main">
 
                 <div id="vis03" class="vis-container" role="img" aria-label="Heatmap of mechanic percentages by publication decade"></div>
               </div>
               <aside class="chart-note" aria-label="Chart 03 context">
-                <p>Percentages follow selected years; decades may be partial.</p>
-                <p>Missing mechanic records are excluded.</p>
+                <p>Darker cells mean more games use that mechanic.</p>
+                <p>The 2020–25 column covers only six years.</p>
+                <p>Colours cap at 60%; tooltips show exact percentages.</p>
               </aside>
             </div>
           </article>
         </div>
+        <details open class="mechanic-definitions" id="mechanic-definitions">
+          <summary>Mechanic definitions</summary>
+          <div class="definition-list">
+            <p>Dice rolling: rolling dice decides what happens.</p>
+            <p>Roll / Spin and Move: move pieces by a roll.</p>
+            <p>Hand management: choosing which cards to keep or play.</p>
+            <p>Set collection: gathering matching groups of items.</p>
+            <p>Hexagon grid: moving or placing on six-sided spaces.</p>
+            <p>Cooperative game: all players work towards one shared goal.</p>
+            <p>Open drafting: taking turns to pick from shared items.</p>
+            <p>Simulation: modelling a real or imagined situation.</p>
+            <p>Variable player powers: each player has different abilities.</p>
+            <p>Tile placement: laying tiles to build a board.</p>
+            <p>Variable set-up: the starting layout changes each game.</p>
+            <p>Solo / Solitaire: the game can be played alone.</p>
+            <p>Tags: labelled symbols connect related cards and effects.</p>
+          </div>
+        </details>
       </section>
 
       <section class="story-section section--complexity" aria-labelledby="section-2">
         <div class="section-heading">
           <p class="section-number">02 / Playing experience</p>
           <h2 id="section-2">What will a game night feel like?</h2>
-          <p class="finding">Median complexity: 1.57 (1950s), 2.24 (2020–2025).</p>
+          <p class="finding">Games became heavier in the 1970s, then held steady.</p>
+          <p class="finding">Since 1970, middle scores have remained between 1.9 and 2.3.</p>
+          <p>Different rules create different playing experiences.</p>
           <p class="definition">Complexity: 1 (light) to 5 (heavy).</p>
         </div>
         <article class="chart-block">
-          <h3><span class="chart-number">04</span> Mechanics used together</h3>
+          <h3><span class="chart-number">04</span> Two in three simulation games also use dice</h3>
           <div class="chart-layout">
             <div class="chart-main">
 
               <div id="vis04" class="vis-container" role="img" aria-label="Network of shared mechanics among games"></div>
             </div>
             <aside class="chart-note" aria-label="Chart 04 context">
-              <p class="finding">Simulation and dice rolling share 5,199 games.</p>
-              <p>Eight mechanics; twelve strongest links. Thickness represents shared games.</p>
-            </aside>
+                <p>Bigger circles mean more games use that mechanic.</p>
+                <p>Thicker lines mean more games share both mechanics.</p>
+              </aside>
           </div>
         </article>
         <div class="chart-row">
           <article class="chart-block">
-            <h3><span class="chart-number">05</span> Complexity across decades</h3>
+            <h3><span class="chart-number">05</span> Complexity rose in the 1970s, then levelled off</h3>
             <div class="chart-layout">
               <div class="chart-main">
 
@@ -144,20 +161,22 @@
               </div>
               <aside class="chart-note" aria-label="Chart 05 context">
                 <p>Centre line: middle score. Box: middle half.</p>
-                <p>Whiskers show the spread, excluding unusually distant scores.</p>
+                <p>Whiskers show the usual range; extreme scores are hidden.</p>
+                <p>Scores reflect 2026 BGG opinions, including older games.</p>
               </aside>
             </div>
           </article>
           <article class="chart-block">
-            <h3><span class="chart-number">06</span> Complexity versus playing time</h3>
+            <h3><span class="chart-number">06</span> Longer games are usually more complex</h3>
             <div class="chart-layout">
               <div class="chart-main">
 
                 <div id="vis06" class="vis-container" role="img" aria-label="Scatterplot of game complexity against recorded playing time"></div>
               </div>
               <aside class="chart-note" aria-label="Chart 06 context">
-                <p>Sample: 1,200 games with 10+ complexity votes.</p>
+                <p>A sample of 1,200 games with 10+ complexity votes.</p>
                 <p>Recorded times above 360 minutes are excluded.</p>
+                <p>Horizontal offsets separate dots; tooltips show recorded times.</p>
               </aside>
             </div>
           </article>
@@ -168,23 +187,26 @@
         <div class="section-heading">
           <p class="section-number">03 / The publishing world</p>
           <h2 id="section-3">Who publishes these games?</h2>
-          <p class="finding">Hasbro has the largest catalogue among named publishers.</p>
+          <p class="finding">Nine of twelve leading catalogues are American or German.</p>
+          <p>Games can have credits from several publishers.</p>
         </div>
 
         <article class="chart-block">
-          <h3><span class="chart-number">07</span> Publisher catalogues</h3>
+          <h3><span class="chart-number">07</span> American and German publishers dominate the largest catalogues</h3>
           <div class="chart-layout">
             <div class="chart-main">
 
               <div id="vis07" class="vis-container" role="img" aria-label="Treemap of the twelve largest named publisher catalogues"></div>
             </div>
             <aside class="chart-note" aria-label="Chart 07 context">
-              <p>Publisher credits overlap; they are not sales.</p>
-            </aside>
+                <p>Publisher credits overlap; they are not sales.</p>
+                <p>Boxes are grouped by the publisher's home country.</p>
+                <p>Warp Spawn's country is unverified.</p>
+              </aside>
           </div>
         </article>
         <article class="chart-block map-block">
-          <h3><span class="chart-number">08</span> Recorded headquarters places</h3>
+          <h3><span class="chart-number">08</span> Mapped publishers cluster in the US and Western Europe</h3>
           <div class="controls">
             <label for="map-period">Publication decade for maps 08 and 09:</label>
             <select id="map-period" disabled>
@@ -197,13 +219,12 @@
           </div>
           <div id="vis08" class="vis-container" role="img" aria-label="Equal-dot map of recorded publisher headquarters places"></div>
           <div class="map-notes">
-            <p id="hq-coverage">One dot represents one publisher; 387 mapped overall.</p>
-            <p>Coverage is partial; places can represent cities or regions.</p>
-            <p>Recorded headquarters do not reconstruct historical office locations.</p>
+            <p>One dot represents one publisher's recorded headquarters place.</p>
+            <p id="hq-coverage">All years: 387 of 25,486 publishers (1.5%) mapped.</p>
           </div>
         </article>
         <article class="chart-block map-block">
-          <h3><span class="chart-number">09</span> Cooperative play in publisher-linked catalogues</h3>
+          <h3><span class="chart-number">09</span> Czech-linked catalogues have the highest cooperative share overall</h3>
 
           <div id="vis09" class="vis-container" role="img" aria-label="Choropleth of cooperative-game percentages by publisher country"></div>
           <div class="map-notes">
@@ -218,12 +239,14 @@
         <div class="section-heading">
           <p class="section-number">04 / Global and local favourites</p>
           <h2 id="section-4">Do communities rank the same games alike?</h2>
-          <p class="finding">Brass: Birmingham ranks first globally, sixth among Malaysian users.</p>
-          <p class="date-note">Historical comparison: April 2024.<br>
+          <p class="finding">Malaysian users rank War of the Ring first.</p>
+          <p class="finding">Globally it is eighth; Brass: Birmingham leads.</p>
+          <p>BGG users report their own country locations.</p>
+          <p class="date-note">Country ranks: April 2024; latest matching analysis found.<br>
             Global snapshot: 25 April 2024.</p>
         </div>
         <article class="chart-block map-block">
-          <h3><span class="chart-number">10</span> BGG rating contributors by country</h3>
+          <h3><span class="chart-number">10</span> Most recorded BGG raters report Europe or North America</h3>
 
           <div id="vis10" class="vis-container" role="img" aria-label="Proportional-symbol map of rating contributors by self-reported country"></div>
           <div class="map-notes">
@@ -231,7 +254,7 @@
           </div>
         </article>
         <article class="chart-block">
-          <h3><span class="chart-number">11</span> Each list's top five, compared</h3>
+          <h3><span class="chart-number">11</span> Games in any list's top five</h3>
           <div class="chart-layout">
             <div class="chart-main">
               <div class="controls"><button id="clear-game" type="button" disabled>Clear selection</button>
@@ -239,11 +262,12 @@
               <div id="vis11" class="vis-container" role="img" aria-label="Heatmap with ranks from global, Malaysian and Australian lists"></div>
             </div>
             <aside class="chart-note" aria-label="Chart 11 context">
-              <p class="chart-help">Select a rank to reveal its game's full name.</p>
-              <p>Darker means better; ranks above 30 share one shade.</p>
-              <p>Country calculations and vote thresholds differ.</p>
-              <p class="mobile-note">MY = Malaysia; AU = Australia.</p>
-            </aside>
+                <p>Select a game to highlight it in chart 13.</p>
+                <p>Darker means a better rank; – means not ranked.</p>
+                <p>Country calculations and vote thresholds differ.</p>
+                <p>Ten games appear because the three top fives differ.</p>
+                <p class="mobile-note">MY = Malaysia; AU = Australia.</p>
+              </aside>
           </div>
         </article>
         <div class="group-key comparison-key" aria-label="Colours for charts 12 and 13">
@@ -251,7 +275,7 @@
         </div>
         <div class="chart-row">
           <article class="chart-block">
-            <h3><span class="chart-number">12</span> Mechanics in the top 20</h3>
+            <h3><span class="chart-number">12</span> Australia's top 20 has the most solo-playable games</h3>
             <div class="chart-layout">
               <div class="chart-main">
 
@@ -259,69 +283,93 @@
               </div>
               <aside class="chart-note" aria-label="Chart 12 context">
                 <p>Games can use several mechanics.</p>
+                <p>Term definitions follow charts 02 and 03.</p>
               </aside>
             </div>
           </article>
           <article class="chart-block">
-            <h3><span class="chart-number">13</span> Complexity in the top 20</h3>
+            <h3><span class="chart-number">13</span> Favourite games are much heavier than typical new games</h3>
             <div class="chart-layout">
               <div class="chart-main">
 
                 <div id="vis13" class="vis-container" role="img" aria-label="Dot plot of complexity scores in three top-20 ranking lists"></div>
               </div>
               <aside class="chart-note" aria-label="Chart 13 context">
-                <p>Vertical offsets separate dots; repeated games share complexity scores.</p>
+                <p>Dots are spread vertically so they do not overlap.</p>
+                <p>Repeated games have the same recorded score.</p>
+                <p>Reference: middle complexity score for eligible 2020–25 catalogue games.</p>
+                <p id="game-selection-13" aria-live="polite">No game selected</p>
               </aside>
             </div>
           </article>
         </div>
-        <p class="section-note">Charts 12 and 13: 2024 lists, 2026 metadata.</p>
+        <p class="section-note">Charts 12 and 13 use 2024 ranking lists.<br>Game details come from the 2026 catalogue.</p>
       </section>
 
       <section class="story-section section--awards" aria-labelledby="section-5">
         <div class="section-heading">
           <p class="section-number">05 / Award-winning experiences</p>
           <h2 id="section-5">What kinds of games receive recognition?</h2>
-          <p class="finding">Cooperative mechanics feature more often among these award winners.</p>
+          <p class="finding">Among these winners, cooperative games account for 41%.</p>
+          <p class="finding">Across all eligible games, the share is only 11%.</p>
+          <p>Awards recognise different kinds of playing experiences.</p>
         </div>
-        <div class="controls">
-          <label for="profile-game">Highlight a winner in chart 15:</label>
-          <select id="profile-game" disabled><option value="0">All six winners</option></select>
-        </div>
-        <div class="chart-row chart-row--awards">
-          <article class="chart-block">
-            <h3><span class="chart-number">14</span> Spiel des Jahres winners versus the catalogue</h3>
-            <div class="chart-layout">
-              <div class="chart-main">
+        <article class="chart-block">
+          <h3><span class="chart-number">14</span> Award winners are almost four times more often cooperative</h3>
+          <div class="chart-layout">
+            <div class="chart-main">
 
-                <div id="vis14" class="vis-container" role="img" aria-label="Grouped bars comparing mechanics among award winners and all eligible games"></div>
-              </div>
-              <aside class="chart-note" aria-label="Chart 14 context">
-                <p>44 winners; 63,563 games, published 2011 to 2025.<br>Winners are included in the wider comparison.</p>
-              </aside>
+              <div id="vis14" class="vis-container" role="img" aria-label="Grouped bars comparing mechanics among award winners and all eligible games"></div>
             </div>
-          </article>
-          <article class="chart-block">
-            <h3><span class="chart-number">15</span> Compare winning game profiles</h3>
-            <div class="chart-layout">
-              <div class="chart-main">
-                <div id="vis15" class="vis-container" role="img" aria-label="Parallel-coordinates profiles of six award-winning games"></div>
-              </div>
-              <aside class="chart-note" aria-label="Chart 15 context">
-                <p id="profile-details" aria-live="polite">Trace one game across four separately scaled axes.</p>
-                <p>Awards cover general, experienced and children's games.</p>
+            <aside class="chart-note" aria-label="Chart 14 context">
+                <p>44 winners; 63,563 games, published 2011 to 2025.</p>
+                <p>Winners are included in the wider comparison.</p>
+                <p>Term definitions follow charts 02 and 03.</p>
               </aside>
+          </div>
+        </article>
+        <article class="chart-block">
+          <h3><span class="chart-number">15</span> Experienced winners take longer; children's winners recommend age six</h3>
+          <div class="chart-layout">
+            <div class="chart-main">
+              <div class="controls"><label for="profile-game">Highlight a winner:</label>
+                <select id="profile-game" disabled>
+                  <option value="0">All six winners</option>
+                  <option value="413246">Bomb Busters (2025)</option>
+                  <option value="373106" selected>Sky Team (2024)</option>
+                  <option value="367966">Endeavor: Deep Sea (2025)</option>
+                  <option value="334986">Daybreak (2024)</option>
+                  <option value="423232">Cherry on the Cake (2025)</option>
+                  <option value="368899">Magic Keys (2024)</option>
+                </select></div>
+              <div id="vis15" class="vis-container" role="img" aria-label="Parallel-coordinates profiles of six award-winning games"></div>
             </div>
-          </article>
+            <aside class="chart-note" aria-label="Chart 15 context">
+                <p>Each line is one game.</p>
+                <p>Each axis uses its own units and scale.</p>
+                <p>Solid: general · dashed: experienced · dotted: children's.</p>
+                <p>Spiel des Jahres: game of the year for families.</p>
+                <p>Kennerspiel des Jahres: award for experienced players.</p>
+                <p>Kinderspiel des Jahres: award for children's games.</p>
+                <p>Recommended ages follow the cited publisher editions.</p>
+                <p id="profile-details" aria-live="polite">Sky Team (2024).</p>
+              </aside>
+          </div>
+        </article>
+        <div class="closing-copy">
+          <p>Newer games feature more cooperation and slightly heavier rules.</p>
+          <p>Malaysian BGG users favour some games the world ranks lower.</p>
+          <p>Cooperation appears almost four times as often among sampled winners.</p>
+          <p>For your next game night, try a cooperative winner.</p>
         </div>
-        <p class="closing-copy">Choose games that suit your group.</p>
       </section>
 
       <footer class="page-footer">
         <h2>Sources and notes</h2>
         <p>Created by Lai Chee Seng.<br>
-          Updated 19 October 2026.<br>
+          Updated 26 October 2026.<br>
           FIT3179 Assignment 2: Board Game.</p>
+        <p>AI assistance: OpenAI Codex helped prepare data and code.</p>
         <details>
           <summary>Data sources and definitions</summary>
           <ul class="source-list">
@@ -349,6 +397,17 @@
               Projection: Equal Earth.<br>
               Publisher geography covers only part of the catalogue.<br>
               These are not invention, manufacturing or sales locations.</li>
+            <li><a href="https://fonts.google.com/">Fonts: Bree Serif and Source Sans 3, Google Fonts.</a></li>
+            <li><a href="data/verified_publisher_countries.csv">Verified country sources for the publisher treemap</a><br>
+              HABA and Parker Brothers were checked on Wikidata.<br>
+              Warp Spawn's country remains unverified.</li>
+            <li><a href="data/verified_profile_ages.csv">Publisher sources for recommended profile ages</a><br>
+              Sky Team: publisher 12+, award jury 10+.<br>
+              Endeavor: US deluxe publisher 14+, award edition 12+.<br>
+              Original BGG age values are preserved separately.<br>
+              Playing times and complexity follow BGG records.</li>
+            <li><a href="https://boardgamegeek.com/boardgamemechanic/3100/tags">Tags is listed as BGG mechanic 3100.</a><br>
+              It is distinct from website community tagging.</li>
           </ul>
           <p><a href="data/summary.json">Prepared sample counts and methods</a></p>
         </details>
@@ -358,23 +417,31 @@
           <ul class="source-list">
             <li>Catalogue: base games published from 1950 to 2025.<br>
               The 2020 to 2025 decade is incomplete.<br>
-              Games can have several mechanics and publishers.</li>
+              Games can have several mechanics and publishers.<br>
+              Missing mechanic records are excluded from mechanic shares.</li>
             <li>Complexity plots require at least 10 votes.<br>
               Scores describe current opinions about older games.<br>
               Box-plot whiskers use 1.5 interquartile ranges.<br>
               Outliers are omitted from the box plots.<br>
               Scatterplot sampling is reproducible.<br>
+              Small horizontal offsets separate overlapping scatterplot dots.<br>
+              Sample middle scores use unshifted, recorded playing times.<br>
               Source cleaning omits durations above 360 minutes.</li>
             <li>The treemap shows twelve named publishers.<br>
               Self-published and unknown placeholders are excluded.<br>
               Publisher credits overlap across editions and countries.<br>
               Headquarters places are not exact office addresses.<br>
               Historical headquarters are not reconstructed.<br>
-              All-years mapped coverage: 387 publishers.</li>
+              All-years mapped coverage: 387 publishers.<br>
+              Treemap country groups use separately verified sources.<br>
+              Unverified publisher countries are shown explicitly.</li>
             <li>The cooperative map excludes ambiguous publisher countries.<br>
               Denominators require games with recorded mechanics.<br>
               Countries need at least 50 eligible games.<br>
-              The colour scale stays fixed across decades.</li>
+              The colour scale stays fixed across decades.<br>
+              Czechia leads the all-years sample by share.<br>
+              Map labels update with the selected period.<br>
+              Antarctica is omitted from the three map views.</li>
             <li>Country rankings use different calculations and vote thresholds.<br>
               A missing rank does not mean dislike.<br>
               Charts 12 and 13 use 2024 list membership.<br>
@@ -389,7 +456,8 @@
               Nominations and special awards are excluded.<br>
               The wider collection includes the winners.<br>
               Profiles show six 2024 and 2025 winners.<br>
-              Categories cover general, experienced and children's games.</li>
+              Categories cover general, experienced and children's games.<br>
+              Profile age recommendations refer to cited publisher editions.</li>
           </ul>
         </details>
         <details><summary>Download chart data and specifications</summary>

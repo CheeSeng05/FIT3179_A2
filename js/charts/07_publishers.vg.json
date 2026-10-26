@@ -1,8 +1,8 @@
 {
   "$schema": "https://vega.github.io/schema/vega/v5.json",
-  "description": "Twelve largest named publisher catalogues by game credits",
-  "width": 700,
-  "height": 400,
+  "description": "Twelve leading publisher catalogues grouped by verified country",
+  "width": 1100,
+  "height": 520,
   "padding": 2,
   "autosize": "none",
   "background": "transparent",
@@ -45,7 +45,19 @@
               "signal": "height"
             }
           ],
-          "padding": 2
+          "paddingTop": 24,
+          "paddingInner": 2,
+          "paddingOuter": 3
+        }
+      ]
+    },
+    {
+      "name": "countries",
+      "source": "tree",
+      "transform": [
+        {
+          "type": "filter",
+          "expr": "datum.depth == 1"
         }
       ]
     },
@@ -63,6 +75,7 @@
   "marks": [
     {
       "type": "rect",
+      "name": "publisher_tiles",
       "from": {
         "data": "leaves"
       },
@@ -81,13 +94,13 @@
             "field": "y1"
           },
           "fill": {
-            "value": "#c4e6df"
+            "signal": "datum.country == 'Unverified' ? '#e6e9ec' : '#c4e6df'"
           },
           "stroke": {
             "value": "white"
           },
           "tooltip": {
-            "signal": "{'Publisher':datum.publisher,'Credited games':datum.games}"
+            "signal": "{'Publisher':datum.publisher,'Country':datum.country,'Credited games':datum.games}"
           }
         },
         "hover": {
@@ -98,20 +111,91 @@
       }
     },
     {
+      "type": "rect",
+      "name": "country_borders",
+      "from": {
+        "data": "countries"
+      },
+      "interactive": false,
+      "encode": {
+        "update": {
+          "x": {
+            "field": "x0"
+          },
+          "x2": {
+            "field": "x1"
+          },
+          "y": {
+            "field": "y0"
+          },
+          "y2": {
+            "field": "y1"
+          },
+          "fill": {
+            "value": null
+          },
+          "stroke": {
+            "value": "#27313a"
+          },
+          "strokeWidth": {
+            "value": 1.5
+          }
+        }
+      }
+    },
+    {
       "type": "text",
+      "name": "country_labels",
+      "from": {
+        "data": "countries"
+      },
+      "interactive": false,
+      "encode": {
+        "update": {
+          "x": {
+            "signal": "datum.x0 + 5"
+          },
+          "y": {
+            "signal": "datum.y0 + 5"
+          },
+          "text": {
+            "field": "publisher"
+          },
+          "baseline": {
+            "value": "top"
+          },
+          "font": {
+            "value": "'Source Sans 3'"
+          },
+          "fontSize": {
+            "value": 14
+          },
+          "fontWeight": {
+            "value": "bold"
+          },
+          "fill": {
+            "value": "#27313a"
+          }
+        }
+      }
+    },
+    {
+      "type": "text",
+      "name": "publisher_labels",
       "from": {
         "data": "leaves"
       },
+      "interactive": false,
       "encode": {
         "update": {
           "x": {
             "signal": "(datum.x0+datum.x1)/2"
           },
           "y": {
-            "signal": "(datum.y0+datum.y1)/2 - (length(split(datum.publisher, ' '))-1)*10"
+            "signal": "(datum.y0+datum.y1)/2 - length(split(datum.publisher, ' '))*9"
           },
           "text": {
-            "signal": "split(datum.publisher, ' ')"
+            "signal": "split(datum.publisher + ' ' + format(datum.games, ','), ' ')"
           },
           "align": {
             "value": "center"
@@ -120,10 +204,10 @@
             "value": "middle"
           },
           "lineHeight": {
-            "value": 20
+            "value": 18
           },
           "font": {
-            "value": "Arial"
+            "value": "'Source Sans 3'"
           },
           "fontSize": {
             "signal": "width < 500 ? 14 : 16"
