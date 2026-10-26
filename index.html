@@ -63,7 +63,6 @@
           <h2 id="section-1">How have board games changed?</h2>
           <p class="finding">Releases grew five-fold since 2000: 1,315 to 6,752.</p>
           <p class="finding">Roll-and-move fell from 53% of games to under 4%.</p>
-          <p>Mechanics are the systems behind game play.</p>
         </div>
         <article class="chart-block">
           <h3><span class="chart-number">01</span> New games per year grew five-fold since 2000</h3>
@@ -87,11 +86,6 @@
 
                 <div id="vis02" class="vis-container" role="img" aria-label="Catalogue-wide top ten mechanics, counted within selected years"></div>
               </div>
-              <aside class="chart-note" aria-label="Chart 02 context">
-                <p>Games can use several mechanics.</p>
-                <p>Catalogue-wide top ten; counts follow selected years.</p>
-                <p>Term definitions follow charts 02 and 03.</p>
-              </aside>
             </div>
           </article>
           <article class="chart-block">
@@ -101,32 +95,9 @@
 
                 <div id="vis03" class="vis-container" role="img" aria-label="Heatmap of mechanic percentages by publication decade"></div>
               </div>
-              <aside class="chart-note" aria-label="Chart 03 context">
-                <p>Darker cells mean more games use that mechanic.</p>
-                <p>The 2020–25 column covers only six years.</p>
-                <p>Colours cap at 60%; tooltips show exact percentages.</p>
-              </aside>
             </div>
           </article>
         </div>
-        <details open class="mechanic-definitions" id="mechanic-definitions">
-          <summary>Mechanic definitions</summary>
-          <div class="definition-list">
-            <p>Dice rolling: rolling dice decides what happens.</p>
-            <p>Roll / Spin and Move: move pieces by a roll.</p>
-            <p>Hand management: choosing which cards to keep or play.</p>
-            <p>Set collection: gathering matching groups of items.</p>
-            <p>Hexagon grid: moving or placing on six-sided spaces.</p>
-            <p>Cooperative game: all players work towards one shared goal.</p>
-            <p>Open drafting: taking turns to pick from shared items.</p>
-            <p>Simulation: modelling a real or imagined situation.</p>
-            <p>Variable player powers: each player has different abilities.</p>
-            <p>Tile placement: laying tiles to build a board.</p>
-            <p>Variable set-up: the starting layout changes each game.</p>
-            <p>Solo / Solitaire: the game can be played alone.</p>
-            <p>Tags: labelled symbols connect related cards and effects.</p>
-          </div>
-        </details>
       </section>
 
       <section class="story-section section--complexity" aria-labelledby="section-2">
@@ -159,11 +130,6 @@
 
                 <div id="vis05" class="vis-container" role="img" aria-label="Box plots of game complexity by publication decade"></div>
               </div>
-              <aside class="chart-note" aria-label="Chart 05 context">
-                <p>Centre line: middle score. Box: middle half.</p>
-                <p>Whiskers show the usual range; extreme scores are hidden.</p>
-                <p>Scores reflect 2026 BGG opinions, including older games.</p>
-              </aside>
             </div>
           </article>
           <article class="chart-block">
@@ -173,11 +139,6 @@
 
                 <div id="vis06" class="vis-container" role="img" aria-label="Scatterplot of game complexity against recorded playing time"></div>
               </div>
-              <aside class="chart-note" aria-label="Chart 06 context">
-                <p>A sample of 1,200 games with 10+ complexity votes.</p>
-                <p>Recorded times above 360 minutes are excluded.</p>
-                <p>Horizontal offsets separate dots; tooltips show recorded times.</p>
-              </aside>
             </div>
           </article>
         </div>
@@ -198,11 +159,11 @@
 
               <div id="vis07" class="vis-container" role="img" aria-label="Treemap of the twelve largest named publisher catalogues"></div>
             </div>
-            <aside class="chart-note" aria-label="Chart 07 context">
-                <p>Publisher credits overlap; they are not sales.</p>
-                <p>Boxes are grouped by the publisher's home country.</p>
-                <p>Warp Spawn's country is unverified.</p>
-              </aside>
+            <aside class="chart-note publisher-explanation" aria-label="Chart 07 context">
+              <p>Publisher credits identify companies linked to a game's releases.</p>
+              <p>Different editions can place one game in several catalogues.</p>
+              <p>Each publisher counts it once, regardless of copies sold.</p>
+            </aside>
           </div>
         </article>
         <article class="chart-block map-block">
@@ -219,8 +180,7 @@
           </div>
           <div id="vis08" class="vis-container" role="img" aria-label="Equal-dot map of recorded publisher headquarters places"></div>
           <div class="map-notes">
-            <p>One dot represents one publisher's recorded headquarters place.</p>
-            <p id="hq-coverage">All years: 387 of 25,486 publishers (1.5%) mapped.</p>
+            <p>Across all years, just 387 publishers are mapped (1.5%).</p>
           </div>
         </article>
         <article class="chart-block map-block">
@@ -228,9 +188,7 @@
 
           <div id="vis09" class="vis-container" role="img" aria-label="Choropleth of cooperative-game percentages by publisher country"></div>
           <div class="map-notes">
-            <p class="map-key"><span class="no-data-swatch" aria-hidden="true"></span>No data or fewer than 50 eligible games</p>
-            <p>Publisher catalogues, not residents' preferences.</p>
-            <p id="cooperative-coverage" aria-live="polite">22 countries meet the 50-game threshold.</p>
+            <p>All years: Czech-linked catalogues have 5.3× the US-linked share.</p>
           </div>
         </article>
       </section>
@@ -250,7 +208,7 @@
 
           <div id="vis10" class="vis-container" role="img" aria-label="Proportional-symbol map of rating contributors by self-reported country"></div>
           <div class="map-notes">
-            <p>Self-reported BGG contributors, not national player totals.</p>
+            <p>Australia's contributor sample is about fourteen times Malaysia's size.</p>
           </div>
         </article>
         <article class="chart-block">
@@ -264,8 +222,7 @@
             <aside class="chart-note" aria-label="Chart 11 context">
                 <p>Select a game to highlight it in chart 13.</p>
                 <p>Darker means a better rank; – means not ranked.</p>
-                <p>Country calculations and vote thresholds differ.</p>
-                <p>Ten games appear because the three top fives differ.</p>
+                <p>Malaysia's leader has eighteen local ratings; Australia's has 1,063.</p>
                 <p class="mobile-note">MY = Malaysia; AU = Australia.</p>
               </aside>
           </div>
@@ -279,12 +236,8 @@
             <div class="chart-layout">
               <div class="chart-main">
 
-                <div id="vis12" class="vis-container" role="img" aria-label="Grouped bars of mechanic percentages in three top-20 ranking lists"></div>
+                <div id="vis12" class="vis-container" role="img" aria-label="Grouped bars of mechanic game counts in three top-20 ranking lists"></div>
               </div>
-              <aside class="chart-note" aria-label="Chart 12 context">
-                <p>Games can use several mechanics.</p>
-                <p>Term definitions follow charts 02 and 03.</p>
-              </aside>
             </div>
           </article>
           <article class="chart-block">
@@ -295,15 +248,11 @@
                 <div id="vis13" class="vis-container" role="img" aria-label="Dot plot of complexity scores in three top-20 ranking lists"></div>
               </div>
               <aside class="chart-note" aria-label="Chart 13 context">
-                <p>Dots are spread vertically so they do not overlap.</p>
-                <p>Repeated games have the same recorded score.</p>
-                <p>Reference: middle complexity score for eligible 2020–25 catalogue games.</p>
                 <p id="game-selection-13" aria-live="polite">No game selected</p>
               </aside>
             </div>
           </article>
         </div>
-        <p class="section-note">Charts 12 and 13 use 2024 ranking lists.<br>Game details come from the 2026 catalogue.</p>
       </section>
 
       <section class="story-section section--awards" aria-labelledby="section-5">
@@ -323,8 +272,6 @@
             </div>
             <aside class="chart-note" aria-label="Chart 14 context">
                 <p>44 winners; 63,563 games, published 2011 to 2025.</p>
-                <p>Winners are included in the wider comparison.</p>
-                <p>Term definitions follow charts 02 and 03.</p>
               </aside>
           </div>
         </article>
@@ -365,120 +312,64 @@
       </section>
 
       <footer class="page-footer">
-        <h2>Sources and notes</h2>
+        <h2>Sources</h2>
         <p>Created by Lai Chee Seng.<br>
           Updated 26 October 2026.<br>
           FIT3179 Assignment 2: Board Game.</p>
-        <p>AI assistance: OpenAI Codex helped prepare data and code.</p>
-        <details>
-          <summary>Data sources and definitions</summary>
-          <ul class="source-list">
-            <li><a href="https://www.kaggle.com/datasets/sylvainballerini/bgg-data-full">BGG Data Full, via Kaggle</a><br>
-              Catalogue and metadata from BoardGameGeek.<br>
-              Listed update: 22 September 2026.<br>
-              Records may have different observation dates.</li>
-            <li><a href="https://www.wikidata.org/">Wikidata</a><br>
-              Publisher countries and recorded headquarters places.<br>
-              Joined using BGG publisher IDs.<br>
-              Conflicting geography records are excluded.<br>
-              Places may represent cities or regions.</li>
-            <li><a href="https://analysisparalysis.games/posts/world-of-board-games/">Markus Shepherd / Recommend.Games, April 2024</a><br>
-              Historical country ranks and contributor counts.<br>
-              Countries are self-reported in user profiles.<br>
-              Ranking calculations and thresholds differ between lists.<br>
-              Observation times are not guaranteed to match.</li>
-            <li><a href="https://github.com/beefsack/bgg-ranking-historicals">Beefsack BGG historical archive</a><br>
-              Global ranking snapshot: 25 April 2024.</li>
-            <li><a href="https://github.com/recommend-games/spiel-des-jahres">Recommend.Games award histories</a><br>
-              Main-category winners joined by game ID.<br>
-              Profile winners checked against official <a href="https://www.spiel-des-jahres.de/en/award-winners-2024/">2024</a> and <a href="https://www.spiel-des-jahres.de/en/award-winners-2025-2/">2025</a> lists.<br>
-              Earlier award years have not been individually verified.</li>
-            <li>Boundaries and country coordinates: class map examples.<br>
-              Projection: Equal Earth.<br>
-              Publisher geography covers only part of the catalogue.<br>
-              These are not invention, manufacturing or sales locations.</li>
-            <li><a href="https://fonts.google.com/">Fonts: Bree Serif and Source Sans 3, Google Fonts.</a></li>
-            <li><a href="data/verified_publisher_countries.csv">Verified country sources for the publisher treemap</a><br>
-              HABA and Parker Brothers were checked on Wikidata.<br>
-              Warp Spawn's country remains unverified.</li>
-            <li><a href="data/verified_profile_ages.csv">Publisher sources for recommended profile ages</a><br>
-              Sky Team: publisher 12+, award jury 10+.<br>
-              Endeavor: US deluxe publisher 14+, award edition 12+.<br>
-              Original BGG age values are preserved separately.<br>
-              Playing times and complexity follow BGG records.</li>
-            <li><a href="https://boardgamegeek.com/boardgamemechanic/3100/tags">Tags is listed as BGG mechanic 3100.</a><br>
-              It is distinct from website community tagging.</li>
-          </ul>
-          <p><a href="data/summary.json">Prepared sample counts and methods</a></p>
-        </details>
-
-        <details id="data-methods">
-          <summary>Data coverage and methods</summary>
-          <ul class="source-list">
-            <li>Catalogue: base games published from 1950 to 2025.<br>
-              The 2020 to 2025 decade is incomplete.<br>
-              Games can have several mechanics and publishers.<br>
-              Missing mechanic records are excluded from mechanic shares.</li>
-            <li>Complexity plots require at least 10 votes.<br>
-              Scores describe current opinions about older games.<br>
-              Box-plot whiskers use 1.5 interquartile ranges.<br>
-              Outliers are omitted from the box plots.<br>
-              Scatterplot sampling is reproducible.<br>
-              Small horizontal offsets separate overlapping scatterplot dots.<br>
-              Sample middle scores use unshifted, recorded playing times.<br>
-              Source cleaning omits durations above 360 minutes.</li>
-            <li>The treemap shows twelve named publishers.<br>
-              Self-published and unknown placeholders are excluded.<br>
-              Publisher credits overlap across editions and countries.<br>
-              Headquarters places are not exact office addresses.<br>
-              Historical headquarters are not reconstructed.<br>
-              All-years mapped coverage: 387 publishers.<br>
-              Treemap country groups use separately verified sources.<br>
-              Unverified publisher countries are shown explicitly.</li>
-            <li>The cooperative map excludes ambiguous publisher countries.<br>
-              Denominators require games with recorded mechanics.<br>
-              Countries need at least 50 eligible games.<br>
-              The colour scale stays fixed across decades.<br>
-              Czechia leads the all-years sample by share.<br>
-              Map labels update with the selected period.<br>
-              Antarctica is omitted from the three map views.</li>
-            <li>Country rankings use different calculations and vote thresholds.<br>
-              A missing rank does not mean dislike.<br>
-              Charts 12 and 13 use 2024 list membership.<br>
-              Their mechanics and scores come from 2026 metadata.<br>
-              Each top-20 list contains 20 games.<br>
-              Complexity scores require at least 10 votes.<br>
-              Two positive community counts lack coordinate matches.<br>
-              Missing counts are not treated as zero.<br>
-              The precise community extraction date is not established.</li>
-            <li>Award comparison: publication years 2011 to 2025.<br>
-              Both groups require recorded mechanics.<br>
-              Nominations and special awards are excluded.<br>
-              The wider collection includes the winners.<br>
-              Profiles show six 2024 and 2025 winners.<br>
-              Categories cover general, experienced and children's games.<br>
-              Profile age recommendations refer to cited publisher editions.</li>
-          </ul>
-        </details>
-        <details><summary>Download chart data and specifications</summary>
-          <div id="download-list" class="download-list">
-            <p>Chart 01: <a href="data/publications.csv" download>CSV</a> / <a href="js/charts/01_publications.vg.json">JSON</a></p>
-            <p>Chart 02: <a href="data/mechanics_years.csv" download>CSV</a> / <a href="js/charts/02_mechanics.vg.json">JSON</a></p>
-            <p>Chart 03: <a href="data/mechanics_years.csv" download>CSV</a> / <a href="js/charts/03_mechanics_decades.vg.json">JSON</a></p>
-            <p>Chart 04: <a href="data/network_links.csv" download>CSV</a> / <a href="js/charts/04_mechanics_network.vg.json">JSON</a> / <a href="data/network_nodes.csv" download>node CSV</a></p>
-            <p>Chart 05: <a href="data/complexity_decades.csv" download>CSV</a> / <a href="js/charts/05_complexity_decades.vg.json">JSON</a></p>
-            <p>Chart 06: <a href="data/complexity_time.csv" download>CSV</a> / <a href="js/charts/06_complexity_time.vg.json">JSON</a></p>
-            <p>Chart 07: <a href="data/publishers.csv" download>CSV</a> / <a href="js/charts/07_publishers.vg.json">JSON</a></p>
-            <p>Chart 08: <a href="data/publisher_locations.csv" download>CSV</a> / <a href="js/charts/08_headquarters.vg.json">JSON</a></p>
-            <p>Chart 09: <a href="data/cooperative_countries.csv" download>CSV</a> / <a href="js/charts/09_cooperative_map.vg.json">JSON</a></p>
-            <p>Chart 10: <a href="data/communities.csv" download>CSV</a> / <a href="js/charts/10_community_map.vg.json">JSON</a></p>
-            <p>Chart 11: <a href="data/rank_comparison.csv" download>CSV</a> / <a href="js/charts/11_rank_comparison.vg.json">JSON</a></p>
-            <p>Chart 12: <a href="data/top20_mechanics.csv" download>CSV</a> / <a href="js/charts/12_top20_mechanics.vg.json">JSON</a></p>
-            <p>Chart 13: <a href="data/top20_complexity.csv" download>CSV</a> / <a href="js/charts/13_top20_complexity.vg.json">JSON</a></p>
-            <p>Chart 14: <a href="data/award_mechanics.csv" download>CSV</a> / <a href="js/charts/14_award_mechanics.vg.json">JSON</a></p>
-            <p>Chart 15: <a href="data/award_profiles_long.csv" download>CSV</a> / <a href="js/charts/15_award_profiles.vg.json">JSON</a></p>
+        <details class="references">
+          <summary>Data sources (APA 7)</summary>
+          <div class="reference-list">
+            <p>Alexander, M. (2024). <em>BGG ranking historicals</em><br>
+              (April 25, 2024 snapshot) [Data set]. GitHub.<br>
+              <a href="https://github.com/beefsack/bgg-ranking-historicals/blob/master/2024-04-25.csv">https://github.com/beefsack/bgg-ranking-historicals/blob/master/2024-04-25.csv</a></p>
+            <p>Ballerini, S. (2026). <em>BGG data full</em> [Data set].<br>
+              Kaggle.<br>
+              <a href="https://www.kaggle.com/datasets/sylvainballerini/bgg-data-full">https://www.kaggle.com/datasets/sylvainballerini/bgg-data-full</a></p>
+            <p>BoardGameGeek. (n.d.). <em>BoardGameGeek</em> [Database].<br>
+              Retrieved October 26, 2026, from<br>
+              <a href="https://boardgamegeek.com/">https://boardgamegeek.com/</a></p>
+            <p>CMYK. (n.d.). <em>Daybreak</em>.<br>
+              <a href="https://www.daybreakgame.org/">https://www.daybreakgame.org/</a></p>
+            <p>FIT3179 Teaching Team. (n.d.). [Choropleth map studio examples<br>
+              and country coordinates]. Monash University.</p>
+            <p>Game Factory. (n.d.). <em>Die magischen Schlüssel</em>.<br>
+              <a href="https://www.gamefactory-spiele.com/die-magischen-schluessel">https://www.gamefactory-spiele.com/die-magischen-schluessel</a></p>
+            <p>Grand Gamers Guild. (n.d.). <em>Endeavor: Deep Sea deluxe</em>.<br>
+              <a href="https://shop.grandgamersguild.com/products/endeavor-deep-sea-deluxe-1-essen-2026">https://shop.grandgamersguild.com/products/endeavor-deep-sea-deluxe-1-essen-2026</a></p>
+            <p>Le Scorpion Masqué. (n.d.). <em>Le Commandant Robert Piché<br>
+              aux commandes de Sky Team</em>.<br>
+              <a href="https://www.scorpionmasque.com/fr/blog/le-commandant-robert-pich%C3%A9-aux-commandes-de-sky-team">https://www.scorpionmasque.com/fr/blog/le-commandant-robert-pich%C3%A9-aux-commandes-de-sky-team</a></p>
+            <p>Natural Earth. (n.d.). <em>Admin 0 – Countries</em><br>
+              (1:110 million) [Data set].<br>
+              <a href="https://www.naturalearthdata.com/downloads/110m-cultural-vectors/110m-admin-0-countries/">https://www.naturalearthdata.com/downloads/110m-cultural-vectors/110m-admin-0-countries/</a></p>
+            <p>Pegasus Spiele. (n.d.). <em>Bomb Busters: Spiel des Jahres 2025</em>.<br>
+              <a href="https://pegasus.de/Bomb-Busters-Spiel-des-Jahres-2025/51280G">https://pegasus.de/Bomb-Busters-Spiel-des-Jahres-2025/51280G</a></p>
+            <p>Recommend.Games. (n.d.). <em>Spiel des Jahres predictions</em><br>
+              [Data set and source code]. GitHub.<br>
+              Retrieved October 26, 2026, from<br>
+              <a href="https://github.com/recommend-games/spiel-des-jahres">https://github.com/recommend-games/spiel-des-jahres</a></p>
+            <p>Schmidt Spiele. (n.d.). <em>Topp die Torte!</em><br>
+              <a href="https://www.schmidtspiele.de/details/produkt/topp-die-torte-.html">https://www.schmidtspiele.de/details/produkt/topp-die-torte-.html</a></p>
+            <p>Shepherd, M. (2024, April 25).<br>
+              <em>The world of board games</em>. Analysis Paralysis.<br>
+              <a href="https://analysisparalysis.games/posts/world-of-board-games/">https://analysisparalysis.games/posts/world-of-board-games/</a></p>
+            <p>Spiel des Jahres. (2024). <em>Award winners 2024</em>.<br>
+              <a href="https://www.spiel-des-jahres.de/en/award-winners-2024/">https://www.spiel-des-jahres.de/en/award-winners-2024/</a></p>
+            <p>Spiel des Jahres. (2025). <em>Award winners 2025</em>.<br>
+              <a href="https://www.spiel-des-jahres.de/en/award-winners-2025-2/">https://www.spiel-des-jahres.de/en/award-winners-2025-2/</a></p>
+            <p>Wikidata contributors. (n.d.). <em>Wikidata</em> [Data set].<br>
+              Wikimedia Foundation. Retrieved October 26, 2026, from<br>
+              <a href="https://www.wikidata.org/">https://www.wikidata.org/</a></p>
           </div>
         </details>
+        <p>Typefaces: Bree Serif and Source Sans 3.<br>
+          Available through <a href="https://fonts.google.com/">Google Fonts</a>.</p>
+        <section class="ai-acknowledgement" aria-labelledby="ai-title">
+          <h2 id="ai-title">AI acknowledgement</h2>
+          <p>ChatGPT and OpenAI Codex assisted with visualisation ideation and wording.</p>
+          <p>Support included Vega troubleshooting, data preparation and chart scaffolds.</p>
+          <p>I directed the final design and requested implementation revisions.</p>
+        </section>
       </footer>
     </main>
     <script src="js/vega_lite_vis.js"></script>

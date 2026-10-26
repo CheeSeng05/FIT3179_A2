@@ -87,7 +87,8 @@ h2[id] { scroll-margin-top: 24px; }
 .chart-main, .chart-note { min-width: 0; }
 .chart-note { margin-top: 14px; padding: 12px 0 0; border-top: 1px solid var(--rule); }
 .chart-note p { margin-bottom: 12px; }
-.chart-note details { margin-top: 14px; }
+.publisher-explanation { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; }
+.publisher-explanation p { max-width: none; }
 .mobile-note { display: none; }
 .chart-number { display: inline-block; min-width: 30px; padding: 4px; border-radius: 5px; background: #edf5f2; color: var(--hero); font-size: 14px; margin-right: 8px; font-weight: 600; text-align: center; vertical-align: middle; }
 .vis-container { width: 100%; min-height: 160px; margin: 4px 0 8px; }
@@ -125,8 +126,6 @@ button:focus-visible, select:focus-visible, a:focus-visible, summary:focus-visib
 .australia { color: var(--australia); }
 .map-notes { display: flex; flex-wrap: wrap; gap: 8px 26px; margin-top: 8px; }
 .map-notes p { max-width: 48ch; margin: 0; }
-.map-key { display: flex; align-items: center; gap: 9px; }
-.no-data-swatch { display: inline-block; width: 17px; height: 17px; background: #e6e9ec; border: 1px solid #aab3bc; flex-shrink: 0; }
 a { color: var(--ink); text-underline-offset: 3px; }
 .page-footer { border-top: 1px solid var(--rule); padding-top: 24px; }
 .page-footer details { border-bottom: 1px solid var(--rule); padding-bottom: 14px; }
@@ -135,20 +134,16 @@ a { color: var(--ink); text-underline-offset: 3px; }
 details { margin: 10px 0 16px; }
 summary { cursor: pointer; font-size: 17px; font-weight: 600; }
 details p { margin-top: 10px; }
-.source-list { max-width: 50ch; padding-left: 22px; }
-.source-list li { margin: 10px 0; }
+.reference-list { margin-top: 18px; }
+.reference-list p { padding-left: 24px; text-indent: -24px; line-height: 2; margin: 0 0 20px; overflow-wrap: anywhere; }
+.ai-acknowledgement { border-top: 1px solid var(--rule); margin-top: 22px; padding-top: 20px; }
 .colour-swatch { display: inline-block; width: 12px; height: 12px; margin-right: 8px; }
 .catalogue-swatch { background: var(--catalogue); }
 .complexity-swatch { background: var(--complexity); }
-.download-list { display: grid; grid-template-columns: 1fr 1fr; gap: 8px 28px; margin: 14px 0; }
-.download-list p { margin: 0; }
 .chart-error { padding: 16px; border-left: 3px solid #b54b39; }
 .skip-link { position: absolute; left: 16px; top: -100px; background: white; padding: 8px; }
 .skip-link:focus { top: 12px; }
 .vega-tooltip { font-family: "Source Sans 3", Arial, sans-serif !important; font-size: 15px !important; }
-.definition-list { display: grid; grid-template-columns: 1fr 1fr; gap: 4px 28px; margin-top: 14px; }
-.definition-list p { margin: 0 0 8px; }
-.mechanic-definitions { margin: 4px 0 24px; }
 /* Stack pairs before either chart becomes too narrow for its labels. */
 @media (max-width: 1200px) {
   .chart-row { display: block; }
@@ -164,7 +159,7 @@ details p { margin-top: 10px; }
   .fact-value { font-size: 30px; }
   .fact-label { font-size: 14px; }
   .section-heading { padding: 16px; }
-  .definition-list, .download-list { grid-template-columns: minmax(0, 1fr); gap: 8px; }
+  .publisher-explanation { grid-template-columns: minmax(0, 1fr); gap: 0; }
   h2 { font-size: 26px; }
   h3 { font-size: 20px; }
   .chart-note p { max-width: 46ch; }

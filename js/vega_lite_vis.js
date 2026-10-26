@@ -98,18 +98,8 @@ function selectMapPeriod() {
   for (var id of ["08", "09"]) {
     if (views[id]) views[id].signal("publication_period", period).runAsync();
   }
-  if (!cooperativeRows) {
-    document.getElementById("cooperative-coverage").textContent = "Country coverage unavailable.";
-    return;
-  }
-  var eligible = cooperativeRows.filter(function (row) {
-    return row.period === period && row.eligible_games >= 50;
-  });
-  var coverage = eligible.length === 1 ? "1 country meets" : eligible.length + " countries meet";
-  document.getElementById("cooperative-coverage").textContent = coverage + " the 50-game threshold.";
 }
 
-var cooperativeRows = null;
 var profiles = [];
 
 function selectProfile() {
@@ -173,17 +163,9 @@ function startPage() {
     console.error("Winner details", error);
     document.getElementById("profile-details").textContent = "Winner details unavailable. Hover profiles for names.";
   });
-  var coverageRequest = fetch("data/cooperative_countries.csv").then(function (response) {
-    if (!response.ok) throw new Error("Country coverage: HTTP " + response.status);
-    return response.text();
-  }).then(function (csvText) {
-    cooperativeRows = vega.read(csvText, { type: "csv", parse: { eligible_games: "number" } });
-  }).catch(function (error) {
-    console.error("Country coverage", error);
-  });
   // Each embed handles its own error, so working views retain controls.
   var chartRequests = charts.map(loadChart);
-  Promise.all(chartRequests.concat([profileRequest, coverageRequest])).then(function () {
+  Promise.all(chartRequests.concat([profileRequest])).then(function () {
     connectControls();
     selectMapPeriod();
     document.body.dataset.ready = "true";

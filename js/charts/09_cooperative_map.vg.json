@@ -43,7 +43,7 @@
       "labelColor": "#27313a",
       "titleColor": "#27313a",
       "orient": "bottom",
-      "padding": 12,
+      "padding": 4,
       "labelLimit": 240
     },
     "text": {
@@ -218,6 +218,51 @@
           "type": "nominal"
         }
       }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "coverage": "No data or fewer than 50 eligible games"
+          }
+        ]
+      },
+      "mark": {
+        "type": "point",
+        "opacity": 0,
+        "size": 0
+      },
+      "encoding": {
+        "color": {
+          "field": "coverage",
+          "type": "nominal",
+          "scale": {
+            "domain": [
+              "No data or fewer than 50 eligible games"
+            ],
+            "range": [
+              "#e6e9ec"
+            ]
+          },
+          "legend": {
+            "title": null,
+            "orient": "bottom-left",
+            "symbolType": "square",
+            "symbolSize": 120,
+            "symbolOpacity": 1,
+            "symbolStroke": "#aab3bc",
+            "symbolStrokeWidth": 1,
+            "labelExpr": "['No data or fewer than', '50 eligible games']",
+            "labelLimit": 220,
+            "symbolFill": "#e6e9ec"
+          }
+        }
+      }
     }
-  ]
+  ],
+  "resolve": {
+    "scale": {
+      "color": "independent"
+    }
+  }
 }
