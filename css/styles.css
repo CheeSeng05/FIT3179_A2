@@ -133,7 +133,7 @@ button:focus-visible, select:focus-visible, a:focus-visible, summary:focus-visib
 .map-notes p { max-width: 48ch; margin: 0; }
 a { color: var(--ink); text-underline-offset: 3px; }
 .page-footer { border-top: 1px solid var(--rule); padding-top: 24px; }
-.page-footer details { border-bottom: 1px solid var(--rule); padding-bottom: 14px; }
+.page-footer details { padding-bottom: 14px; }
 .page-footer h2 { font-size: 23px; }
 .page-footer p, .page-footer li { font-size: 16px; }
 details { margin: 10px 0 16px; }
